@@ -1,154 +1,217 @@
-\documentclass[12pt]{amsart}
-\setlength{\parskip}{.1in}
-\setlength{\parindent}{0cm}
-%myalterations
-\usepackage{amssymb}
-\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-\usepackage[colorlinks=true,urlcolor=blue,pdfborder={0 0 .5}pdfnewwindow=true]{hyperref}
-\usepackage{enumitem}
-%\usepackage{amsthm}
-\usepackage{graphicx}
+\documentclass{article}
+\usepackage{color,amsmath,amssymb}
+\usepackage{framed}
 \usepackage{verbatim}
-\usepackage{tabularx}
-%\usepackage{arydshln}
-\usepackage{leftidx}
-\usepackage{mathtools}
-\usepackage{bm}
-\usepackage{tikz-cd}
-\usepackage{hyperref}
-\usepackage{bm}
+\makeatletter
 
-%\setlength{\dashlinedash}{.4pt}
-%\setlength{\dashlinegap}{.8pt}
-%\usepackage{amsthm}
-\usepackage{verbatim}
-%\usepackage{commath}
-%My commands
-%environment abbreviations
-\newcommand{\bem}{\begin{matrix}}
-\newcommand{\emm}{\end{matrix}}
-\newcommand{\besm}{\begin{smallmatrix}}
-\newcommand{\esm}{\end{smallmatrix}}
-\newcommand{\benu}{\begin{enumerate}}
-\newcommand{\eenu}{\end{enumerate}}
-\newcommand{\bed}{\begin{description}}
-\newcommand{\ed}{\end{description}}
-\theoremstyle{definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{notation}[theorem]{Notation}
-\newcommand{\bnot}{\begin{notation}}
-\newcommand{\enot}{\end{notation}}
-\newcommand{\bet}{\begin{theorem}}
-\newcommand{\et}{\end{theorem}}
-\newtheorem{axiom}[theorem]{Axiom}
-\newcommand{\baxi}{\begin{axiom}}
-\newcommand{\axi}{\end{axiom}}
-\newtheorem{lemma}[theorem]{Lemma}
-\newcommand{\bel}{\begin{lemma}}
-\newcommand{\el}{\end{lemma}}
-\newtheorem{corollary}[theorem]{Corollary}
-\newcommand{\bec}{\begin{corollary}}
-\newcommand{\ec}{\end{corollary}}
-\newtheorem{observation}[theorem]{Observation}
-\newcommand{\bo}{\begin{observation}}
-\newcommand{\eo}{\end{observation}}
-\newtheorem{exercise}[theorem]{Exercise}
-\newcommand{\bex}{\begin{exercise}}
-\newcommand{\ex}{\end{exercise}}
+\newdimen\errorsize \errorsize=0.2pt
 
-\newtheorem{definition}[theorem]{Definition}
-\newcommand{\bdf}{\begin{definition}}
-\newcommand{\edf}{\end{definition}}
-\newtheorem{example}[theorem]{Example}
-\newcommand{\bax}{\begin{example}}
-\newcommand{\ax}{\end{example}}
-\newcommand{\pru}{{ \bfseries \textcolor{red}{Proof:} }}
+% Frame with a label at top
+\newcommand\LabFrame[2]{%
+    \fboxrule=\FrameRule
+    \fboxsep=-\errorsize
+    \textcolor{FrameColor}{%
+    \fbox{%
+      \vbox{\nobreak
+      \advance\FrameSep\errorsize
+      \begingroup
+        \advance\baselineskip\FrameSep
+        \hrule height \baselineskip
+        \nobreak
+        \vskip-\baselineskip
+      \endgroup
+      \vskip 0.5\FrameSep
+      \hbox{\hskip\FrameSep \strut
+        \textcolor{TitleColor}{\textbf{#1}}}%
+      \nobreak \nointerlineskip
+      \vskip 1.3\FrameSep
+      \hbox{\hskip\FrameSep
+        {\normalcolor#2}%
+        \hskip\FrameSep}%
+      \vskip\FrameSep
+    }}%
+}}
 
-\newtheorem*{und}{Definition}
-%symbol definitions
-\newcommand{\un}[1]{\underline{#1}}
-\newcommand{\mbZ}{\mathbb{Z}}
-\newcommand{\mbR}{\mathbb{R}}
-\newcommand{\mbN}{\mathbb{N}}
-\newcommand{\mbQ}{\mathbb{Q}}
-\newcommand{\mbC}{\mathbb{C}}
-\newcommand{\mbF}{\mathbb{F}}
-\newcommand{\mcS}{\mathcal{S}}
-\newcommand{\mcP}{\mathcal{P}}
-\newcommand{\hra}{\hookrightarrow}
-\newcommand{\tra}{\twoheadrightarrow}
-\newcommand{\lra}{\leftrightarrow}
+\definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
+\definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
 
-\newcommand{\Ra}{\Rightarrow}
-\newcommand{\mb}[1]{\mathbb{#1}}
-\newcommand{\mc}[1]{\mathcal{#1}}
-\newcommand{\bfs}[1]{{\bfseries #1}}
-\newcommand{\bs}[1]{\boldsymbol{#1}}
-%Operator definitions
-\DeclareMathOperator{\Irr}{Irr}
-\DeclareMathOperator{\triv}{triv}
-\DeclareMathOperator{\cyc}{cyc}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\expo}{x}
-\DeclareMathOperator{\ord}{o}
-\DeclareMathOperator{\imm}{im}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\Sym}{Sym}
-\DeclareMathOperator{\alt}{alt}
-\DeclareMathOperator{\irr}{irr}
-\DeclareMathOperator{\eqt}{Equiv}
-\DeclareMathOperator{\pat}{Part}
-%\DeclareMathOperator{\sgn}{sgn}
-%\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\Gl}{Gl}
-\DeclareMathOperator{\M}{M}
-\DeclareMathOperator{\Id}{Id}
-\DeclareMathOperator{\fixx}{Fix}
-\DeclareMathOperator{\suppp}{Supp}
-\DeclareMathOperator{\gl}{Gl}
-\DeclareMathOperator{\id}{Id}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\Inn}{Inn}
-\DeclareMathOperator{\orb}{orb}
-\DeclareMathOperator{\ii}{I}
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\Fix}{Fix}
-\DeclareMathOperator{\Co}{Co}
-\DeclareMathOperator{\md}{md}
-\DeclareMathOperator{\qt}{qt}
-\DeclareMathOperator{\ExtendedGCD}{ExtendedGCD}
-\DeclareMathOperator{\Mod}{Mod}
-\DeclareMathOperator{\GCD}{GCD}
-\newcommand{\nms}{\negmedspace}
-\newcommand{\nts}{\negthinspace}
+\newenvironment{contlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+  % Optional continuation label defaults to the first label plus
+  \def\Frame@Lab{#2}%
+  \def\FrameCommand{\LabFrame{#2}}%
+  \def\FirstFrameCommand{\LabFrame{#2}}%
+  \def\MidFrameCommand{\LabFrame{#1}}%
+  \def\LastFrameCommand{\LabFrame{#1}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore} 
+}{\endMakeFramed} 
+\newcounter{definition}
+\newenvironment{definition}[1]{%
+  \par
+  \refstepcounter{definition}%
+  \begin{contlabelframe}{Definition \thedefinition:\quad #1}
+ \noindent\ignorespaces}
+{\end{contlabelframe}} 
+
+%axiom
+% Frame with a label at top
+\newcommand\AxiomLabFrame[2]{%
+    \fboxrule=\FrameRule
+    \fboxsep=-\errorsize
+    \textcolor{AxiomFrameColor}{%
+    \fbox{%
+      \vbox{\nobreak
+      \advance\FrameSep\errorsize
+      \begingroup
+        \advance\baselineskip\FrameSep
+        \hrule height \baselineskip
+        \nobreak
+        \vskip-\baselineskip
+      \endgroup
+      \vskip 0.5\FrameSep
+      \hbox{\hskip\FrameSep \strut
+        \textcolor{AxiomTitleColor}{\textbf{#1}}}%
+      \nobreak \nointerlineskip
+      \vskip 1.3\FrameSep
+      \hbox{\hskip\FrameSep
+        {\normalcolor#2}%
+        \hskip\FrameSep}%
+      \vskip\FrameSep
+    }}%
+}}
+\definecolor{AxiomFrameColor}{rgb}{0.1,0.7,0.5}
+\definecolor{AxiomTitleColor}{rgb}{1.0,1.0,1.0}
+
+\newenvironment{acontlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+  % Optional continuation label defaults to the first label plus
+  \def\Frame@Lab{#2}%
+  \def\FrameCommand{\AxiomLabFrame{#2}}%
+  \def\FirstFrameCommand{\AxiomLabFrame{#2}}%
+  \def\MidFrameCommand{\AxiomLabFrame{#1}}%
+  \def\LastFrameCommand{\AxiomLabFrame{#1}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore} 
+}{\endMakeFramed} 
+\newcounter{axiom}
+\newenvironment{axiom}[1]{%
+  \par
+  \refstepcounter{axiom}%
+  \begin{acontlabelframe}{Axiom \theaxiom:\quad #1}
+ \noindent\ignorespaces}
+{\end{acontlabelframe}} 
+
+% theorem
+% Frame with a label at top
+\newcommand\TheoremLabFrame[2]{%
+    \fboxrule=\FrameRule
+    \fboxsep=-\errorsize
+    \textcolor{TheoremFrameColor}{%
+    \fbox{%
+      \vbox{\nobreak
+      \advance\FrameSep\errorsize
+      \begingroup
+        \advance\baselineskip\FrameSep
+        \hrule height \baselineskip
+        \nobreak
+        \vskip-\baselineskip
+      \endgroup
+      \vskip 0.5\FrameSep
+      \hbox{\hskip\FrameSep \strut
+        \textcolor{TheoremTitleColor}{\textbf{#1}}}%
+      \nobreak \nointerlineskip
+      \vskip 1.3\FrameSep
+      \hbox{\hskip\FrameSep
+        {\normalcolor#2}%
+        \hskip\FrameSep}%
+      \vskip\FrameSep
+    }}%
+}}
+
+\definecolor{TheoremFrameColor}{rgb}{1.0,0,0}
+\definecolor{TheoremTitleColor}{rgb}{1.0,1.0,1.0}
+
+\newenvironment{tcontlabelframe}[2][\Frame@Lab\ (cont.)]{% 
+  % Optional continuation label defaults to the first label plus
+  \def\Frame@Lab{#2}%
+  \def\FrameCommand{\TheoremLabFrame{#2}}%
+  \def\FirstFrameCommand{\TheoremLabFrame{#2}}%
+  \def\MidFrameCommand{\TheoremLabFrame{#1}}%
+  \def\LastFrameCommand{\TheoremLabFrame{#1}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore} 
+}{\endMakeFramed} 
+\newcounter{theorem}
+\newenvironment{theorem}[1]{%
+  \par
+  \refstepcounter{theorem}%
+  \begin{tcontlabelframe}{Theorem \thetheorem:\quad #1}
+ \noindent\ignorespaces}
+{\end{tcontlabelframe}} 
 
 
-\newcommand{\itep}{\item {\bfseries Problem}\ }
-\newcommand{\gen}[1]{\langle #1 \rangle}
-\newcommand{\quot}[2]{#1/ #2}
-\newcommand{\order}[1]{\left|<\nts #1 \nts s>\right|}
+\makeatother
+\begin{document}
+%
+\section*{Real and Complex Numbers}
 
-%These next two commands are for making answers. 
-\newcommand{\beans}{\begin{description} \item[{ \bfseries \textcolor{red}{Answer}}]\ }
-\newcommand{\eans }{\end{description}}
-%\newcommand{\begin{comment}ex}{{ \bfseries \textcolor{red}{Answer}}}
+\begin{definition}{Order}
+Let $S$ be a set.  An $\textit{order}$ on $S$ is a relation, denoted by $<$, with the following two properties:
+\begin{enumerate}
+\item
+If $x \in S$ and $y \in S$ then one and only one of the statements
+$$x < y, x = y, y < x$$
+is true.
+\item
+If $x,y,z \in S$, if $x < y$ and $y < z$, then $x < z$
+\end{enumerate}
+\end{definition}
 
-%To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
-\newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
+\begin{definition}{Ordered Set}
+An $\textit{ordered set}$ is a set $S$ in which an order is defined
+\end{definition}
 
-\title{\textbf{Math 311 - Problem Set 3}}
-\author{Guy Matz}
-\date{\today}
+\begin{definition}{Upper Bound/Bounded Above}
+Suppose $S$ is an ordered set, and $E \subset S$.  If there exists a $\beta \in S$ such that for every $x \in E$, we say that $E$ is $\textit{bounded above}$, and call $\beta$ an upper bound of $E$
+\end{definition}
 
-\begin{document} 
-%\maketitle
-%\newpage
+\begin{definition}{Least Upper Bound}
+Suppose $S$ is an ordered set, $E \subset S$, and $E$ is bounded above.  Suppose there exists an $\alpha \in S$ with the following properties:
+\begin{enumerate}
+\item $\alpha$ is an upper bound of $E$
+\item If $\gamma < \alpha$ then $\gamma$ is not an upper bound of $E$
+\end{enumerate}
+Then $\alpha$ is called the $\textit{least uppoer bound of E}$ or the $\textit{supremum of E}$ and we write:
+$$\alpha = \textnormal{sup E}$$
+\end{definition}
 
-\bdf
-$\Sigma (a_n)$ is $absolutely convergent$ if and only if $\Sigma |a_n|$ is convergent
-\edf
-\bdf
-$\Sigma (a_n)$ is $conditionally convergent$ if and only if $\Sigma a_n$ is convergent but $\Sigma |a_n|$ is not
-\edf
+\begin{definition}{Greatest Lower Bound}
+The $\textit{greatest lower bound of E}$ or the $\textit{infimum of E}$ is defined the same way.  The statement:
+$$\alpha = \textnormal{inf E}$$
+means that $\alpha$ is a lower bound of $E$ and that no $\beta$ with $\beta > \alpha$ is a lower bound of $E$.
+\end{definition}
+
+\begin{definition}{Least Upper Bound Property}
+An ordered set is said to have a $\textit{least-upper-bound-property}$ if, for $E \subset S$, $E$ is not empty, and $E$ is bounded above, implies sup $E$ exists in $S$
+\end{definition}
+
+\begin{theorem}{1.11}
+Suppose $S$ is an ordered set with the least-upper-bound property, $B \subset S$, $B$ is not empty, and $B$ is bounded below.  Let $L$ be the set of all lower bound of $B$.  Then:
+$$\alpha = \textnormal{sup L}$$
+exists in $S$, and $\alpha = \textnormal{inf B}$.  In particular , inf $B$ exists in $S$.
+\end{theorem}
+
+\section*{Basic Topology}
+
+\section*{Sequences}
+
+\section*{Series}
+\begin{axiom}{Absolutely Convergent}
+$\Sigma (a_n)$ is absolutely convergent if and only if $\Sigma |a_n|$ is convergent
+\end{axiom}
+
+\begin{definition}{Absolutely Convergent}
+$\Sigma (a_n)$ is absolutely convergent if and only if $\Sigma |a_n|$ is convergent
+\end{definition}
+
+\begin{definition}{Conditionally Convergent}
+$\Sigma (a_n)$ is conditionally convergent if and only if $\Sigma a_n$ is convergent but $\Sigma |a_n|$ is not
+\end{definition}
 
 \end{document}
