@@ -1,0 +1,212 @@
+\documentclass[12pt]{amsart}
+\setlength{\parskip}{.1in}
+\setlength{\parindent}{0cm}
+%myalterations
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue,pdfborder={0 0 .5}pdfnewwindow=true]{hyperref}
+\usepackage{enumitem}
+%\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{tabularx}
+%\usepackage{arydshln,leftidx,mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage{bm}
+
+%\setlength{\dashlinedash}{.4pt}
+%\setlength{\dashlinegap}{.8pt}
+%\usepackage{amsthm}
+\usepackage{verbatim}
+%\usepackage{commath}
+%My commands
+%environment abbreviations
+\newcommand{\bem}{\begin{matrix}}
+\newcommand{\emm}{\end{matrix}}
+\newcommand{\besm}{\begin{smallmatrix}}
+\newcommand{\esm}{\end{smallmatrix}}
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bed}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{notation}[theorem]{Notation}
+\newcommand{\bnot}{\begin{notation}}
+\newcommand{\enot}{\end{notation}}
+\newcommand{\bet}{\begin{theorem}}
+\newcommand{\et}{\end{theorem}}
+\newtheorem{axiom}[theorem]{Axiom}
+\newcommand{\baxi}{\begin{axiom}}
+\newcommand{\axi}{\end{axiom}}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\bel}{\begin{lemma}}
+\newcommand{\el}{\end{lemma}}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\bec}{\begin{corollary}}
+\newcommand{\ec}{\end{corollary}}
+\newtheorem{observation}[theorem]{Observation}
+\newcommand{\bo}{\begin{observation}}
+\newcommand{\eo}{\end{observation}}
+\newtheorem{exercise}[theorem]{Exercise}
+\newcommand{\bex}{\begin{exercise}}
+\newcommand{\ex}{\end{exercise}}
+
+\newtheorem{definition}[theorem]{Definition}
+\newcommand{\bdf}{\begin{definition}}
+\newcommand{\edf}{\end{definition}}
+\newtheorem{example}[theorem]{Example}
+\newcommand{\bax}{\begin{example}}
+\newcommand{\ax}{\end{example}}
+\newcommand{\pru}{{ \bfseries \textcolor{red}{Proof:} }}
+
+\newtheorem*{und}{Definition}
+%symbol definitions
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\mbZ}{\mathbb{Z}}
+\newcommand{\mbR}{\mathbb{R}}
+\newcommand{\mbN}{\mathbb{N}}
+\newcommand{\mbQ}{\mathbb{Q}}
+\newcommand{\mbC}{\mathbb{C}}
+\newcommand{\mbF}{\mathbb{F}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\tra}{\twoheadrightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\ep}{\epsilon}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\bfs}[1]{{\bfseries #1}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+%Operator definitions
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\triv}{triv}
+\DeclareMathOperator{\cyc}{cyc}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\expo}{x}
+\DeclareMathOperator{\ord}{o}
+\DeclareMathOperator{\imm}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\alt}{alt}
+\DeclareMathOperator{\irr}{irr}
+\DeclareMathOperator{\eqt}{Equiv}
+\DeclareMathOperator{\pat}{Part}
+%\DeclareMathOperator{\sgn}{sgn}
+%\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gl}{Gl}
+\DeclareMathOperator{\M}{M}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\fixx}{Fix}
+\DeclareMathOperator{\suppp}{Supp}
+\DeclareMathOperator{\gl}{Gl}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\ii}{I}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Co}{Co}
+\DeclareMathOperator{\md}{md}
+\DeclareMathOperator{\qt}{qt}
+\DeclareMathOperator{\ExtendedGCD}{ExtendedGCD}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\GCD}{GCD}
+\newcommand{\nms}{\negmedspace}
+\newcommand{\nts}{\negthinspace}
+
+
+\newcommand{\itep}{\item {\bfseries Problem}\ }
+\newcommand{\gen}[1]{\langle \nts#1 \nts\rangle}
+\newcommand{\quot}[2]{#1/ #2}
+\newcommand{\order}[1]{\left|<\nts #1 \nts s>\right|}
+
+%These next two commands are for making answers. 
+\newcommand{\beans}{\begin{description} \item[{ \bfseries \textcolor{red}{Answer}}]\ }
+\newcommand{\eans }{\end{description}}
+%\newcommand{\begin{comment}ex}{{ \bfseries \textcolor{red}{Answer}}}
+
+%To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
+\newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
+
+\title{\textbf{Math 311 - Final}}
+\author{Guy Matz}
+\date{\today}
+
+\begin{document} 
+
+\maketitle
+%\newpage % Q1
+
+\begin{enumerate}[series=p]
+\itep 
+\label{drp}
+Show that $\sum_{i=1}^{n} i = \dfrac{n(n+1)}{2}$
+\\
+Proof by Induction on $n$:
+\\
+Base Step: 
+$$\sum_{i=1}^{1} = 1$$
+Induction Hypothesis:
+$$\sum_{i=1}^{n} i = \dfrac{n(n+1)}{2}$$
+Proof:
+$$\sum_{i=1}^{n+1} i = \dfrac{(n+1)(n+2)}{2} = \dfrac{n^2 + 3n + 2}{2}$$
+and $$\sum_{i=1}^{n+1} i = \sum_{i=1}^{n} i + (n+1)$$
+By our Induction Hypothesis, this is equal to:
+\\
+$$\dfrac{n(n+1)}{2} + (n+1) = \dfrac{n^2 + 3n + 2}{2}$$
+\newpage
+
+\itep
+Show that the interior angles of a triangle add to 180
+
+Let us draw a line perpendicular to the base of the triangle, and through the apex.  We shall call this line $l$.  At the point where $l$ intersects the two sides of the triangle we now have three angles, $a, b$ and $c$ in the diagram below.  The sides of the triangles act as intersecting transversals, and so the angles $d$ and $f$ in the diagram below are congruent to angles $a$ and $c$. Therefore the inner angles of the triangle add up to the angle of the line $l$, which is known to be 180
+\\
+\begin{tikzpicture}
+\draw (0,0) node[above right=1pt+1pt]{$d$}
+-- (4,0) node[above left=5pt]{$f$}
+-- (3,4) node[below left=5pt]{$a$} node[below=5pt]{$b$} node[below right=5pt]{$c$}
+-- cycle;
+\draw[red] (-1,0) -- (5,0);
+\draw[red] (-1,4) -- (5,4);
+\end{tikzpicture}
+\newpage
+
+\itep
+Show that there are infinitely many primes
+\\
+
+\newpage
+
+\itep
+Show that $2^n \geq n$ for all $n \geq 0$
+\\
+Proof by Induction on $n$.\\
+Base Step: $n$ = 1
+$$2^1 \geq 1$$
+\\
+Induction Hypothesis:\\
+$$2^n \geq n$$
+Induction Step:\\
+\begin{align*}
+2^{n+1} &\geq  n+1\\
+2 \times 2^n &\geq n + 1
+\end{align*}
+By our Induction Hypothesis we have that $2^n \geq n$,
+so do we known that $2 \times 2^n \geq n+1$?  Do natural logs help us any here?
+\newpage
+
+\itep
+Show that if $e, g \in G$ are identity elements, then $e = g$.
+\\
+Let $a \in G$, then:\\
+$ ea = a$ and $ga = a$ so $ea = ga$, hence $e = g$
+\end{enumerate}
+\end{document}
