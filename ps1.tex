@@ -35,6 +35,9 @@
 \newtheorem{exercise}[theorem]{Exercise}
 \newcommand{\bex}{\begin{exercise}}
 \newcommand{\ex}{\end{exercise}}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand{\bdf}{\begin{definition}}
+\newcommand{\edf}{\end{definition}}
 
 %symbol definitions
 \newcommand{\un}[1]{\underline{#1}}
@@ -231,9 +234,19 @@ A multiplicative inverse of a non-zero cut $x = A|B$ is a cut $y = C|D$ such tha
 \benu
 \item If $x > 0^*$, what are $C$ and $D$?\\
 \\
-\item If $x < 0^*$, what are they?\\
+If $0^* < x \leq 1^*$, then $C = 1^*, D = \mbR > 1^*$
 \\
+If $x > 1^*$, then $C > 0, D < 1*$
+\\
+\\ WRONG!!  THIS should be something like:
+\\ $C|D = \{r \in \mbQ: r > 0\}|\{ r \in \mbQ : r < 1\}$
+\\
+\item If $x < 0^*$, what are they?\\
+\\\\
 \item Prove that $x$ uniquely determines $y$
+\\
+Let $y' \in \mbR$ s.t. $y' \cdot x = 1$.  Then $y \cdot x = 1$ and $y' \cdot x = 1$.  So $y \cdot x = y' \cdot x$, and $y' = y$.
+\\
 \eenu
 
 \newpage
@@ -243,12 +256,24 @@ Let $b$ = l.u.b. $S$, where $S$ is a bounded nonempty subset  of $\mbR$.
 \item Given $\epsilon > 0$ show that there exists an $s \in S$ with
 $$b - \epsilon \leq s \leq b.$$
 \\
-\item Can $s \in S$ always be found so that $b - \epsilon < s < b$?
+Let $s = b - \frac{\epsilon}{2}$, This satisfies the inequality $b - \epsilon \leq s \leq b$
 \\
+\item Can $s \in S$ always be found so that $b - \epsilon < s < b$?
+\\\\
+Yes, due to the completeness of $\mbR$
 \\
 \item If $x = A|B$ is a cut in $\mbQ$, show that $x$ = l.u.b $A$.
 \\
 \\
+The cut $x = A|B$ can be expressed as:
+$$x = \{r \in \mbQ: r < x\}|\{r \in \mbQ: r \geq x\}$$
+\begin{definition} \underline{Least Upper Bound}:  For $E \subseteq S$ and $\alpha \in S$ is the l.u.b of $E$ if:
+	\benu
+	\item $\alpha$ is an upper bound of $E$
+	\item $\gamma < \alpha$ is not an upper bound of $E$
+	\eenu
+\end{definition}
+$A$ contains no largest element, so the l.u.b of $A$ cannot be in A.  Hence the l.u.b of $A$ is in $B$, and is the smallest element of $B$ which is $x$.
 \eenu
 
 \newpage
