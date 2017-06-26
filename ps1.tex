@@ -197,7 +197,7 @@ $$x + x' = (A + A')|\text{ rest of } \mbQ$$
 \benu
 \item Show that although $B + B'$ is disjoint from $A + A'$, it may happen in degenerate cases that $\mbQ$ is not the union of $A + A'$ and $B + B'$
 \\
-It may be the case that when two cuts are "open" cuts, i.e. both irrational, then 
+It may be the case that when two cuts are "open" cuts, i.e. both irrational, then the union is not $\mbQ$.  For example, the cuts $\sqrt{2}$ and $-\sqrt{2}$.  In this case it is not possible to get $B+B' = 0$?
 \\
 
 \item Infer that the definition of $x + x'$ as $(A + A')|(B + B')$ would be incorrect?
@@ -206,7 +206,7 @@ This may not include all of the rationals , so it is not a cut.
 \\
 \item Why did we not define $x \cdot x' = (A \cdot A')|$rest of $\mbQ$?
 \\
-If either $x$ or $x'$ is negative, multiplication get "tricky".  See page 14-15
+If either $x$ or $x'$ is negative, multiplication get "tricky" and may give incorrect results.
 \eenu
 
 \newpage
@@ -267,7 +267,7 @@ If $|u - y| < \delta$, then $|u^2 - y^2| = |(u - y) \cdot (u + y))| < \epsilon$.
 \\\\
 \underline{Induction Hypothesis}:
 \\
-If $|u - y| < \delta$, then $|u^n - y^n| < \epsilon$  DO I NEED TO SAY SOMETHING HERE ABOUT THE SIZE OF $\epsilon$?
+If $|u - y| < \delta$, then $|u^n - y^n| < \epsilon$
 \\\\
 \underline{Induction Step}:
 \\
@@ -281,7 +281,7 @@ Now if we assume that $|u - y | < 1$, then $u < y + 1$, and $\frac{\epsilon}{(u^
 \itep 15\\
 Given $x > 0$ and $n \in \mbN$, prove that there is a unique $y > 0$ such that $y^n = x$.  That is, $y = \sqrt[n]{x}$ exists and is unique.  Hint: Consider
 $$y = \text{l.u.b.}\{s \in \mbR : s^n \leq x\}$$
-
+Let $A|B$ be the cut $s*$.  By 12c we have that $y$ is l.u.b. of $A^*$.  So, for $s^* > 0, (s^*)^n \leq y^n$.  However, we cannot have $y^n < x$ since there are rational numbers as close to x as we like.  We also cannot have $y^n > x$, for if we say $x = y^n - \epsilon$, with $\epsilon > 0$, by 12a there is $s^* \in \mbR^*$ such that $y^n \geq (s^*)^n \geq y^n - \epsilon = n$.  Hence, $y^n = x$
 \newpage
 \itep 16\\
 Prove that real numbers correspond bijectively  to decimal expansions not terminating in an infinite strings of 9's, as follows.  The decimal expansion of $x \in \mbR$ is $N.x_1.x_2\dots$ where $N$ is the largest integer $\leq x, x_1$ is the largest integer $\leq 10(x-N), x_2$ is the largest integer $\leq 100(x-(N+x_1/10))$ and son on.
@@ -293,19 +293,23 @@ Induction on $k: x_k$ is the largest integer less than $10^{k-1}(x-(N  + \frac{x
 \\\underline{Base Step}:\\
 $x_1$ is the largest integer $\leq 10(x - N)$. Since $N$ is the largest integer less than $x$, $0 \leq x - N \leq 1$, and $10(x - N) < 10$.  $x_1$ is the largest integer less than $10(x -N)$ so $0 \leq x_1 \leq 9$
 \\
-\underline{Induction Hypothesis}:\\
-$0 \leq x_k \leq 9$, so $x_k$ is the largest integer less than $10^{k-1}(x-N+\frac{x_{k-1}}{10^{k-1}})$
+\underline{Induction Hypothesis}: $0 \leq x_k \leq 9$, so $x_k$ is the largest integer less than $10^{k-1}(x-N+ + \frac{x_1}{10^1} + \frac{x_2}{10^2} + \dots + \frac{x_{k-1}}{10^{k-1}})$
 \\
 \underline{Induction Step}:\
-$0 \leq x_{k+1} \leq 9$ so $x{k+1}$ is the largest integer $\leq 10^k(x - N + \frac{x_k}{10^k})$
+$0 \leq x_{k+1} \leq 9$ so $x_{k+1}$ is the largest integer $\leq 10^k(x - N + \frac{x_1}{10^1} + \frac{x_2}{10^2} + \dots \frac{x_k}{10^k})$
+\\
+$x_1$ is the largest integer $\leq 10(x - N + \frac{x_1}{10^1} + \frac{x_2}{10^2} + \dots \frac{x_k}{10^k})$. Since $N$ is the largest integer less than $x$, $0 \leq x - N + + \frac{x_1}{10^1} + \frac{x_2}{10^2} + \dots \frac{x_k}{10^k} \leq 1$, and $10(x - N + + \frac{x_1}{10^1} + \frac{x_2}{10^2} + \dots \frac{x_k}{10^k}) < 10$.  $x_1$ is the largest integer less than $10(x -N + + \frac{x_1}{10^1} + \frac{x_2}{10^2} + \dots \frac{x_k}{10^k})$ so $0 \leq x_1 \leq 9$
 
 \item Show that for each $k$ there is an $l \geq k$ such that $x_l \neq 9$
 \\
-Towards a contradiction, assume that there is no $l \geq k$ such that $x_l \neq 9$.  We would then a number 9.99999..., However this number is 1.0\hfill\lightning
+Towards a contradiction, assume that there is no $l \geq k$ such that $x_l \neq 9$.  We would then have the number 9.99999..., However this number is 1.0\hfill\lightning
 \\
 \item Conversely, show that for each such expression $N.x_1.x_2\dots$ not terminating in an infinite string of 9's, the set
-$$ \{N, N + \frac{x_1}{10}, N + \frac{x_1}{10} + \frac{x_1}{100}\}$$ DO THIS TOMORROW!!
+$$ \{N, N + \frac{x_1}{10}, N + \frac{x_1}{10} + \frac{x_2}{100}, \dots\}$$
 is bounded and its least upper bound is a real number $x$ with decimal expression $N.x_1.x_2\dots$
+\\
+\\
+The sequence obeys the Cauchy condition, so it has a least upper bound which is the limit of the sequence.
 \\
 \item Repeat the exercise with a general base in place of 10.
 \eenu
