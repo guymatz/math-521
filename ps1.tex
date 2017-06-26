@@ -9,6 +9,7 @@
 \usepackage{enumitem}
 %\usepackage{amsthm}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{verbatim}
 \usepackage{tabularx}
 %\usepackage{arydshln,leftidx,mathtools}
@@ -17,7 +18,7 @@
 \usepackage{tikz-cd}
 \usepackage{hyperref}
 \usepackage{bm}
-
+\usepackage{wasysym}
 %\setlength{\dashlinedash}{.4pt}
 %\setlength{\dashlinegap}{.8pt}
 %\usepackage{amsthm}
@@ -127,7 +128,7 @@ is true.
 \\
 $\Rightarrow$ We want to show that $A \cup (B \cap C) \subseteq (A \cup B) \cap (A \cup C)$.  That is, an arbitrary element, $x \in A \cup (B \cap C)$ is also in $(A \cup B) \cap (A \cup C)$.  Let $x \in A \cup(B \cap C)$.  Then either $x \in A$ or $x$ is in both $B$ and $C$.  So $x \in A$ or ($x \in B$ and $x \in C$).  Then we have ($x \in A$ or $x \in B$) and ($x \in A$ or $x \in C$), and therefore $x \in (A \cup B) \cap (A \cup C)$
 \\\\
-$\Leftarrow$ We want to show that $(A \cup B) \cap (A \cup C) \subseteq A \cup (B \cap C)$.  That is, an arbitrary element, $x \in (A \cup B) \cap (A \cup C)$ is also in $A \cup (B \cap C)$.  Let $x \in (A \cup B) \cap (A \cup C)$.  Then $x$ is in both $A$ and $B$ or $x$ is in both $A$ and $C$.  So $x$ is in $A$ or $x$ is in both $B$ and $C$, hence $x \in A \cup (B \cap C)$
+$\Leftarrow$ We want to show that $(A \cup B) \cap (A \cup C) \subseteq A \cup (B \cap C)$.  That is, an arbitrary element, $x \in (A \cup B) \cap (A \cup C)$ is also in $A \cup (B \cap C)$.  Let $x \in (A \cup B) \cap (A \cup C)$.  Then $x$ is in $A$ or $B$ and $x$ is in $A$ or $C$.  So $x$ is in $A$ or $x$ is in both $B$ and $C$, hence $x \in A \cup (B \cap C)$
 \newpage % Q2
 
 \itep 2
@@ -147,50 +148,54 @@ $\Rightarrow$ We want to show that $(A \cap B)^c \subseteq A^c \cup B^c$.  Let $
 $\Leftarrow$ We want to show that $A^c \cup B^c \subseteq (A \cap B)^c$.  Let $x \in A^c \cup B^c$.  So $x \in A^c$ or $x \in B^c$.  Then $x \notin A$ or $x \notin B$, so $x \notin (A \cap B)$, i.e $x \in (A \cap B)^c$
 \\
 \\
-How to derive $(A \cup B)^c = A^c \cap B^c$??
-\begin{comment}
-We can see that $(A \cup B)^c = A^c \cap B^c$ follows from above by setting $A' = A^c$ and $B' = B^c$. Then
-$A' \cap B' = A^c \cap B^c$ and deMorgan’s law tells us that $(A' \cap B')^c = A'^c \cup B'^c = A \cup B$ . Taking the complement of both sets we see that $A' \cap B' = (A \cup B )^c$. Thus we have shown that $(A \cup B )^c = A^c \cap B^c$.
-\end{comment}
+How to derive $(A \cup B)^c = A^c \cap B^c$?\\
+We can say that $A^c \cap B^c = (((A^c) \cap (B^c))^c)^c$, which is in the form of deMorgan's Law.  So, $(((A^c) \cap (B^c))^c)^c = ((A^c)^c \cup (B^c)^c)^c = (A \cup B)^c$
 \\
 \item Draw Venn diagrams to illustrate the two laws
-\\  THis isn't right, but how do I do this? \\
-\begin{tikzpicture}
-\filldraw[fill=gray] (-2,-2) rectangle (3,2);
-\scope % A \cap B
-\clip (0,0) circle (1);
-\fill[white] (1,0) circle (1);
-\endscope
-% outline
-\draw (0,0) circle (1)
-(1,0) circle (1);
-\end{tikzpicture}
-
-\begin{tikzpicture}
-\filldraw[fill=gray] (-2,-2) rectangle (3,2);
-\scope % A \cap B
-\clip (0,0) circle (1);
-\fill[white] (1,0) circle (1);
-\endscope
-% outline
-\draw (0,0) circle (1)
-(1,0) circle (1);
-\end{tikzpicture}
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{intersection.png}
+	\caption{$(A \cap B)^c = A^c \cup B^c$}
+	\label{fig:venn_intersection}
+\end{figure}
+\begin{figure}
+	\includegraphics[width=\linewidth]{union.png}
+	\caption{$(A \cup B)^c = A^c \cap B^c$}
+	\label{fig:venn_union}
+\end{figure}
 
 \item Generalize these laws to more than two sets
 \benu
-\item $(A_1 \cap A_2 \cap \dots \cap A_n) = A_1^c \cup A_2^c \cup \dots \cup A_n^c$
+\item $(A_1 \cap A_2 \cap \dots \cap A_n)^c = A_1^c \cup A_2^c \cup \dots \cup A_n^c$
 \\
 Induction on $n$\\
-Base Step: See (b) above.
+Base Step: n = 2, See (b) above.
 \\
 Induction Hypothesis:
-\\$(A_1 \cap A_2 \cap \dots \cap A_n) = A_1^c \cup A_2^c \cup \dots \cup A_n^c$
+\\$(A_1 \cap A_2 \cap \dots \cap A_n)^c = A_1^c \cup A_2^c \cup \dots \cup A_n^c$
 \\Induction Step:\\
-$(A_1 \cap A_2 \cap \dots \cap A_{n+1}) = A_1^c \cup A_2^c \cup \dots \cup A_{n+1}^c$
-IS THIS WHAT THEY'RE ASKING FOR?
-\eenu
+$(A_1 \cap A_2 \cap \dots \cap A_{n+1})^c = A_1^c \cup A_2^c \cup \dots \cup A_{n+1}^c$\\
+Or, $(A_1 \cap A_2 \cap \dots \cap A_n)^c \cup A_{n+1} = A_1^c \cup A_2^c \cup \dots \cup A_{n+1}^c$\\
+Let $B = (A_1 \cap A_2 \cap \dots \cap A_{n})$\\
+and $B'= A_1^c \cup A_2^c \cup \dots \cup A_{n}^c$\\
+Our Induction then becomes:
+%$(
 
+\item $(A_1 \cup A_2 \cup \dots \cup A_n)^c = A_1^c \cap A_2^c \cap \dots \cap A_n^c$
+\\
+Induction on $n$\\
+Base Step: n = 2, See (b) above.
+\\
+Induction Hypothesis:
+\\$(A_1 \cup A_2 \cup \dots \cup A_n)^c = A_1^c \cap A_2^c \cap \dots \cap A_n^c$
+\\Induction Step:\\
+$(A_1 \cup A_2 \cup \dots \cup A_{n+1})^c = A_1^c \cap A_2^c \cap \dots \cap A_{n+1}^c$\\
+Or, $(A_1 \cup A_2 \cup \dots \cup A_n)^c \cap A_{n+1} = A_1^c \cap A_2^c \cap \dots \cap A_{n+1}^c$\\
+Let $B = (A_1 \cup A_2 \cup \dots \cup A_{n})$\\
+and $B'= A_1^c \cap A_2^c \cap \dots \cap A_{n}^c$\\
+Our Induction then becomes:
+%$(
+
+\eenu
 \eenu 
 
 \newpage
@@ -203,7 +208,9 @@ Recast the following English sentences in mathematics, using correct mathematica
 \\ Let $p \in \mathcal{P}$ where $\mathcal{P}$ is the set of all primes, $p \geq 2$
 \item The area of any bounded plane region is bisected by some line parallel to the x-axis
 \\
-\\ ??
+\\
+Let $f$ and $g$ be continuous, integrable functions, and $a < b$.  Then $\exists c \in (a, b)$ such that 
+$$\int_{a}^{c}|f(x)-g(x)| dx = \int_{c}^{b} |f(x) - g(x)| dx = \int_{a}^{b} \frac{|f(x) - g(x)|dx}{2}$$
 \\
 \item All that glitters is not gold
 \\Let $X$ be the set of all things that glitter, $Y$ be the set of all things that are gold.  $\exists x \in X$ such that $x \notin Y$
@@ -216,12 +223,12 @@ $$x + x' = (A + A')|\text{ rest of } \mbQ$$
 \benu
 \item Show that although $B + B'$ is disjoint from $A + A'$, it may happen in degenerate cases that $\mbQ$ is not the union of $A + A'$ and $B + B'$
 \\
-Does "degenerate" is this case mean "lacking distinctness of structure usually present"?
+It may be the case that when two cuts are "open" cuts, i.e. both irrational, then 
 \\
 
 \item Infer that the definition of $x + x'$ as $(A + A')|(B + B')$ would be incorrect?
 \\
-What is this asking for?
+This may not include all of the rationals , so it is not a cut.
 \\
 \item Why did we not define $x \cdot x' = (A \cdot A')|$rest of $\mbQ$?
 \\
@@ -234,18 +241,16 @@ A multiplicative inverse of a non-zero cut $x = A|B$ is a cut $y = C|D$ such tha
 \benu
 \item If $x > 0^*$, what are $C$ and $D$?\\
 \\
-If $0^* < x \leq 1^*$, then $C = 1^*, D = \mbR > 1^*$
-\\
-If $x > 1^*$, then $C > 0, D < 1*$
-\\
-\\ WRONG!!  THIS should be something like:
-\\ $C|D = \{r \in \mbQ: r > 0\}|\{ r \in \mbQ : r < 1\}$
-\\
+$$C = \{r \in \mbQ : \forall a \in A, a > 0, r < \frac{1}{a}\}$$
+$$D = \{r \in \mbQ : \forall b \in B, b > 0, r \geq \frac{1}{b}\}$$
 \item If $x < 0^*$, what are they?\\
-\\\\
+\\
+$$C = \{r \in \mbQ : \forall a \in A, a < 0, r < \frac{1}{a}\}$$
+$$D = \{r \in \mbQ : \forall b \in B, b < 0, r \geq \frac{1}{b}\}$$
+\\
 \item Prove that $x$ uniquely determines $y$
 \\
-Let $y' \in \mbR$ s.t. $y' \cdot x = 1$.  Then $y \cdot x = 1$ and $y' \cdot x = 1$.  So $y \cdot x = y' \cdot x$, and $y' = y$.
+Let $y' \in \mbR$ s.t. $y' \cdot x = 1$.  Then $y = y \cdot 1 = y \cdot (x \cdot y') = (y \cdot x) \cdot y' = y' $
 \\
 \eenu
 
@@ -256,51 +261,76 @@ Let $b$ = l.u.b. $S$, where $S$ is a bounded nonempty subset  of $\mbR$.
 \item Given $\epsilon > 0$ show that there exists an $s \in S$ with
 $$b - \epsilon \leq s \leq b.$$
 \\
-Let $s = b - \frac{\epsilon}{2}$, This satisfies the inequality $b - \epsilon \leq s \leq b$
+Assume towards a contradiction that there is no $s \in S$ such that $b - \epsilon \leq s \leq b$.  Then $b - \epsilon$ is an upper bound of $S$ less than $b$.\hfill \lightning
+\\
 \\
 \item Can $s \in S$ always be found so that $b - \epsilon < s < b$?
 \\\\
-Yes, due to the completeness of $\mbR$
+No.  As a counter-example, choose $S = \{ 1 \}$.  In this case, $b = 1$, however there is no $s$ to satify the inequality above.
 \\
 \item If $x = A|B$ is a cut in $\mbQ$, show that $x$ = l.u.b $A$.
 \\
-\\
-The cut $x = A|B$ can be expressed as:
-$$x = \{r \in \mbQ: r < x\}|\{r \in \mbQ: r \geq x\}$$
-\begin{definition} \underline{Least Upper Bound}:  For $E \subseteq S$ and $\alpha \in S$ is the l.u.b of $E$ if:
-	\benu
-	\item $\alpha$ is an upper bound of $E$
-	\item $\gamma < \alpha$ is not an upper bound of $E$
-	\eenu
-\end{definition}
-$A$ contains no largest element, so the l.u.b of $A$ cannot be in A.  Hence the l.u.b of $A$ is in $B$, and is the smallest element of $B$ which is $x$.
+\benu
+\item If $x = A|B$ and $r \in A$, then $r^* < x$
+\item If $b = C|D$ is an upper bound of $A^*$, then for all $r \in A$, $r^* \leq b$.  So $\{p \in \mbQ: p < r \} \subseteq C$, and $A = \bigcup\limits_{r \ \in A} \{p \in \mbQ : p < r \} \subseteq C$.  Then, since $x = A|B, x \subseteq b$
+\eenu
 \eenu
 
 \newpage
 \itep 13\\
 Prove that $\sqrt{2} \in \mbR$ by showing that $x \cdot x = 2$ where $A|B$ is the cut in $\mbQ$ with $A = \{r = \mbQ: r \leq 0 \text{ or } r^2 < 2\}$.  Hint: Use exercise 12.
+\\\\
+By 12c we have that $x$ is l.u.b. of $A^*$.  So, for $r^* > 0, (r^*)^2 \leq x^2$.  However, we cannot have $x^2 < 2$ since there are rational numbers as close to 2 as we like.  We also cannot have $x^2 > 2$, for if we say $2 = x^2 - \epsilon$, with $\epsilon > 0$, by 12a there is $r^* \in A^*$ such that $x^2 \geq (r^*)^2 \geq x^2 - \epsilon = 2$.  Hence, $x^2 = 2$
+
 
 \newpage
-\itep 14
+\itep 14\\
 Given $y \in \mbR, n \in \mbN,$ and $\epsilon > 0$, show that for some $\delta > 0$, if $u \in \mbR$ and $|u-y| < \delta$ then $|u^n - y^n| < \epsilon$.  Hint: Prove the inequality when $n = 1, n = 2$, and then do induction on n using the identity
-$$u^n - y^n = (u-y)(u^{n-1} + u^{n-2}y + \dots + y^{n-1})$$.
+$$u^n - y^n = (u-y)(u^{n-1} + u^{n-2}y + \dots + y^{n-1})$$
+\underline{Base Step}: $n = 2$
+\\
+If $|u - y| < \delta$, then $|u^2 - y^2| = |(u - y) \cdot (u + y))| < \epsilon$.\\ so $|u -y | < \frac{\epsilon}{|u + y|} = \delta$.  Let's assume that $|u - y | < \frac{1}{2}$, so $-\frac{1}{2}+2y < u+y < \frac{1}{2} + 2y$, and since $\frac{\epsilon}{-\frac{1}{2} + 2y} > \frac{\epsilon}{u + y} > \frac{\epsilon}{\frac{1}{2} + 2y}$, we want to choose $\delta = min(\{\frac{\epsilon}{\frac{1}{2}+2y}, \frac{1}{2}\})$
+\\\\
+\underline{Induction Hypothesis}:
+\\
+If $|u - y| < \delta$, then $|u^n - y^n| < \epsilon$  DO I NEED TO SAY SOMETHING HERE ABOUT THE SIZE OF $\epsilon$?
+\\\\
+\underline{Induction Step}:
+\\
+\\
+If $|u-y| < \delta$, then $|u^{n+1} - y^{n+1}| < \epsilon$\\
+$|u^{n+1} - y^{n+1}| = |(u - y)\cdot(u^n + u^{n-1}y + \dots + uy^{n-1} + y^n)|$\\
+\\
+Now if we assume that $|u - y | < 1$, then $u < y + 1$, and $\frac{\epsilon}{(u^n + u^{n-1}y + \dots + uy^{n-1} + y^n)} > \frac{\epsilon}{(y+1)^n + (y+1)^{n-1}y + \dots + (y+1)y^{n-1} + y^n)}$, we want to choose $\delta = min(\{\frac{\epsilon}{(y+1)^n + (y+1)^{n-1}y + \dots + (y+1)y^{n-1} + y^n)}, 1\})$
 
 \newpage
-\itep 15
+\itep 15\\
 Given $x > 0$ and $n \in \mbN$, prove that there is a unique $y > 0$ such that $y^n = x$.  That is, $y = \sqrt[n]{x}$ exists and is unique.  Hint: Consider
 $$y = \text{l.u.b.}\{s \in \mbR : s^n \leq x\}$$
 
 \newpage
-\item 16
+\itep 16\\
 Prove that real numbers correspond bijectively  to decimal expansions not terminating in an infinite strings of 9's, as follows.  The decimal expansion of $x \in \mbR$ is $N.x_1.x_2\dots$ where $N$ is the largest integer $\leq x, x_1$ is the largest integer $\leq 10(x-N), x_2$ is the largest integer $\leq 100(x-(N+x_1/10))$ and son on.
 \\
 \benu
 \item Show that each $x_k$ is a digit between 0 and 9
 \\
+Induction on $k: x_k$ is the largest integer less than $10^{k-1}(x-(N  + \frac{x_{k-1}}{10^{k-1}}+ \dots))$
+\\\underline{Base Step}:\\
+$x_1$ is the largest integer $\leq 10(x - N)$. Since $N$ is the largest integer less than $x$, $0 \leq x - N \leq 1$, and $10(x - N) < 10$.  $x_1$ is the largest integer less than $10(x -N)$ so $0 \leq x_1 \leq 9$
+\\
+\underline{Induction Hypothesis}:\\
+$0 \leq x_k \leq 9$, so $x_k$ is the largest integer less than $10^{k-1}(x-N+\frac{x_{k-1}}{10^{k-1}})$
+\\
+\underline{Induction Step}:\
+$0 \leq x_{k+1} \leq 9$ so $x{k+1}$ is the largest integer $\leq 10^k(x - N + \frac{x_k}{10^k})$
+
 \item Show that for each $k$ there is an $l \geq k$ such that $x_l \neq 9$
 \\
+Towards a contradiction, assume that there is no $l \geq k$ such that $x_l \neq 9$.  We would then a number 9.99999..., However this number is 1.0\hfill\lightning
+\\
 \item Conversely, show that for each such expression $N.x_1.x_2\dots$ not terminating in an infinite string of 9's, the set
-$$ \{N, N + \frac{x_1}{10}, N + \frac{x_1}{10} + \frac{x_1}{100}\}$$
+$$ \{N, N + \frac{x_1}{10}, N + \frac{x_1}{10} + \frac{x_1}{100}\}$$ DO THIS TOMORROW!!
 is bounded and its least upper bound is a real number $x$ with decimal expression $N.x_1.x_2\dots$
 \\
 \item Repeat the exercise with a general base in place of 10.
@@ -322,13 +352,15 @@ A real number is algebraic if it is a root of a nonconstant polynomial with inte
 \benu
 \item Prove that the set $A$ of algebraic numbers is denumerable.  [Hint: Each polynomial has how many roots?  How many linear polynomials are there?  How many quadratics? . . .]
 \\
+Each polynomial of order $S$ has $r \leq S$ roots in $\mbR$.  Since there are $\mbN^S$ options for coefficients, there are less than $\mbN^S \cdot S$ elements in the set $A$ of algebraic numbers, so $A$ is denumerable.
 \\
 \item Repeat the exercise for roots of polynomials whose coefficients belong to some fixed, arbitrary denumerable set $s \in \mbR$
 \\
+Since the coefficients are fixed, they are denumerable as above.
 \\
 \item Repeat the exercise for roots of trigonometric polynomials with integer coefficients.
 \\
-\\
+The roots of trigonometric polynomials include the transcendental numbers, which are denumerable as above.
 \eenu
 
 \end{enumerate}
