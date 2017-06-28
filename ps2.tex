@@ -1,0 +1,221 @@
+\documentclass[12pt]{amsart}
+\setlength{\parskip}{.1in}
+\setlength{\parindent}{0cm}
+%myalterations
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue,pdfborder={0 0 .5}pdfnewwindow=true]{hyperref}
+\usepackage{enumitem}
+%\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{tabularx}
+%\usepackage{arydshln,leftidx,mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage{bm}
+
+%\setlength{\dashlinedash}{.4pt}
+%\setlength{\dashlinegap}{.8pt}
+%\usepackage{amsthm}
+\usepackage{verbatim}
+%\usepackage{commath}
+%My commands
+%environment abbreviations
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bed}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{exercise}[theorem]{Exercise}
+\newcommand{\bex}{\begin{exercise}}
+\newcommand{\ex}{\end{exercise}}
+
+\newcommand{\pru}{{ \bfseries \textcolor{red}{Proof:} }}
+
+%symbol definitions
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\mbZ}{\mathbb{Z}}
+\newcommand{\mbR}{\mathbb{R}}
+\newcommand{\mbN}{\mathbb{N}}
+\newcommand{\mbQ}{\mathbb{Q}}
+\newcommand{\mbC}{\mathbb{C}}
+\newcommand{\mbF}{\mathbb{F}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\tra}{\twoheadrightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\ep}{\epsilon}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\bfs}[1]{{\bfseries #1}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+%Operator definitions
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\triv}{triv}
+\DeclareMathOperator{\cyc}{cyc}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\expo}{x}
+\DeclareMathOperator{\ord}{o}
+\DeclareMathOperator{\imm}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\alt}{alt}
+\DeclareMathOperator{\irr}{irr}
+\DeclareMathOperator{\eqt}{Equiv}
+\DeclareMathOperator{\pat}{Part}
+%\DeclareMathOperator{\sgn}{sgn}
+%\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gl}{Gl}
+\DeclareMathOperator{\M}{M}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\fixx}{Fix}
+\DeclareMathOperator{\suppp}{Supp}
+\DeclareMathOperator{\gl}{Gl}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\ii}{I}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Co}{Co}
+\DeclareMathOperator{\md}{md}
+\DeclareMathOperator{\qt}{qt}
+\DeclareMathOperator{\ExtendedGCD}{ExtendedGCD}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\GCD}{GCD}
+\newcommand{\nms}{\negmedspace}
+\newcommand{\nts}{\negthinspace}
+
+\newcommand{\itep}{\item {\bfseries Problem}\ }
+\newcommand{\gen}[1]{\langle \nts#1 \nts\rangle}
+\newcommand{\quot}[2]{#1/ #2}
+\newcommand{\order}[1]{\left|<\nts #1 \nts s>\right|}
+
+%These next two commands are for making answers. 
+\newcommand{\beans}{\begin{description} \item[{ \bfseries \textcolor{red}{Answer}}]\ }
+\newcommand{\eans }{\end{description}}
+%\newcommand{\begin{comment}ex}{{ \bfseries \textcolor{red}{Answer}}}
+
+%To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
+\newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
+
+\title{\textbf{Math 521 - Problem Set 1}}
+\author{Guy Matz}
+\date{\today}
+
+\begin{document} 
+
+%\maketitle
+%\newpage % Q1
+
+\begin{enumerate}[series=p]
+\itep 1 \\
+$(0, 1)$ is an open subset of $\mbR$ but not of $\mbR^2$, when we think of $\mbR$ as the $x$-axis in $\mbR^2$.  Prove this.
+
+
+\newpage
+
+\itep 2 \\
+For which intervals $[a,b]$ in $\mbR$ is the intersection $[a,b] \cap \mbQ$ a clopen subset of the metric space $\mbQ$?
+
+\newpage
+
+\itep 3\\
+Prove directly from the definition of closed set that each single point is a closed subset of a metric space.  Why does this imply that a finite set of points is also a closed set?
+
+\newpage
+
+
+\itep 5\\
+Prove that a set $U \subset M$ is open if and only if none of its points are limits of its complement
+
+\newpage
+
+\itep 11\\
+Let $\mc{T}$ be the collection of open subsets of a metric space $M$, and $\mc{K}$ the collection of closed subsets.  Show that there is a bijection from $\mc{T}$ onto $\mc{K}$
+
+\newpage
+
+\itep 12\\
+Let $M$ be the metric space with the discrete metric, or more generally a homemorph of $M$.
+\benu
+\item Prove that every subset of $M$ is clopen\\
+\item Prove that every function defined on $M$ is continuous.\\
+\item Which sequences converge in $M$?
+\eenu
+
+\newpage
+
+\itep 17 \\
+Assume that $f:M \rightarrow N$ is a function from one metric space to another which satisfies the following condition:  if a sequence $(p_n)$ in $M$ converges then the sequence $(f(p_n))$ in $N$ converges.  Prove that $f$ is continuous.
+
+\newpage
+
+\itep 18\\
+The simplest type of mapping from one metric space to another is an $\textbf{isometry}$.  It is a bijection $f:M \rightarrow N$ that preserves distance in the sense that for all $p,q \in M$,
+$$d_N(fp, fq) = d_M(p,q).$$
+If there exists an isometry from $M$ to $N$ then $M$ and $N$ are said to be isometric, $M \equiv N$.  You might have two copies of a unit equilateral triangle, one centered at the origin and one centered elsewhere.  They are isometric.  Isometric metric spaces are indistinguishable as metric spaces.
+\benu
+\item Prove that every isometry is continuous
+\item Prove that everi isometry is a homeomorphism
+\item Prove that $[0,1]$ is not isometric to $[0,2]$.
+\eenu
+
+\newpage
+
+\itep 19\\
+Prove that isometry is an equivalence relation: if $M$ is isometric to $N$, show that $N$ is isometric to $M$; show that any $M$ is isometric to itself (what mapping of $M$ to $N$ is isometry?); if $M$ is isometric to $N$ and $N$ is isometric to $P$, show that $M$ is isometric to $P$.
+
+\newpage
+
+\itep 20\\
+Is the perimeter of a square isometric to the circle?  Homeomorphic?  Explain.
+
+\newpage
+
+\itep 22\\
+Is $\mbR$ homemorphic to $\mbQ$?  Explain.
+
+\newpage
+
+\itep 23\\
+Is $\mbQ$ homemorphic to $\mbN$?  Explain.
+
+\newpage
+
+\itep 29\\
+\benu
+\item Prove that every convergent sequence is bounded.  That is, if $(p_n)$ converges in the metric space $M$, prove that there is some neighborhood $M_rq$ containing the set $\{p_n:n\in \mbN\}$
+\item Is the same true for a Cauchy sequence in an incomplete metric space?
+\eenu
+\newpage
+
+
+\itep 30\\
+A sequence $(x_n)$ in $\mbR$ \textbf{increases} if $n< m$ implies $x_n \leq x_m$.  It \textbf{strictly increases} if $n < m$ implies $x_n < x_m$.  It \textbf{decreases} or \textbf{strict decreases} if $n < m$ always implies $x_n \geq x_m$ or always implies $x_n > x_m$.  A sequence is monotone if it increases or it decreases.
+\benu
+\item Prove that every sequence in $\mbR$ which is monotone and bounded converges in $\mbR$
+\item Prove that this monotone sequence condition is equivalent to the least upper bound property
+\eenu
+
+\newpage
+
+\itep 31\\
+Let $(x_n)$ be a sequence in $\mbR$
+\benu
+\item Prove that $(x_n)$ has a monotone subsequence
+\item How can you deduce that any bounded sequence in $\mbR$ has a convergent subsequence?
+\eenu
+
+
+\end{enumerate}
+\end{document}
