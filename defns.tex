@@ -6,6 +6,20 @@
 
 \newdimen\errorsize \errorsize=0.2pt
 
+
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\im}{\item}
+\newcommand{\mbZ}{\mathbb{Z}}
+\newcommand{\mbR}{\mathbb{R}}
+\newcommand{\mbN}{\mathbb{N}}
+\newcommand{\mbQ}{\mathbb{Q}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\tra}{\twoheadrightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\ep}{\epsilon}
+
 % Frame with a label at top
 \newcommand\LabFrame[2]{%
     \fboxrule=\FrameRule
@@ -149,7 +163,173 @@
 \makeatother
 \begin{document}
 %
-\section*{Real and Complex Numbers}
+\section*{Real Numbers}
+
+\begin{definition}{Dedekind Cut}
+A cut in $\mbQ$ is a pair of subsets $A, B$ of $\mbQ$ such that
+\benu
+\im $A \cup B = \mbQ, A \neq \emptyset, B \neq \emptyset, A \cap B \neq \emptyset$
+\im If $a \in A$ and $b \in B$ then $a < b$
+\im $A$ contains no largest element 
+\eenu
+\end{definition}
+
+\begin{definition}{Real Number}
+A \textbf{real number} is a cut in $\mbQ$
+\end{definition}
+
+
+\begin{definition}{less than or equal}
+The cut $x = A|B$ is \textbf{less than or equal} to the cut $y = C|D$ if $A \subset C$
+\end{definition}
+
+\begin{definition}{Bounded Above}
+$M \in \mbR$ is as \textbf{upper bound} for a set $S \subset \mbR$ is each $s \in S$ satifies
+$$ s \leq M$$
+\end{definition}
+
+\begin{definition}{Least Upper Bound}
+Un upper bound for the $S$ that is less thanall other upper bounds for $S$ is a \textbf{least upper bound} for $S$
+\end{definition}
+
+
+\begin{definition}{Upper Bound/Bounded Above}
+	Suppose $S$ is an ordered set, and $E \subset S$.  If there exists a $\beta \in S$ such that for every $x \in E$, we say that $E$ is $\textit{bounded above}$, and call $\beta$ an upper bound of $E$
+\end{definition}
+
+\begin{definition}{Least Upper Bound}
+	Suppose $S$ is an ordered set, $E \subset S$, and $E$ is bounded above.  Suppose there exists an $\alpha \in S$ with the following properties:
+	\begin{enumerate}
+		\item $\alpha$ is an upper bound of $E$
+		\item If $\gamma < \alpha$ then $\gamma$ is not an upper bound of $E$
+	\end{enumerate}
+	Then $\alpha$ is called the $\textit{least uppoer bound of E}$ or the $\textit{supremum of E}$ and we write:
+	$$\alpha = \textnormal{sup E}$$
+\end{definition}
+
+\begin{definition}{Greatest Lower Bound}
+	The $\textit{greatest lower bound of E}$ or the $\textit{infimum of E}$ is defined the same way.  The statement:
+	$$\alpha = \textnormal{inf E}$$
+	means that $\alpha$ is a lower bound of $E$ and that no $\beta$ with $\beta > \alpha$ is a lower bound of $E$.
+\end{definition}
+
+\begin{definition}{Least Upper Bound Property}
+	An ordered set is said to have a $\textit{least-upper-bound-property}$ if, for $E \subset S$, $E$ is not empty, and $E$ is bounded above, implies sup $E$ exists in $S$
+\end{definition}
+
+
+\begin{definition}{Ordered Set}
+	An $\textit{ordered set}$ is a set $S$ in which an order is defined
+\end{definition}
+
+\begin{theorem}{1.11}
+	Suppose $S$ is an ordered set with the least-upper-bound property, $B \subset S$, $B$ is not empty, and $B$ is bounded below.  Let $L$ be the set of all lower bound of $B$.  Then:
+	$$\alpha = \textnormal{sup L}$$
+	exists in $S$, and $\alpha = \textnormal{inf B}$.  In particular , inf $B$ exists in $S$.
+\end{theorem}
+
+
+\begin{definition}{Trichotomy}
+Either $x < y, y < x$ or $x = y$, but only one of these is true
+\end{definition}
+
+\begin{definition}{Cauchy Sequence}
+The sequence $(a_n)$ \textbf{converges} to the limit $b \in \mbR$ as $n \rightarrow \infty$ provided that for each $\ep > 0$ there exists $N \in \mbN$ such that  for all $n \geq N$,
+$$|a_n - b_n| < \ep$$ 
+\end{definition}
+
+
+\begin{definition}{Cauchy Convergence Criterion for Sequences}
+	A sequence $|a_n - a_m| < \ep$ in $\mbR$ converges if and only if
+	$$\forall \ep > 0 \exists N \in \mbN \text{ such that } n,m \geq N \Rightarrow |a_n - a_m| < \ep$$ 
+\end{definition}
+
+
+\begin{definition}{(a,b)}
+	$(a,b) = \{x \in \mbR : a < x < b\}$
+\end{definition}
+
+\begin{definition}{[a,b]}
+$[a,b] = \{x \in \mbR : a \leq x \leq b\}$
+\end{definition}
+
+
+\begin{definition}{Archimedean Property}
+	For each $x \in \mbR$ there is an integer $n$ that is greater than $x$
+\end{definition}
+
+
+\begin{definition}{Dot Product  (Scalar Product)}
+	The \textbf{dot product} of the vector $x = (x_1, x_2, \dots, x_n)$ and $y = (y_1, y_2, \dots, y_n)$ is
+	$$\langle x, y \rangle = x_1y_1 + \dots x_my_m$$
+\end{definition}
+
+
+\begin{definition}{Inner Product}
+	An \textbf{inner product} on a vector space, V, is an operation < , > on pairs of vectors that satisfies the same conditions that the dot product in Euclidean space does
+\end{definition}
+
+
+\begin{definition}{Triangle Inequality for Vectors}
+	For all $x,y \in \mbR^m$
+	$$|x + y| \leq |x| + |y|$$
+\end{definition}
+
+\begin{definition}{Range or Image}
+	The \textbf{range} of \textbf{image} of $f$ is the subset of the target,
+	$$\{b \in B: \text{there exists at least one element} a \in A \text{ with } f(a) = b\}$$
+\end{definition}
+
+\begin{definition}{Injection / one-to-one}
+	A mapping $f: A \rightarrow B$ is an \textbf{injection} or is \textbf{one-to-one} if for each pair of distinct elements $a, a' \in A$ the elements $f(a), f(a')$ are distinct in B.  That is,
+	$$a \neq a' \Rightarrow f(a) \neq f(a')$$
+\end{definition}
+
+
+\begin{definition}{Surjection / onto}
+	The mapping $f$ is a \textbf{surjection} (or is \textbf{onto}) if for each $b \in B$ there is at least one $a \in A$ such that $f(a) = b$.  That is, the range of $f$ is $B$
+\end{definition}
+
+
+\begin{definition}{Identity Map}
+	The bijection that takes each $a \in A$ and sends it to itself
+	$$id(a) = a$$
+\end{definition}
+
+
+\begin{definition}{Composite}
+If $f:A \to B$ and $g:B \to C$ then the \textbf{composite} $g \circ f:A \to C$ is the function that sends $a \in A$ to $g(f(a)) \in C$
+\end{definition}
+
+\begin{definition}{~ / Equivalence}
+	The relation $\sim$ is an equivalence relation
+\benu
+	\im $A \sim A$
+	\im If $A \sim B$, then $B \sim A$
+	\im If $A \sim B$, and $B \sim C$, then $A \sim C$
+\eenu
+\end{definition}
+
+\begin{definition}{Finite}
+	A set $S$ is \textbf{finite} if it is empty or for some $n \in \mbN$, $S \sim \{1, \dots, n\}$
+\end{definition}
+
+\begin{definition}{Infinite}
+	A set $S$ is \textbf{infinite} if it is not finite
+\end{definition}
+
+\begin{definition}{Denumerable}
+	A set $S$ is \textbf{denumerable} if $S \sim \mbN$
+\end{definition}
+
+\begin{definition}{Countable}
+	A set $S$ is \textbf{countable} if it is finite or countable
+\end{definition}
+
+\begin{definition}{Uncountable}
+	A set $S$ is \textbf{uncountable} if it is not countable
+\end{definition}
+
 
 \begin{definition}{Order}
 Let $S$ be a set.  An $\textit{order}$ on $S$ is a relation, denoted by $<$, with the following two properties:
@@ -163,41 +343,56 @@ If $x,y,z \in S$, if $x < y$ and $y < z$, then $x < z$
 \end{enumerate}
 \end{definition}
 
-\begin{definition}{Ordered Set}
-An $\textit{ordered set}$ is a set $S$ in which an order is defined
+
+\section*{A Taste of Topology}
+
+\begin{definition}{Metric Space}
+A \textbf{metric space} is a set $M$, the elements of which are referred to as points of $M$, together with a \textbf{metric} $d$ having the three properties that distance has in Euclidean space:
+\benu
+\im Positive Definiteness: $d(x,y) \geq 0$ and $d(x,y) = 0$ iff $x = y$
+\im Symmetry: $d(x,y) = d(y,x)$
+\im Triangle Inequality: $d(x,z) \leq d(x,y) + d(y,z)$
+\eenu
 \end{definition}
 
-\begin{definition}{Upper Bound/Bounded Above}
-Suppose $S$ is an ordered set, and $E \subset S$.  If there exists a $\beta \in S$ such that for every $x \in E$, we say that $E$ is $\textit{bounded above}$, and call $\beta$ an upper bound of $E$
+\begin{definition}{Sequence}
+Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
 \end{definition}
 
-\begin{definition}{Least Upper Bound}
-Suppose $S$ is an ordered set, $E \subset S$, and $E$ is bounded above.  Suppose there exists an $\alpha \in S$ with the following properties:
-\begin{enumerate}
-\item $\alpha$ is an upper bound of $E$
-\item If $\gamma < \alpha$ then $\gamma$ is not an upper bound of $E$
-\end{enumerate}
-Then $\alpha$ is called the $\textit{least uppoer bound of E}$ or the $\textit{supremum of E}$ and we write:
-$$\alpha = \textnormal{sup E}$$
+
+\begin{definition}{Convergence}
+	The sequence $(p_n)$ \textbf{converges to the limit} $p$ in $M$ if:
+	$$\forall\ep > 0  \exists N \in \mbN \text{ such that}$$
+	$$n \in \mbN  \text{ and }  n \geq N \implies d(p_n,p) < \ep$$
 \end{definition}
 
-\begin{definition}{Greatest Lower Bound}
-The $\textit{greatest lower bound of E}$ or the $\textit{infimum of E}$ is defined the same way.  The statement:
-$$\alpha = \textnormal{inf E}$$
-means that $\alpha$ is a lower bound of $E$ and that no $\beta$ with $\beta > \alpha$ is a lower bound of $E$.
+
+\begin{definition}{Subsequence}
+	If $(p_n)_{n \in \mbN}$ and $(q_n)_{n \in \mbN}$ are sequences and if there is a sequence $1 \leq n_1 < n_2 < n_3 < \dots$ of integers such that for each $k \in \mbN, q _k = p_{n_k}$ then $(q_k)$ is a \textbf{subsequence} of $(p_n)$
 \end{definition}
 
-\begin{definition}{Least Upper Bound Property}
-An ordered set is said to have a $\textit{least-upper-bound-property}$ if, for $E \subset S$, $E$ is not empty, and $E$ is bounded above, implies sup $E$ exists in $S$
+
+\begin{definition}{Continuity}
+	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\mathbf{\ep, \delta}$ \textbf{condition}
+$$\forall \ep > 0 \text{ and } \forall p \in M \text{  }\exists \delta > 0 \text{ such that}$$
+$$q \in M \text{ and } d(p,q) < \delta \implies d(fp, fq) < \ep$$
 \end{definition}
 
-\begin{theorem}{1.11}
-Suppose $S$ is an ordered set with the least-upper-bound property, $B \subset S$, $B$ is not empty, and $B$ is bounded below.  Let $L$ be the set of all lower bound of $B$.  Then:
-$$\alpha = \textnormal{sup L}$$
-exists in $S$, and $\alpha = \textnormal{inf B}$.  In particular , inf $B$ exists in $S$.
-\end{theorem}
 
-\section*{Basic Topology}
+\begin{definition}{Homeomorphism}
+	If $f: M \to N$ is a bijection and $f$ is continuous and the inverse bijection $f^{-1}:N \to M$ is also continuous then $f$ is a \textbf{homeomorphism}
+\end{definition}
+
+
+\begin{definition}{Closedness}
+	
+\end{definition}
+
+
+\begin{definition}{Openness}
+	
+\end{definition}
+
 
 \section*{Sequences}
 
