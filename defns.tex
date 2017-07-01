@@ -313,7 +313,7 @@ $[a,b] = \{x \in \mbR : a \leq x \leq b\}$
 If $f:A \to B$ and $g:B \to C$ then the \textbf{composite} $g \circ f:A \to C$ is the function that sends $a \in A$ to $g(f(a)) \in C$
 \end{definition}
 
-\begin{definition}{~ / Equivalence}
+\begin{definition}{Equivalence}
 	The relation $\sim$ is an equivalence relation
 \benu
 	\im $A \sim A$
@@ -439,7 +439,114 @@ $\Sigma (a_n)$ is absolutely convergent if and only if $\Sigma |a_n|$ is converg
 $\Sigma (a_n)$ is conditionally convergent if and only if $\Sigma a_n$ is convergent but $\Sigma |a_n|$ is not
 \end{definition}
 
-\end{document}
 
 \newpage
 \section*{Sequences}
+
+\newpage
+\section*{Homework 2}
+
+
+\begin{definition}{Range or Image}
+	The \textbf{range} of \textbf{image} of $f$ is the subset of the target,
+	$$\{b \in B: \text{there exists at least one element} a \in A \text{ with } f(a) = b\}$$
+\end{definition}
+
+\begin{definition}{Injection / one-to-one}
+	A mapping $f: A \rightarrow B$ is an \textbf{injection} or is \textbf{one-to-one} if for each pair of distinct elements $a, a' \in A$ the elements $f(a), f(a')$ are distinct in B.  That is,
+	$$a \neq a' \Rightarrow f(a) \neq f(a')$$
+\end{definition}
+
+
+\begin{definition}{Surjection / onto}
+	The mapping $f$ is a \textbf{surjection} (or is \textbf{onto}) if for each $b \in B$ there is at least one $a \in A$ such that $f(a) = b$.  That is, the range of $f$ is $B$
+\end{definition}
+
+
+\begin{definition}{Identity Map}
+	The bijection that takes each $a \in A$ and sends it to itself
+	$$id(a) = a$$
+\end{definition}
+
+
+\begin{definition}{Composite}
+If $f:A \to B$ and $g:B \to C$ then the \textbf{composite} $g \circ f:A \to C$ is the function that sends $a \in A$ to $g(f(a)) \in C$
+\end{definition}
+
+\begin{definition}{Equivalence}
+	The relation $\sim$ is an equivalence relation
+\benu
+	\im $A \sim A$
+	\im If $A \sim B$, then $B \sim A$
+	\im If $A \sim B$, and $B \sim C$, then $A \sim C$
+\eenu
+\end{definition}
+
+\begin{definition}{Metric Space}
+A \textbf{metric space} is a pair $(M, d)$, where $M$ is a set and $d$ is a distance function on pairs of $M$, so that:
+$$d: M^2 \to \mbR$$
+\benu
+\im Positive Definiteness: $d(x,y) \geq 0$ and $d(x,y) = 0$ iff $x = y$
+\im Symmetry: $d(x,y) = d(y,x)$
+\im Triangle Inequality: $d(x,z) \leq d(x,y) + d(y,z)$
+\eenu
+\end{definition}
+
+\begin{definition}{Sequence}
+A \textbf{sequence} in $M$ is a list of elements of $M$ indexed by $\mbN$, $(a_i)_{i \in \mbN} \text{ or } (a_i)$
+Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
+\end{definition}
+
+
+\begin{definition}{Convergence}
+	The sequence $(a_i)_{i \in \mbN}$ in $M$ \textbf{ converges } to $b \in M$ if:
+	$$\forall\ep > 0  \text{  } \exists N \in \mbN \text{ such that}$$
+	$$\forall j > N  \text{  } d(a_j,b) < \ep$$
+\end{definition}
+
+
+\begin{definition}{Subsequence}
+	If $(p_n)_{n \in \mbN}$ and $(q_n)_{n \in \mbN}$ are sequences and if there is a sequence $1 \leq n_1 < n_2 < n_3 < \dots$ of integers such that for each $k \in \mbN, q _k = p_{n_k}$ then $(q_k)$ is a \textbf{subsequence} of $(p_n)$
+\end{definition}
+
+
+\begin{definition}{Continuity}
+	A function $f:M \to N$ is \textbf{continuous} if whenever $(a_i)$ is a sequence in $M$ and
+$$(a_i) \to b \text{ in } M,$$
+$$f((a_i)) \to f(b) \text{ in } N$$
+\end{definition}
+
+
+\begin{definition}{Homeomorphism}
+	If $f: M \to N$ is a bijection and $f$ is continuous and the inverse bijection $f^{-1}:N \to M$ is also continuous then $f$ is a \textbf{homeomorphism}
+	($M \cong N$)
+\end{definition}
+
+
+\begin{definition}{Limit Point}
+	For $S \subseteq M, p \in M, p$ is a \textbf{Limit point} of $S$ if there is a sequence $(a_i)$ so that $(a_i) \to p$ and $(a_i) \in S$
+	$$lim^M(S) = \{q \in M|q \text{ is a limit of }S\}$$
+\end{definition}
+
+\begin{definition}{Closedness}
+	$S \subseteq M$ is \textbf{closed} in $M$ if it contains all of its limit points in $M$.
+	\begin{center}
+	OR \\
+	$S \subseteq M$ is \textbf{closed} in $M$ if $lim^M(S) \subseteq S$
+	\\ OR \\
+	$S \subseteq M$ is \textbf{closed} in $M$ if $lim^M(S) = S$
+	\end{center}
+\end{definition}
+
+
+\begin{definition}{Openness}
+	A set $s \subset M$ is \textbf{open in M} if for every point $p \in S$ there is an $r \in \mbR$, $r>0$, so that for every $q \in M$,
+	if $d(p,q) < r$, then $q < S$
+	\begin{center}
+	OR
+	\\
+	$\forall p \in S \text{  } \exists r > 0 (B_r^M(p) \subseteq S)$
+	\end{center}
+\end{definition}
+
+\end{document}
