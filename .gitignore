@@ -4,3 +4,5 @@
 *.pdf
 *.dvi
 *.synctex.gz
+*.backup
+*.yml
