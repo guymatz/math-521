@@ -17,6 +17,8 @@
 \usepackage{tikz-cd}
 \usepackage{hyperref}
 \usepackage{bm}
+\usepackage{wasysym}
+
 
 %\setlength{\dashlinedash}{.4pt}
 %\setlength{\dashlinegap}{.8pt}
@@ -25,10 +27,10 @@
 %\usepackage{commath}
 %My commands
 %environment abbreviations
-\newcommand{\benu}{\begin{enumerate}
-\newcommand{\eenu}{\end{enumerate}
-\newcommand{\bed}{\begin{description}
-\newcommand{\ed}{\end{description}
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bed}{\begin{description}}
+\newcommand{\ed}{\end{description}}
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{notation}[theorem]{Notation}
@@ -120,24 +122,68 @@
 \begin{enumerate}[series=p]
 \itep 1 \\
 $(0, 1)$ is an open subset of $\mbR$ but not of $\mbR^2$, when we think of $\mbR$ as the $x$-axis in $\mbR^2$.  Prove this.
+\\
 
+\textbf{Definition: Openness}\\
+	A set $s \subset M$ is \textbf{open in M} if for every point $p \in S$ there is an $r \in \mbR$, $r>0$, so that for every $q \in M$,
+	if $d(p,q) < r$, then $q < S$
+	\begin{center}
+		OR
+		\\
+		$\forall p \in S \, \exists r > 0 (B_r^M(p) \subseteq S)$
+	\end{center}
+So in $\mbR^1$ the interval $(0,1)$ is open since, going to either end of the interval, it can be shown that regardless of how close to 0 or 1, there exists a point $p \in S$ such that $d(p,q) < r$ for any arbitrarily small $r$.
+\\
+\\
+However, the interval $(0,1)$ in $\mbR^2$ is not open since a point $q$ can be found that is not arbitrarily close to $p \in S$.  The point $q = (\frac{1}{2}, \frac{1}{2})$ satisifies this condition so that $d(p,q) < r \nRightarrow q \in S$
+\\
+OR
+\\
+Is it better to say something like $B_r^\mbR \nsubseteq S$??
 
 \newpage
 
 \itep 2 \\
 For which intervals $[a,b]$ in $\mbR$ is the intersection $[a,b] \cap \mbQ$ a clopen subset of the metric space $\mbQ$?
-
+\\
+\textbf{Definition: Openness}\\
+A set $s \subset M$ is \textbf{open in M} if for every point $p \in S$ there is an $r \in \mbR$, $r>0$, so that for every $q \in M$,
+if $d(p,q) < r$, then $q < S$
+\\
+\textbf{Definition: Closedness}\\
+A closed set contains all of it limits\\
+\\
+$[\sqrt{2}, \sqrt{2}] \cap \mbQ = \emptyset$ which is both closed and open.  So, any interval that does not contain any members of $\mbQ$ could be intersected with $\mbQ$ to form a clopen subset of the metric space $\mbQ$
 \newpage
 
 \itep 3\\
 Prove directly from the definition of closed set that each single point is a closed subset of a metric space.  Why does this imply that a finite set of points is also a closed set?
-
+\\
+\textbf{Definition: Closedness}\\
+A closed set contains all of it limits\\
+\textbf{Definition: Limit}\\
+A point $p \in M$ is a limit of $S$ if there exists a sequence $(p_n)$ in $S$ that converges to it.\\
+\\
+A single point $p \in S$ can only form the sequence $(p, p, p, \dots)$ so its limit is $p$ and therefor it is closed.\\
+\\
+A finite set of points can be said to have a limit at every point in the set, there for it is closed.
 \newpage
 
 
 \itep 5\\
 Prove that a set $U \subset M$ is open if and only if none of its points are limits of its complement
-
+\\\\
+\textbf{Definition: Openness}\\
+A set $s \subset M$ is \textbf{open in M} if for every point $p \in S$ there is an $r \in \mbR$, $r>0$, so that for every $q \in M$,
+if $d(p,q) < r$, then $q < S$
+\\
+\textbf{Definition: Closedness}\\
+A closed set contains all of it limits\\
+\textbf{Theorem}\\
+Openness is dual to closedness:  the complement of an open set is closed and the complement of a closed set is open.\\
+\\
+$\Downarrow$ Assuming a set $U \subset M$ is open, we want to show that none of its points are limits of its complement.  If $U$ is open, then its complement, $U^c$ is closed, and so $U^c$ contains all of its limits, i.e. $U$ does not contain any limits of $U^c$\\
+$\Uparrow$ Assuming none of the points $p \in U \subset M$ are limits of its complement, we want to show that $U \subset M$ is open.  Since no points $p \in U \subset M$ are limits of its complement, $U^c$, then $U^c$ contains all of its limits.  Hence $U$ is closed.
 \newpage
 
 \itep 11\\
@@ -149,47 +195,87 @@ Let $\mc{T}$ be the collection of open subsets of a metric space $M$, and $\mc{K
 Let $M$ be the metric space with the discrete metric, or more generally a homemorph of $M$.
 \benu
 \item Prove that every subset of $M$ is clopen\\
+Every subset $S$ will contain its limits, 0 \& 1, making it closed.  However, it's complement $S^c$, will also be closed since it, too contains it limits 0 \& 1.  Since the complement of the closed set $S^c$ is open, $S$ is therefore clopen. 
 \item Prove that every function defined on $M$ is continuous.\\
+The distance function, $d$, equals 1 for all but a finite number of points, specifically $|S|$.  Therefore, as shown in Problem 30 of Homework 1, $d$ is continuous.
 \item Which sequences converge in $M$?
+All sequences converge to 1.
 \eenu
 
 \newpage
 
 \itep 17 \\
 Assume that $f:M \rightarrow N$ is a function from one metric space to another which satisfies the following condition:  if a sequence $(p_n)$ in $M$ converges then the sequence $(f(p_n))$ in $N$ converges.  Prove that $f$ is continuous.
-
+\\
+\textbf{Definition: Convergence}\\
+The sequence $(a_i(_{i \in \mbN}))$ in $M$ converges to $b in M$ if:\\
+$\forall \epsilon > 0 \, \exists N \in \mbN$ such that $\forall j>N \, d(a_j,b) < \epsilon$
+\\
+\textbf{Definition: Sequence}\\
+A sequence in $M$ is a list of elements of $M$ indexed by $\mbN, (a_i)_{i \in \mbN}$ or $(a_i)$.  A seqence is a function $f : \mbN \to M$, the metric space\\
+\textbf{Definition: Metric Space}\\
+A metric space is a pair $(M, d)$, where $M$ is a set and $d$ is a distance function on pairs of $M$, so that $d : M^2 \to \mbR$ with the following:
+\benu
+\item Positive Definiteness: $d(x, y) > 0$, and $d(x, y) = 0 \implies x = y$
+\item Symmetry: $d(x, y) = d(y, x)$
+\item Triangle Inequality: $d(x, z) \leq d(x,y) + d(y,z)$
+\eenu
+\textbf{Theorem 2}
+A function $f: M \to N$ is continuous if whenever $(a_i)$ is a sequence in $M$ and $(a_i) \to b$ in $M$, then $f((a_i)) \to f(b)$ in $N$\\
+\\
+So $(p_n)$ in $M$ tends to some element $\alpha \in M$, and $f(p_n))$ converges to some element $f(\beta) \in N$.  By Theorem 2 above, $f$ is continuous 
 \newpage
 
 \itep 18\\
 The simplest type of mapping from one metric space to another is an $\textbf{isometry}$.  It is a bijection $f:M \rightarrow N$ that preserves distance in the sense that for all $p,q \in M$,
 $$d_N(fp, fq) = d_M(p,q).$$
 If there exists an isometry from $M$ to $N$ then $M$ and $N$ are said to be isometric, $M \equiv N$.  You might have two copies of a unit equilateral triangle, one centered at the origin and one centered elsewhere.  They are isometric.  Isometric metric spaces are indistinguishable as metric spaces.
+\\
+\textbf{Definition: Homeomorphism}\\
+If $f:M \to N$ is a bijection and $f$ is continuous and the inverse bijection $f^{-1}: N \to M$ is also continous, then $f$ is a homeomorphism ($M \cong N$)
+\\
+\textbf{Definition: Continuity}\\
+A function $f: M \to N$ is continuous if it satisfies the $\epsilon , \delta$ condition: $\forall \epsilon > 0$ and $\forall p \in M \, \exists \delta > 0$ such that:\\
+$$ q \in M \text{ and } d(p,q) < \delta \implies d(fp, fq) < \epsilon$$
+\textbf{Definition: Metric Space}\\
+A metric space is a pair $(M, d)$, where $M$ is a set and $d$ is a distance function on pairs of $M$, so that $d : M^2 \to \mbR$ with the following:
+\\
 \benu
 \item Prove that every isometry is continuous
+The isometric function $f: M \to N$ satisfies the $\epsilon , \delta$ condition since, by definition $d(p, q) = d(fp, fq)$, so $\epsilon = \delta = 0$
 \item Prove that every isometry is a homeomorphism
+By definition, $f$ is bijective.  By 18a above, $f$ is continuous as is$f^{-1}$ since $f(fp, fq) = d(f^{-1}p, f{-1}q) = d(p,q)$.  Hence every isometry is a homeomorphism
 \item Prove that $[0,1]$ is not isometric to $[0,2]$.
+Assume towards a contradiction that $[0,1] \equiv [0,2]$ under the function $f(x) = 2x$.  The $f$ is a bijection that preserves distance in the sense that for all $p,q \in M \, d(p,q) = d(fp, fq)$.  Then $d(\frac{1}{2}, \frac{3}{4}) = \frac{1}{4}$, but $d(1, \frac{3}{2}) = \frac{1}{2}$\hfill\lightning
 \eenu
-
 \newpage
-
 \itep 19\\
 Prove that isometry is an equivalence relation: if $M$ is isometric to $N$, show that $N$ is isometric to $M$; show that any $M$ is isometric to itself (what mapping of $M$ to $N$ is isometry?); if $M$ is isometric to $N$ and $N$ is isometric to $P$, show that $M$ is isometric to $P$.
-
+\benu
+\item $M \equiv M$\\
+$d_M(p,q) = d_M(p,q)$
+\item $M \equiv N \implies N \equiv M$\\
+If $M \equiv N$, then $d_M(p,q) = d_N(fp, fq)$ and $d_N(fp, fq) = d_M(p,q)$, so $N \equiv M$
+\item $M \equiv N \text{ and }  N \equiv M \implies M \equiv P$\\
+Since $M \equiv N$ and $N \equiv P$ there exist functions $f$ and $g$ such that $d_M(p,q) = d_N(fp, fq)$ and $d_N(fp, fq) = d_P(gfp, gfq)$.  So $d_M(p,q) =  d_P(gfp, gfq)$, hence $M \equiv P$
+\eenu
 \newpage
 
 \itep 20\\
 Is the perimeter of a square isometric to the circle?  Homeomorphic?  Explain.
-
+Imagine a square of width 2, so that all points on opposite sides of the square are 2 apart.  Now image stretching/squeezong/hugging/loving/bending that square so that it is now a circle.  The points at the diameter will still be two units apart, however travalling up the side of the circle towards the pole, the points become closed, i.e. $d(p,q) < 2$, hence the perimeter of the square and the circle are not isometric.\\
+\\
+The two are homeomorphic, though.  Continuous in $f$, inverse in both ways, BUT HOW TO PROVE . . .  Any point drawn outward from the from the center of the circle to the square is unique and all points on the square are "hit" so it is bijective, as is its inverse.
 \newpage
 
 \itep 22\\
 Is $\mbR$ homemorphic to $\mbQ$?  Explain.
-
+No.  $\mbQ \subset \mbR$ and $|\mbQ| < |\mbR|$ so there can be no function $f$ that is bijective, since no $f$ can be "onto" and one-to-one.
 \newpage
 
 \itep 23\\
 Is $\mbQ$ homemorphic to $\mbN$?  Explain.
-
+No.  A mapping to $\mbN$ cannot be continuous
 \newpage
 
 \itep 29\\
