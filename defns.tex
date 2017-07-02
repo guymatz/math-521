@@ -376,8 +376,8 @@ Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
 
 \begin{definition}{Convergence}
 	The sequence $(a_i)_{i \in \mbN}$ in $M$ \textbf{ converges } to $b \in M$ if:
-	$$\forall\ep > 0  \text{  } \exists N \in \mbN \text{ such that}$$
-	$$\forall j > N  \text{  } d(a_j,b) < \ep$$
+	$$\forall\ep > 0  \, \exists N \in \mbN \text{ such that}$$
+	$$\forall j > N  \, d(a_j,b) < \ep$$
 \end{definition}
 
 
@@ -390,6 +390,13 @@ Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
 	A function $f:M \to N$ is \textbf{continuous} if whenever $(a_i)$ is a sequence in $M$ and
 $$(a_i) \to b \text{ in } M,$$
 $$f((a_i)) \to f(b) \text{ in } N$$
+\end{definition}
+
+
+\begin{definition}{Continuous}
+	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
+	$\forall \epsilon > 0 \text{ and } \forall p \in M \, \exists \delta > 0 \text{ such that }$:
+	$$q \in M \text{and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
 \end{definition}
 
 
@@ -421,7 +428,7 @@ $$f((a_i)) \to f(b) \text{ in } N$$
 	\begin{center}
 	OR
 	\\
-	$\forall p \in S \text{  } \exists r > 0 (B_r^M(p) \subseteq S)$
+	$\forall p \in S \, \exists r > 0 (B_r^M(p) \subseteq S)$
 	\end{center}
 \end{definition}
 
@@ -463,11 +470,6 @@ $\Sigma (a_n)$ is conditionally convergent if and only if $\Sigma a_n$ is conver
 \end{definition}
 
 
-\begin{definition}{Identity Map}
-	The bijection that takes each $a \in A$ and sends it to itself
-	$$id(a) = a$$
-\end{definition}
-
 
 \begin{definition}{Composite}
 If $f:A \to B$ and $g:B \to C$ then the \textbf{composite} $g \circ f:A \to C$ is the function that sends $a \in A$ to $g(f(a)) \in C$
@@ -500,8 +502,8 @@ Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
 
 \begin{definition}{Convergence}
 	The sequence $(a_i)_{i \in \mbN}$ in $M$ \textbf{ converges } to $b \in M$ if:
-	$$\forall\ep > 0  \text{  } \exists N \in \mbN \text{ such that}$$
-	$$\forall j > N  \text{  } d(a_j,b) < \ep$$
+	$$\forall\ep > 0  \, \exists N \in \mbN \text{ such that}$$
+	$$\forall j > N  \, d(a_j,b) < \ep$$
 \end{definition}
 
 
@@ -510,10 +512,16 @@ Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
 \end{definition}
 
 
-\begin{definition}{Continuity}
+\begin{theorem}{Continuity}
 	A function $f:M \to N$ is \textbf{continuous} if whenever $(a_i)$ is a sequence in $M$ and
 $$(a_i) \to b \text{ in } M,$$
 $$f((a_i)) \to f(b) \text{ in } N$$
+\end{theorem}
+
+\begin{definition}{Continuous}
+	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
+	$\forall \epsilon > 0 \text{ and } \forall p \in M \, \exists \delta > 0 \text{ such that }$:
+	$$q \in M \text{and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
 \end{definition}
 
 
@@ -545,8 +553,13 @@ $$f((a_i)) \to f(b) \text{ in } N$$
 	\begin{center}
 	OR
 	\\
-	$\forall p \in S \text{  } \exists r > 0 (B_r^M(p) \subseteq S)$
+	$\forall p \in S \, \exists r > 0 (B_r^M(p) \subseteq S)$
 	\end{center}
+\end{definition}
+
+\begin{definition}{Isometry}
+	A bijection $f : M \to N$ that preserves distance in the sense that for all $p,q \in M$,
+	$$d_M(p,q) = d_N(fp, fq)$$
 \end{definition}
 
 \end{document}
