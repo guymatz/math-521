@@ -46,10 +46,7 @@
 \newcommand{\mbR}{\mathbb{R}}
 \newcommand{\mbN}{\mathbb{N}}
 \newcommand{\mbQ}{\mathbb{Q}}
-\newcommand{\mbC}{\mathbb{C}}
-\newcommand{\mbF}{\mathbb{F}}
-\newcommand{\mcS}{\mathcal{S}}
-\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mbI}{\mathbb{I}}
 \newcommand{\hra}{\hookrightarrow}
 \newcommand{\tra}{\twoheadrightarrow}
 \newcommand{\lra}{\leftrightarrow}
@@ -153,7 +150,7 @@ if $d(p,q) < r$, then $q < S$
 \textbf{Definition: Closedness}\\
 A closed set contains all of it limits\\
 \\
-$[\sqrt{2}, \sqrt{2}] \cap \mbQ = \emptyset$ which is both closed and open.  So, any interval that does not contain any members of $\mbQ$ could be intersected with $\mbQ$ to form a clopen subset of the metric space $\mbQ$
+Any interval with $a, b \in \mbI$ intersected with $\mbQ$ will be  both closed and open.  DO I NEED TO SAY MORE HERE?
 \newpage
 
 \itep 3\\
@@ -163,10 +160,12 @@ Prove directly from the definition of closed set that each single point is a clo
 A closed set contains all of it limits\\
 \textbf{Definition: Limit}\\
 A point $p \in M$ is a limit of $S$ if there exists a sequence $(p_n)$ in $S$ that converges to it.\\
+\textbf{Corollary: p. 61}\\
+A finite union of closed sets is closed
 \\
-A single point $p \in S$ can only form the sequence $(p, p, p, \dots)$ so its limit is $p$ and therefor it is closed.\\
+A single point $p \in S$ can only form the sequence $(p, p, p, \dots)$ so its limit is $p$ and therefore it is closed.\\
 \\
-A finite set of points can be said to have a limit at every point in the set, there for it is closed.
+By the result above and the corollary stated above, a finite set of points is a closed set
 \newpage
 
 
@@ -188,14 +187,15 @@ $\Uparrow$ Assuming none of the points $p \in U \subset M$ are limits of its com
 
 \itep 11\\
 Let $\mc{T}$ be the collection of open subsets of a metric space $M$, and $\mc{K}$ the collection of closed subsets.  Show that there is a bijection from $\mc{T}$ onto $\mc{K}$
-
+\\\\
+Since each element of $\mc{T}$ has a complement in $\mc{K}$, and vice-versa, we have a surjection.  And the complement is unique so the mapping is one-to-one, hence there is a bijection. 
 \newpage
 
 \itep 12\\
 Let $M$ be the metric space with the discrete metric, or more generally a homemorph of $M$.
 \benu
 \item Prove that every subset of $M$ is clopen\\
-Every subset $S$ will contain its limits, 0 \& 1, making it closed.  However, it's complement $S^c$, will also be closed since it, too contains it limits 0 \& 1.  Since the complement of the closed set $S^c$ is open, $S$ is therefore clopen. 
+Every subset $M$ is open since 
 \item Prove that every function defined on $M$ is continuous.\\
 The distance function, $d$, equals 1 for all but a finite number of points, specifically $|S|$.  Therefore, as shown in Problem 30 of Homework 1, $d$ is continuous.
 \item Which sequences converge in $M$?
@@ -223,7 +223,7 @@ A metric space is a pair $(M, d)$, where $M$ is a set and $d$ is a distance func
 \textbf{Theorem 2}
 A function $f: M \to N$ is continuous if whenever $(a_i)$ is a sequence in $M$ and $(a_i) \to b$ in $M$, then $f((a_i)) \to f(b)$ in $N$\\
 \\
-So $(p_n)$ in $M$ tends to some element $\alpha \in M$, and $f(p_n))$ converges to some element $f(\beta) \in N$.  By Theorem 2 above, $f$ is continuous 
+Let $(p_n) \to \alpha, f((p_n)) \to \beta$.  We want to show that $f(\alpha) = \beta$.  $(p_1, \alpha, p_2, \alpha,p_3, \alpha,p_4, \alpha, \dots) \to \alpha$ and $(f(p_1), f(\alpha), f(p_2), f(\alpha), \dots) \to \beta$.  So by Theorem 2 above, $f$ is continuous.
 \newpage
 
 \itep 18\\
@@ -245,8 +245,9 @@ A metric space is a pair $(M, d)$, where $M$ is a set and $d$ is a distance func
 The isometric function $f: M \to N$ satisfies the $\epsilon , \delta$ condition since, by definition $d(p, q) = d(fp, fq)$, so $\epsilon = \delta = 0$
 \item Prove that every isometry is a homeomorphism
 By definition, $f$ is bijective.  By 18a above, $f$ is continuous as is$f^{-1}$ since $f(fp, fq) = d(f^{-1}p, f{-1}q) = d(p,q)$.  Hence every isometry is a homeomorphism
-\item Prove that $[0,1]$ is not isometric to $[0,2]$.
-Assume towards a contradiction that $[0,1] \equiv [0,2]$ under the function $f(x) = 2x$.  The $f$ is a bijection that preserves distance in the sense that for all $p,q \in M \, d(p,q) = d(fp, fq)$.  Then $d(\frac{1}{2}, \frac{3}{4}) = \frac{1}{4}$, but $d(1, \frac{3}{2}) = \frac{1}{2}$\hfill\lightning
+\item Prove that $[0,1]$ is not isometric to $[0,2]$.\\
+$[0,2]$ has a bigger distance than $[0,1]$\hfill\lightning
+\\Is this enough?
 \eenu
 \newpage
 \itep 19\\
@@ -255,26 +256,26 @@ Prove that isometry is an equivalence relation: if $M$ is isometric to $N$, show
 \item $M \equiv M$\\
 $d_M(p,q) = d_M(p,q)$
 \item $M \equiv N \implies N \equiv M$\\
-If $M \equiv N$, then $d_M(p,q) = d_N(fp, fq)$ and $d_N(fp, fq) = d_M(p,q)$, so $N \equiv M$
+If $M \equiv N$, then $d_M(p,q) = d_N(fp, fq)$ and $d_N(f^{-1}p, f^{-1}q) = d_M(p,q)$, so $N \equiv M$
 \item $M \equiv N \text{ and }  N \equiv M \implies M \equiv P$\\
 Since $M \equiv N$ and $N \equiv P$ there exist functions $f$ and $g$ such that $d_M(p,q) = d_N(fp, fq)$ and $d_N(fp, fq) = d_P(gfp, gfq)$.  So $d_M(p,q) =  d_P(gfp, gfq)$, hence $M \equiv P$
 \eenu
 \newpage
 
 \itep 20\\
-Is the perimeter of a square isometric to the circle?  Homeomorphic?  Explain.
-Imagine a square of width 2, so that all points on opposite sides of the square are 2 apart.  Now image stretching/squeezong/hugging/loving/bending that square so that it is now a circle.  The points at the diameter will still be two units apart, however travalling up the side of the circle towards the pole, the points become closed, i.e. $d(p,q) < 2$, hence the perimeter of the square and the circle are not isometric.\\
+Is the perimeter of a square isometric to the circle?  Homeomorphic?  Explain.\\
+No.  In $\mbR^2$, the corners of the unit square are $sqrt{2}$ from the diagonal corner, while all other points are 1 unit away from their opposite side.\\
 \\
-The two are homeomorphic, though.  Continuous in $f$, inverse in both ways, BUT HOW TO PROVE . . .  Any point drawn outward from the from the center of the circle to the square is unique and all points on the square are "hit" so it is bijective, as is its inverse.
+The two are homeomorphic, though.  I.e, Continuous in $f$ and inverse in both ways.  Any point drawn outward from the from the center of the circle to the square is unique and all points on the square are "hit" so it is bijective, as is its inverse.
 \newpage
 
 \itep 22\\
-Is $\mbR$ homemorphic to $\mbQ$?  Explain.
-No.  $\mbQ \subset \mbR$ and $|\mbQ| < |\mbR|$ so there can be no function $f$ that is bijective, since no $f$ can be "onto" and one-to-one.
+Is $\mbR$ homemorphic to $\mbQ$?  Explain.\\
+No.  $|\mbQ| < |\mbR|$ so there can be no function $f$ that is bijective, since no $f$ can be "onto" and one-to-one.
 \newpage
 
 \itep 23\\
-Is $\mbQ$ homemorphic to $\mbN$?  Explain.
+Is $\mbQ$ homemorphic to $\mbN$?  Explain.\\
 No.  A mapping to $\mbN$ cannot be continuous
 \newpage
 
@@ -283,6 +284,11 @@ No.  A mapping to $\mbN$ cannot be continuous
 \item Prove that every convergent sequence is bounded.  That is, if $(p_n)$ converges in the metric space $M$, prove that there is some neighborhood $M_rq$ containing the set $\{p_n:n\in \mbN\}$
 \item Is the same true for a Cauchy sequence in an incomplete metric space?
 \eenu
+\textbf{Definition: The r-neighborhood of p}:\\
+$M_rq = \{q \in M: d(p,q) < r\}$
+\\
+\textbf{Definition: Incomplete Metric Space}:\\
+A metric space $M$ is called complete (or a Cauchy space) if every Cauchy sequence of points in $M$ has a limit that is also in $M$ or, alternatively, if every Cauchy sequence in $M$ converges in $M$.
 \newpage
 
 
@@ -291,6 +297,10 @@ A sequence $(x_n)$ in $\mbR$ \textbf{increases} if $n< m$ implies $x_n \leq x_m$
 \benu
 \item Prove that every sequence in $\mbR$ which is monotone and bounded converges in $\mbR$
 \item Prove that this monotone sequence condition is equivalent to the least upper bound property
+\\\\
+A \textbf{Intuition}: Monotone + bounded means that it approaches a least upper bound
+\\
+B \textbf{Intuition}: I think I just did
 \eenu
 
 \newpage
@@ -301,7 +311,13 @@ Let $(x_n)$ be a sequence in $\mbR$
 \item Prove that $(x_n)$ has a monotone subsequence
 \item How can you deduce that any bounded sequence in $\mbR$ has a convergent subsequence?
 \eenu
-
-
+\textbf{Definition: Subsequence}\\
+If $(p_n)_{n \in \mbN}$ and $(q_k)_{k \in \mbN}$ ar sequences and if there is a sequence  $1 \leq n_1 < n_2 < n_3 < \dots$ of integers such that for each $k \in \mbN, q_k = q_{n_k}$ then $(q_k)$ is a \textbf{subsequence} of $(p_n)$
+\\
+\\
+A \textbf{Intuition}: Since a subsequence can be chosen arbitrarily, simply choose the elements from the parent sequence that are either increasing or decreasing
+\\
+\\
+B \textbf{Intuition}: Simply choose the elements from the parent sequence to create a monotone subsequence.  By 30a above, a bounded, monotone subsequence converges.
 \end{enumerate}
 \end{document}
