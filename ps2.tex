@@ -107,14 +107,14 @@
 %To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
 \newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
 
-\title{\textbf{Math 521 - Problem Set 1}}
+\title{\textbf{Math 521 - Problem Set 2}}
 \author{Guy Matz}
 \date{\today}
 
 \begin{document} 
 
-%\maketitle
-%\newpage % Q1
+\maketitle
+\newpage % Q1
 
 \begin{enumerate}[series=p]
 \itep 1 \\
@@ -132,11 +132,7 @@ $(0, 1)$ is an open subset of $\mbR$ but not of $\mbR^2$, when we think of $\mbR
 So in $\mbR^1$ the interval $(0,1)$ is open since, going to either end of the interval, it can be shown that regardless of how close to 0 or 1, there exists a point $p \in S$ such that $d(p,q) < r$ for any arbitrarily small $r$.
 \\
 \\
-However, the interval $(0,1)$ in $\mbR^2$ is not open since a point $q$ can be found that is not arbitrarily close to $p \in S$.  The point $q = (\frac{1}{2}, \frac{1}{2})$ satisifies this condition so that $d(p,q) < r \nRightarrow q \in S$
-\\
-OR
-\\
-Is it better to say something like $B_r^\mbR \nsubseteq S$??
+However, the interval $(0,1)$ in $\mbR^2$ is not open since $B_r^{\mbR^2} \nsubseteq S$
 
 \newpage
 
@@ -162,7 +158,7 @@ A closed set contains all of it limits\\
 A point $p \in M$ is a limit of $S$ if there exists a sequence $(p_n)$ in $S$ that converges to it.\\
 \textbf{Corollary: p. 61}\\
 A finite union of closed sets is closed
-\\
+\\\\
 A single point $p \in S$ can only form the sequence $(p, p, p, \dots)$ so its limit is $p$ and therefore it is closed.\\
 \\
 By the result above and the corollary stated above, a finite set of points is a closed set
@@ -264,7 +260,7 @@ Since $M \equiv N$ and $N \equiv P$ there exist functions $f$ and $g$ such that 
 
 \itep 20\\
 Is the perimeter of a square isometric to the circle?  Homeomorphic?  Explain.\\
-No.  In $\mbR^2$, the corners of the unit square are $sqrt{2}$ from the diagonal corner, while all other points are 1 unit away from their opposite side.\\
+No.  In $\mbR^2$, the corners of the unit square are $sqrt{2}$ from the opposite diagonal corner, while all other points are 1 unit away from their opposite side.  In the circle, however, any pair of points on the diameter will always be the same 2 units apart from each other.\\
 \\
 The two are homeomorphic, though.  I.e, Continuous in $f$ and inverse in both ways.  Any point drawn outward from the from the center of the circle to the square is unique and all points on the square are "hit" so it is bijective, as is its inverse.
 \newpage
@@ -276,19 +272,34 @@ No.  $|\mbQ| < |\mbR|$ so there can be no function $f$ that is bijective, since 
 
 \itep 23\\
 Is $\mbQ$ homemorphic to $\mbN$?  Explain.\\
-No.  A mapping to $\mbN$ cannot be continuous
+\textbf{Theorem:} The following are equivalent for continuity of $fM \to N$
+\benu
+\item The $\epsilon, \delta$ condition
+\item The \textbf{closed set condition}: The pre-image of each closed set in $N$ is closed in $M$
+\item The \textbf{open set condition}: The pre-image of each open set in $N$ is open in $M$
+\eenu
+\leavevmode \\
+No.  By 3 above, all subsets of $\mbN$ are closed.  However, this is not true for $\mbQ$, so there is no bijection.  Hence, by the theorem above, there is no homeomorphism.
 \newpage
 
-\itep 29\\
+\itep 29 - With assistance from Liu Yi Guo\\
 \benu
-\item Prove that every convergent sequence is bounded.  That is, if $(p_n)$ converges in the metric space $M$, prove that there is some neighborhood $M_rq$ containing the set $\{p_n:n\in \mbN\}$
-\item Is the same true for a Cauchy sequence in an incomplete metric space?
-\eenu
-\textbf{Definition: The r-neighborhood of p}:\\
-$M_rq = \{q \in M: d(p,q) < r\}$
+\item Prove that every convergent sequence is bounded.  That is, if $(p_n)$ converges in the metric space $M$, prove that there is some neighborhood $M_rq$ containing the set $\{p_n:n\in \mbN\}$\\
 \\
-\textbf{Definition: Incomplete Metric Space}:\\
-A metric space $M$ is called complete (or a Cauchy space) if every Cauchy sequence of points in $M$ has a limit that is also in $M$ or, alternatively, if every Cauchy sequence in $M$ converges in $M$.
+Since $(p_n)$ converges in $M$, we know that
+$\forall \epsilon > 0 \, \exists n>N \text{ s.t. } d(p_n,p) < \epsilon$.  Let $q = p_{N+1}, \\
+r = \text{max} \{d(p_1, p_{N+1}), d(p_2, p_{N+2}), \dots,d(p_N, p_{N+1}\} +1$.
+\\
+For $n > N, d(p_n, p) < \epsilon$ we have that
+$d(p_{N+1}, p_n) \leq d(p_{N+1}, p) + d(p_n, p) = 2\epsilon$ for $n > N$, so that $(p_{N+1}, p_i) < r$ for all $i$
+Hence there exists some neighborhood $M_rq$ containing the set $\{p_n: n \in N\}$\\
+
+\item Is the same true for a Cauchy sequence in an incomplete metric space?
+\\
+Suppose $(p_i)$ is a Cauchy sequence, then
+$\forall \epsilon > 0 \, \exists n \in N \forall i > n \forall j > n \, d(p_i, p_j) < \epsilon$.
+Then $d(p_{n+1}, p_i) < \epsilon$ for all $j > n$.  Let $r = \text{max} \{d(p_1, p_{N+1}), d(p_2, p_{N+2}), \dots, d(p_N, p_{N+1}\} +1$, then $d(p_{n+1}, p_j) < r$ for all $j > n$.  Let $q = p_{n+1}$.  $M_rq$ is a neighborhood containing the set $\{p_n, n \in N$
+\eenu
 \newpage
 
 
@@ -296,11 +307,11 @@ A metric space $M$ is called complete (or a Cauchy space) if every Cauchy sequen
 A sequence $(x_n)$ in $\mbR$ \textbf{increases} if $n< m$ implies $x_n \leq x_m$.  It \textbf{strictly increases} if $n < m$ implies $x_n < x_m$.  It \textbf{decreases} or \textbf{strict decreases} if $n < m$ always implies $x_n \geq x_m$ or always implies $x_n > x_m$.  A sequence is \textbf{monotone} if it increases or it decreases.
 \benu
 \item Prove that every sequence in $\mbR$ which is monotone and bounded converges in $\mbR$
-\item Prove that this monotone sequence condition is equivalent to the least upper bound property
-\\\\
-A \textbf{Intuition}: Monotone + bounded means that it approaches a least upper bound
 \\
-B \textbf{Intuition}: I think I just did
+If $b = $ l.u.b $A$, then given $\epsilon > 0 \, \exists a \in A$ st.t $b - \epsilon \leq b$, or $|a -b | < \epsilon$.  So $a = x_n$ for any specific $n$, but for all $m > , x_n \leq x_m \leq b$, so the sequence is bounded has a l.u.b. and therefore converges.
+\item Prove that this monotone sequence condition is equivalent to the least upper bound property
+\\
+Given a bounded set, we know that every monotone increasing sequence has a limit.  We want to show that the bounded sequence has a l.u.b.
 \eenu
 
 \newpage
@@ -308,16 +319,20 @@ B \textbf{Intuition}: I think I just did
 \itep 31\\
 Let $(x_n)$ be a sequence in $\mbR$
 \benu
-\item Prove that $(x_n)$ has a monotone subsequence
+\item Prove that $(x_n)$ has a monotone subsequence\\
+Case 1: $(x_n)$ is unbounded\\
+This sequence approaches either $-\infty or \infty$, so we can choose elements so that either:
+\begin{center}
+	$a_1 < a_2 < a_3 < \dots$
+	\\
+	or
+	\\
+	$a_1 > a_2 > a_3 > \dots$
+\end{center}
+Case 2: $(x_n)$ is bounded:\\
+First we look for the l.u.b. of $\{a_n: a_n \geq 0\} = b_0$.  If $b_0 \neq a_n$ for any $n \geq 0$, then we construct an increasing sequence by taking $a_n < b$.  If, however, $b_0 = a_{n_0}$ then we have found our first element of the subsequence and we continue on.  Next we look for l.u.b $\{a_n: n>n_0\} = b_1$.  Either $b_1 \neq a_n$, and we do an increasing $b_0 \geq b_1$, or $b_1 = a_{n_1}$ and we repeat.
 \item How can you deduce that any bounded sequence in $\mbR$ has a convergent subsequence?
 \eenu
-\textbf{Definition: Subsequence}\\
-If $(p_n)_{n \in \mbN}$ and $(q_k)_{k \in \mbN}$ ar sequences and if there is a sequence  $1 \leq n_1 < n_2 < n_3 < \dots$ of integers such that for each $k \in \mbN, q_k = q_{n_k}$ then $(q_k)$ is a \textbf{subsequence} of $(p_n)$
-\\
-\\
-A \textbf{Intuition}: Since a subsequence can be chosen arbitrarily, simply choose the elements from the parent sequence that are either increasing or decreasing
-\\
-\\
-B \textbf{Intuition}: Simply choose the elements from the parent sequence to create a monotone subsequence.  By 30a above, a bounded, monotone subsequence converges.
+
 \end{enumerate}
 \end{document}
