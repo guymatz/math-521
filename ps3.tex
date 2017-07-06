@@ -1,0 +1,209 @@
+\documentclass[12pt]{amsart}
+\setlength{\parskip}{.1in}
+\setlength{\parindent}{0cm}
+%myalterations
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue,pdfborder={0 0 .5}pdfnewwindow=true]{hyperref}
+\usepackage{enumitem}
+%\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{tabularx}
+%\usepackage{arydshln,leftidx,mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{wasysym}
+
+
+%\setlength{\dashlinedash}{.4pt}
+%\setlength{\dashlinegap}{.8pt}
+%\usepackage{amsthm}
+\usepackage{verbatim}
+%\usepackage{commath}
+%My commands
+%environment abbreviations
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bed}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{exercise}[theorem]{Exercise}
+\newcommand{\bex}{\begin{exercise}}
+\newcommand{\ex}{\end{exercise}}
+
+\newcommand{\pru}{{ \bfseries \textcolor{red}{Proof:} }}
+
+%symbol definitions
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\mbZ}{\mathbb{Z}}
+\newcommand{\mbR}{\mathbb{R}}
+\newcommand{\mbN}{\mathbb{N}}
+\newcommand{\mbQ}{\mathbb{Q}}
+\newcommand{\mbI}{\mathbb{I}}
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\tra}{\twoheadrightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\ep}{\epsilon}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\bfs}[1]{{\bfseries #1}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+%Operator definitions
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\triv}{triv}
+\DeclareMathOperator{\cyc}{cyc}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\expo}{x}
+\DeclareMathOperator{\ord}{o}
+\DeclareMathOperator{\imm}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\alt}{alt}
+\DeclareMathOperator{\irr}{irr}
+\DeclareMathOperator{\eqt}{Equiv}
+\DeclareMathOperator{\pat}{Part}
+%\DeclareMathOperator{\sgn}{sgn}
+%\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gl}{Gl}
+\DeclareMathOperator{\M}{M}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\fixx}{Fix}
+\DeclareMathOperator{\suppp}{Supp}
+\DeclareMathOperator{\gl}{Gl}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\ii}{I}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Co}{Co}
+\DeclareMathOperator{\md}{md}
+\DeclareMathOperator{\qt}{qt}
+\DeclareMathOperator{\ExtendedGCD}{ExtendedGCD}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\GCD}{GCD}
+\newcommand{\nms}{\negmedspace}
+\newcommand{\nts}{\negthinspace}
+
+\newcommand{\itep}{\item {\bfseries Problem}\ }
+\newcommand{\gen}[1]{\langle \nts#1 \nts\rangle}
+\newcommand{\quot}[2]{#1/ #2}
+\newcommand{\order}[1]{\left|<\nts #1 \nts s>\right|}
+
+%These next two commands are for making answers. 
+\newcommand{\beans}{\begin{description} \item[{ \bfseries \textcolor{red}{Answer}}]\ }
+\newcommand{\eans }{\end{description}}
+%\newcommand{\begin{comment}ex}{{ \bfseries \textcolor{red}{Answer}}}
+
+%To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
+\newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
+
+\title{\textbf{Math 521 - Problem Set 2}}
+\author{Guy Matz}
+\date{\today}
+
+\begin{document} 
+
+%\maketitle
+%\newpage % Q1
+
+\begin{enumerate}[series=p]
+\itep 34 \\
+A map $f:M \to N$ is \textbf{open} if for each open set $U \subset M$ , the image set $f(U)$ is open in $N$.
+\\
+\benu
+\item If $f$ is open, is it continuous?
+\item If $f$ is a homeomorphism, is it open?
+\item If $f$ is an open, continuous bijection, is it a homeomorphism?
+\item If $f : \mbR \to \mbR$ is a continuous surjection, must it be open? 
+\item If $f : \mbR \to \mbR$ is a continuous surjection, must it be a homeomorphism? 
+\eenu
+\textbf{Definition: Openness}\\
+	A set $s \subset M$ is \textbf{open in M} if for every point $p \in S$ there is an $r \in \mbR$, $r>0$, so that for every $q \in M$,
+	if $d(p,q) < r$, then $q < S$
+	\begin{center}
+		OR
+		\\
+		$\forall p \in S \, \exists r > 0 (B_r^M(p) \subseteq S)$
+	\end{center}
+\textbf{Definition - Continuous I}
+	A function $f:M \to N$ is \textbf{continuous} if whenever $(a_i)$ is a sequence in $M$ and
+	$$(a_i) \to b \text{ in } M,$$
+	$$f((a_i)) \to f(b) \text{ in } N$$
+
+
+\textbf{Definition - Continuous II }
+	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
+	$\forall \epsilon > 0 \text{ and } \forall p \in M \, \exists \delta > 0 \text{ such that }$:
+	$$q \in M \text{and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
+
+\textbf{Definition - Continuous III }
+	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
+	$\forall \epsilon > 0 \text{ and } \forall p \in M \, \exists \delta > 0 \text{ such that }$:
+	$$q \in M \text{and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
+
+
+\textbf{Definition - Continuous IV - Continu-ish}
+	A function $f:M \to N$ is \textbf{continu-ish} if
+	$\forall x \in M \forall \epsilon > 0 \exists \delta > 0 \forall y \in M$,\\
+	$$d_M(x,y) < \delta \implies d_N(f(x), f(y)) < \epsilon$$
+
+\textbf{Definition - Homeomorphism}
+	If $f: M \to N$ is a bijection and $f$ is continuous and the inverse bijection $f^{-1}:N \to M$ is also continuous then $f$ is a \textbf{homeomorphism}
+	($M \cong N$)
+\newpage
+
+\itep  14\\
+The \textbf{distance} from a point $p$ in a metric space $M$ to a non-empty subset $S \subset M$ is defined to be dist$(p, S)$ = inf$\{d(p,s) : s \in S\}$
+\\
+\benu
+\item Show that $p$ is a limit of $S$ if and only if dist$(p, S) = 0$
+\item Show that $p \mapsto \text{dist}(p, S)$ is a uniformly continuous function of $p \in M$
+\eenu
+\textbf{Definition: inf - Infimum}\\
+If $S$ is a non-empty subset of $\mbR$ then its Infimum is its greatest lower bound when $S$ is bounded below and is said to be $-\infty$ otherwise\\
+\textbf{Definition: Metric Space}\\
+A \textbf{metric space} is a pair $(M, d)$, where $M$ is a set and $d$ is a distance function on pairs of $M$, so that:
+$$d: M^2 \to \mbR$$
+\benu
+\item Positive Definiteness: $d(x,y) \geq 0$ and $d(x,y) = 0$ iff $x = y$
+\item Symmetry: $d(x,y) = d(y,x)$
+\item Triangle Inequality: $d(x,z) \leq d(x,y) + d(y,z)$
+\eenu
+\textbf{Definition: Limit Point}\\
+	For $S \subseteq M, p \in M, p$ is a \textbf{Limit point} of $S$ if there is a sequence $(a_i)$ so that $(a_i) \to p$ and $(a_i) \in S$
+$$lim^M(S) = \{q \in M|q \text{ is a limit of }S\}$$
+
+\newpage
+
+\itep 25\\
+Assume that $N$ is an open metric subspace of $M$ and that $U \subset N$
+\benu
+\item Prove that $U$ is open in $N$ if and only if it is open in $M$
+\item Conversely, prove that if openness of $S \subset N$ is equivalent to openness in $M$ then $N$ is open in $M$
+\item Do the same for closedness
+\item Deduce that a clopen metric subspace $MN$ is the only example in which the concepts of openness and closedness in the subspace agree exactly with the concepts of the big space
+\eenu
+\textbf{Definition: Closedness}\\
+A closed set contains all of it limits\\
+\textbf{Definition: Limit}\\
+A point $p \in M$ is a limit of $S$ if there exists a sequence $(p_n)$ in $S$ that converges to it.\\
+\textbf{Corollary: p. 61}\\
+A finite union of closed sets is closed
+\\\\
+A single point $p \in S$ can only form the sequence $(p, p, p, \dots)$ so its limit is $p$ and therefore it is closed.\\
+\\
+By the result above and the corollary stated above, a finite set of points is a closed set
+
+
+\end{enumerate}
+\end{document}
