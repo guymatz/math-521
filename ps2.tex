@@ -146,7 +146,7 @@ if $d(p,q) < r$, then $q < S$
 \textbf{Definition: Closedness}\\
 A closed set contains all of it limits\\
 \\
-Any interval with $a, b \in \mbI$ intersected with $\mbQ$ will be  both closed and open.  DO I NEED TO SAY MORE HERE?
+Any interval with $a, b \in \mbI$ intersected with $\mbQ$ will be  both closed and open.
 \newpage
 
 \itep 3\\
@@ -191,11 +191,28 @@ Since each element of $\mc{T}$ has a complement in $\mc{K}$, and vice-versa, we 
 Let $M$ be the metric space with the discrete metric, or more generally a homemorph of $M$.
 \benu
 \item Prove that every subset of $M$ is clopen\\
-Every subset $M$ is open since 
+Every subset $M$ is open since since for $S \subseteq M, p \in S$, such that
+\[
+B^M_r(p) = 
+\begin{cases}
+	M \quad r > 1\\    
+	\{p\} \quad  0 \leq r \leq 1
+\end{cases}
+\]
+So, $B_r^M(p) = \{q \in M : d(p,q) < r\}$, hence every subset is open.  
+Since every subset is open, and the complement of every open subset is closed, every subset is clopen.
 \item Prove that every function defined on $M$ is continuous.\\
-The distance function, $d$, equals 1 for all but a finite number of points, specifically $|S|$.  Therefore, as shown in Problem 30 of Homework 1, $d$ is continuous.
-\item Which sequences converge in $M$?
-All sequences converge to 1.
+
+\textbf{Theorem:} The following are equivalent for continuity of $f:M \to N$
+\benu
+\item The $\epsilon, \delta$ condition
+\item The \textbf{closed set condition}: The pre-image of each closed set in $N$ is closed in $M$
+\item The \textbf{open set condition}: The pre-image of each open set in $N$ is open in $M$
+\eenu
+So by a above, every function defined on $M$ is continuous
+
+\item Which sequences converge in $M$?\\
+All sequences converge.
 \eenu
 
 \newpage
@@ -204,7 +221,7 @@ All sequences converge to 1.
 Assume that $f:M \rightarrow N$ is a function from one metric space to another which satisfies the following condition:  if a sequence $(p_n)$ in $M$ converges then the sequence $(f(p_n))$ in $N$ converges.  Prove that $f$ is continuous.
 \\
 \textbf{Definition: Convergence}\\
-The sequence $(a_i(_{i \in \mbN}))$ in $M$ converges to $b in M$ if:\\
+The sequence $(a_i)_{i \in \mbN}$ in $M$ converges to $b \in M$ if:\\
 $\forall \epsilon > 0 \, \exists N \in \mbN$ such that $\forall j>N \, d(a_j,b) < \epsilon$
 \\
 \textbf{Definition: Sequence}\\
@@ -219,7 +236,8 @@ A metric space is a pair $(M, d)$, where $M$ is a set and $d$ is a distance func
 \textbf{Theorem 2}
 A function $f: M \to N$ is continuous if whenever $(a_i)$ is a sequence in $M$ and $(a_i) \to b$ in $M$, then $f((a_i)) \to f(b)$ in $N$\\
 \\
-Let $(p_n) \to \alpha, f((p_n)) \to \beta$.  We want to show that $f(\alpha) = \beta$.  $(p_1, \alpha, p_2, \alpha,p_3, \alpha,p_4, \alpha, \dots) \to \alpha$ and $(f(p_1), f(\alpha), f(p_2), f(\alpha), \dots) \to \beta$.  So by Theorem 2 above, $f$ is continuous.
+Let $(p_n) \to \alpha, f((p_n)) \to \beta$.  We want to show that $f(\alpha) = \beta$.  $(p_1, \alpha, p_2, \alpha,p_3, \alpha,p_4, \alpha, \dots) \to \alpha$ and $(f(p_1), f(\alpha), f(p_2), f(\alpha), \dots) \to \beta$.  Since the function converges, $f(\alpha)=\beta$, so by Theorem 2 above, $f$ is continuous.
+
 \newpage
 
 \itep 18\\
@@ -237,13 +255,12 @@ $$ q \in M \text{ and } d(p,q) < \delta \implies d(fp, fq) < \epsilon$$
 A metric space is a pair $(M, d)$, where $M$ is a set and $d$ is a distance function on pairs of $M$, so that $d : M^2 \to \mbR$ with the following:
 \\
 \benu
-\item Prove that every isometry is continuous
+\item Prove that every isometry is continuous\\
 The isometric function $f: M \to N$ satisfies the $\epsilon , \delta$ condition since, by definition $d(p, q) = d(fp, fq)$, so $\epsilon = \delta = 0$
-\item Prove that every isometry is a homeomorphism
+\item Prove that every isometry is a homeomorphism\\
 By definition, $f$ is bijective.  By 18a above, $f$ is continuous as is$f^{-1}$ since $f(fp, fq) = d(f^{-1}p, f{-1}q) = d(p,q)$.  Hence every isometry is a homeomorphism
 \item Prove that $[0,1]$ is not isometric to $[0,2]$.\\
 $[0,2]$ has a bigger distance than $[0,1]$\hfill\lightning
-\\Is this enough?
 \eenu
 \newpage
 \itep 19\\
@@ -260,7 +277,7 @@ Since $M \equiv N$ and $N \equiv P$ there exist functions $f$ and $g$ such that 
 
 \itep 20\\
 Is the perimeter of a square isometric to the circle?  Homeomorphic?  Explain.\\
-No.  In $\mbR^2$, the corners of the unit square are $sqrt{2}$ from the opposite diagonal corner, while all other points are 1 unit away from their opposite side.  In the circle, however, any pair of points on the diameter will always be the same 2 units apart from each other.\\
+No.  In $\mbR^2$, the corners of the unit square are $\sqrt{2}$ from the opposite diagonal corner, while all other points are 1 unit away from the closest point of their opposite side.  In the circle, however, any pair of points on the diameter will always be the same 2 units apart from each other.\\
 \\
 The two are homeomorphic, though.  I.e, Continuous in $f$ and inverse in both ways.  Any point drawn outward from the from the center of the circle to the square is unique and all points on the square are "hit" so it is bijective, as is its inverse.
 \newpage
@@ -308,10 +325,11 @@ A sequence $(x_n)$ in $\mbR$ \textbf{increases} if $n< m$ implies $x_n \leq x_m$
 \benu
 \item Prove that every sequence in $\mbR$ which is monotone and bounded converges in $\mbR$
 \\
-If $b = $ l.u.b $A$, then given $\epsilon > 0 \, \exists a \in A$ st.t $b - \epsilon \leq b$, or $|a -b | < \epsilon$.  So $a = x_n$ for any specific $n$, but for all $m > , x_n \leq x_m \leq b$, so the sequence is bounded has a l.u.b. and therefore converges.
+If $b = $ l.u.b $A$, then given $\epsilon > 0 \, \exists a \in A$ st.t $b - \epsilon \leq b$, or $|a -b | < \epsilon$.  So $a = x_n$ for any specific $n$, but for all $m > n, x_n \leq x_m \leq b$, so the sequence is bounded has a l.u.b. and therefore converges.
 \item Prove that this monotone sequence condition is equivalent to the least upper bound property
 \\
-Given a bounded set, we know that every monotone increasing sequence has a limit.  We want to show that the bounded sequence has a l.u.b.
+Given a set $A$ that is bounded, we can take $b_0$ that is bounded from above.  If this is not the l.u.b then take $b_1<b_0$ such that it is also an upper bound but it has an element of $A$ at distance at least 1.  If $b_1$ is not the l.u.b, we take $b_2<b_1$ as an upper bound that has an element of $A$ at least at distance 1/2.  We continue in this manner.  If we never find $b_n$ that is a l.u.b then we will have a monotone decreasing sequence whose limit is the l.u.b.
+\\
 \eenu
 
 \newpage
@@ -332,6 +350,8 @@ This sequence approaches either $-\infty or \infty$, so we can choose elements s
 Case 2: $(x_n)$ is bounded:\\
 First we look for the l.u.b. of $\{a_n: a_n \geq 0\} = b_0$.  If $b_0 \neq a_n$ for any $n \geq 0$, then we construct an increasing sequence by taking $a_n < b$.  If, however, $b_0 = a_{n_0}$ then we have found our first element of the subsequence and we continue on.  Next we look for l.u.b $\{a_n: n>n_0\} = b_1$.  Either $b_1 \neq a_n$, and we do an increasing $b_0 \geq b_1$, or $b_1 = a_{n_1}$ and we repeat.
 \item How can you deduce that any bounded sequence in $\mbR$ has a convergent subsequence?
+\\\\
+if we have a bounded sequence then, by a, we can find a bounded monotone subsequence.  Therefore, by 30, it has a limit.
 \eenu
 
 \end{enumerate}
