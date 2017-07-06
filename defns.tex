@@ -15,6 +15,7 @@
 \newcommand{\mbN}{\mathbb{N}}
 \newcommand{\mbQ}{\mathbb{Q}}
 \newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\hra}{\hookrightarrow}
 \newcommand{\tra}{\twoheadrightarrow}
 \newcommand{\lra}{\leftrightarrow}
@@ -386,17 +387,30 @@ Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
 \end{definition}
 
 
-\begin{definition}{Continuity}
+\begin{definition}{Continuous I}
 	A function $f:M \to N$ is \textbf{continuous} if whenever $(a_i)$ is a sequence in $M$ and
 $$(a_i) \to b \text{ in } M,$$
 $$f((a_i)) \to f(b) \text{ in } N$$
 \end{definition}
 
 
-\begin{definition}{Continuous}
+\begin{definition}{Continuous II }
 	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
 	$\forall \epsilon > 0 \text{ and } \forall p \in M \, \exists \delta > 0 \text{ such that }$:
 	$$q \in M \text{and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
+\end{definition}
+
+\begin{definition}{Continuous III }
+	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
+	$\forall \epsilon > 0 \text{ and } \forall p \in M \, \exists \delta > 0 \text{ such that }$:
+	$$q \in M \text{and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
+\end{definition}
+
+
+\begin{definition}{Continuous IV - Continu-ish}
+	A function $f:M \to N$ is \textbf{continu-ish} if
+	$\forall x \in M \forall \epsilon > 0 \exists \delta > 0 \forall y \in M$,\\
+	$$d_M(x,y) < \delta \implies d_N(f(x), f(y)) < \epsilon$$
 \end{definition}
 
 
@@ -412,19 +426,21 @@ $$f((a_i)) \to f(b) \text{ in } N$$
 \end{definition}
 
 \begin{definition}{Closedness}
-	$S \subseteq M$ is \textbf{closed} in $M$ if it contains all of its limit points in $M$.
 	\begin{center}
-	OR \\
+	$S \subseteq M$ is \textbf{closed} in $M$ if it contains all of its limit points in $M$.
+	\\ OR \\
 	$S \subseteq M$ is \textbf{closed} in $M$ if $lim^M(S) \subseteq S$
 	\\ OR \\
 	$S \subseteq M$ is \textbf{closed} in $M$ if $lim^M(S) = S$
+	\\ OR \\
+	$V \subseteq M$ is \textbf{closed} in $M$ if $lim(V) \subseteq V$, where $x \in lim(V)$ if there is a seq($a_i$) in $V$ so $(a_i) \to x$ 
 	\end{center}
 \end{definition}
 
 
 \begin{definition}{Openness}
-	A set $s \subset M$ is \textbf{open in M} if for every point $p \in S$ there is an $r \in \mbR$, $r>0$, so that for every $q \in M$,
-	if $d(p,q) < r$, then $q < S$
+	A set $U \subseteq M$ is \textbf{open in M} if for every point $p \in U$ there is an $r \in \mbR$, $r>0$, so that for every $q \in M$,
+	if $d(p,q) < r$, then $q < U$
 	\begin{center}
 	OR
 	\\
@@ -432,6 +448,29 @@ $$f((a_i)) \to f(b) \text{ in } N$$
 	\end{center}
 \end{definition}
 
+\begin{definition}{Topology}
+The \textbf{topology} of $M$ is the collection $\mc{T}$ of all open subsets of $M$.
+\end{definition}
+
+\begin{theorem}{Complements of Closed Sets}
+If $V$ is closed in $M$, then $M \ V$ is open in $V$ ????
+\end{theorem}
+
+\begin{theorem}{$\mathbf{\mc{T}}$ satisfies three properties}
+\benu
+\item The \textbf{union} of open sets is open
+\item The \textbf{intersection} of finitely many members of $\mc{T}$ is a member of $\mc{T}$ 
+\item $\emptyset$ and $M \subseteq \mc{T}$
+\eenu
+\end{theorem}
+
+\begin{theorem}{Corollary to $\mathbf{\mc{T}}$ satisfies three properties}
+\benu
+\item The intersection of any number of closed sets is a closed set
+\item The finite union of closed sets is a closed set
+\item $\emptyset$ and $M$ are closed sets
+\eenu
+\end{theorem}
 
 \section*{Series}
 \begin{axiom}{Absolutely Convergent}
@@ -451,7 +490,7 @@ $\Sigma (a_n)$ is conditionally convergent if and only if $\Sigma a_n$ is conver
 \section*{Sequences}
 
 \newpage
-\section*{Homework 2}
+\section*{Homework 3}
 
 
 \begin{definition}{Injection / one-to-one}
@@ -507,16 +546,16 @@ Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
 \end{definition}
 
 
-\begin{theorem}{Continuity}
+\begin{theorem}{Continuous I}
 	A function $f:M \to N$ is \textbf{continuous} if whenever $(a_i)$ is a sequence in $M$ and
 $$(a_i) \to b \text{ in } M,$$
 $$f((a_i)) \to f(b) \text{ in } N$$
 \end{theorem}
 
-\begin{definition}{Continuous}
+\begin{definition}{Continuous II}
 	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
 	$\forall \epsilon > 0 \text{ and } \forall p \in M \, \exists \delta > 0 \text{ such that }$:
-	$$q \in M \text{and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
+	$$q \in M \text{ and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
 \end{definition}
 
 
@@ -550,11 +589,6 @@ $$f((a_i)) \to f(b) \text{ in } N$$
 	\\
 	$\forall p \in S \, \exists r > 0 (B_r^M(p) \subseteq S)$
 	\end{center}
-\end{definition}
-
-\begin{definition}{Isometry}
-	A bijection $f : M \to N$ that preserves distance in the sense that for all $p,q \in M$,
-	$$d_M(p,q) = d_N(fp, fq)$$
 \end{definition}
 
 \end{document}
