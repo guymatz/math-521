@@ -356,6 +356,7 @@ If $x,y,z \in S$, if $x < y$ and $y < z$, then $x < z$
 \end{enumerate}
 \end{definition}
 
+\newpage
 
 \section*{A Taste of Topology}
 
@@ -376,11 +377,21 @@ Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
 
 
 \begin{definition}{Convergence}
+	The sequence $(p_n)_{n \in \mbN}$ \textbf{converges to the limit} $p$ in $M$ if:
+	$$\forall \ep > 0  \, \exists N \in \mbN \text{ such that}$$
+	$$n \in \mbN \text{ and } n \geq N \implies d(p_n,p) < \ep$$
+\end{definition}
+
+
+\begin{definition}{Convergence}
 	The sequence $(a_i)_{i \in \mbN}$ in $M$ \textbf{ converges } to $b \in M$ if:
 	$$\forall\ep > 0  \, \exists N \in \mbN \text{ such that}$$
 	$$\forall j > N  \, d(a_j,b) < \ep$$
 \end{definition}
 
+\begin{theorem}{}
+	Every subsequence of a convergent sequence converges and it converges to the same limit as does the mother sequence
+\end{theorem}
 
 \begin{definition}{Subsequence}
 	If $(p_n)_{n \in \mbN}$ and $(q_n)_{n \in \mbN}$ are sequences and if there is a sequence $1 \leq n_1 < n_2 < n_3 < \dots$ of integers such that for each $k \in \mbN, q _k = p_{n_k}$ then $(q_k)$ is a \textbf{subsequence} of $(p_n)$
@@ -393,6 +404,13 @@ $$(a_i) \to b \text{ in } M,$$
 $$f((a_i)) \to f(b) \text{ in } N$$
 \end{definition}
 
+\begin{theorem}{}
+	$f : M \to N$ is continuous iff it sends each convergent sequence in $M$ to a convergent sequence in $N$, limits being sent to limits.
+\end{theorem}
+
+\begin{theorem}{}
+	The composite of continuous functions is continuous
+\end{theorem}
 
 \begin{definition}{Continuous II }
 	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
@@ -434,6 +452,9 @@ $$f((a_i)) \to f(b) \text{ in } N$$
 	$S \subseteq M$ is \textbf{closed} in $M$ if $lim^M(S) = S$
 	\\ OR \\
 	$V \subseteq M$ is \textbf{closed} in $M$ if $lim(V) \subseteq V$, where $x \in lim(V)$ if there is a seq($a_i$) in $V$ so $(a_i) \to x$ 
+    \\ OR \\
+    If $(a_i) \to b$ where each $a_i \in f^{\text{pre}}(K)$, then $b \in f^{\text{pre}}(K)$
+    
 	\end{center}
 \end{definition}
 
@@ -452,13 +473,13 @@ $$f((a_i)) \to f(b) \text{ in } N$$
 The \textbf{topology} of $M$ is the collection $\mc{T}$ of all open subsets of $M$.
 \end{definition}
 
-\begin{theorem}{Complements of Closed Sets}
-If $V$ is closed in $M$, then $M \ V$ is open in $V$ ????
+\begin{theorem}{Complements of Closed Sets are Open}
+If $V$ is closed in $M$, then $M \setminus V$ is open in $M$
 \end{theorem}
 
 \begin{theorem}{$\mathbf{\mc{T}}$ satisfies three properties}
 \benu
-\item The \textbf{union} of open sets is open
+\item Every \textbf{union} of open sets is an open set
 \item The \textbf{intersection} of finitely many members of $\mc{T}$ is a member of $\mc{T}$ 
 \item $\emptyset$ and $M \subseteq \mc{T}$
 \eenu
@@ -472,6 +493,97 @@ If $V$ is closed in $M$, then $M \ V$ is open in $V$ ????
 \eenu
 \end{theorem}
 
+\begin{theorem}{Intersectin/Union of Closed Sets}
+	Any intersection of closed sets is closed and and union of finitely many closed sets is closed
+\end{theorem}
+
+\begin{definition}{$f^{\text{pre}}$}
+	For $f : M \to N, Y \subseteq N$,
+	$$f^{\text{pre}}(Y) = \{x \in M | f(x) \in Y\}$$
+\end{definition}
+
+\begin{theorem}{Continuous == Open/Closed}
+	The following are equivalent:
+	\benu
+	\item $f$ is continuous
+	\item $f$ is continu-ish
+	\item For every closed set $K \subseteq M$, $f^{\text{pre}}(K)$ is closed in $M$
+	\item For every open set $U \subseteq N$, $f^{\text{pre}}(U)$ is open in $M$
+	\eenu
+\end{theorem}
+
+\begin{theorem}{Cor. of Continuiuty/Open/Closed Equivalances}
+	If $f : M \to N$ is a homemoorphism, then for every $X \subseteq M$
+	$$X \text{ is open in } M \Longleftrightarrow \{f(p) | p \in X\} \text{ is open in }N$$
+\end{theorem}
+\begin{definition}{r-neighborhood of p}
+  The \textbf{r-neighborhood} of p - notated $M_rp = \{q \in M : d(p,q) < r \}$
+\end{definition}
+
+\begin{definition}{limit set of S}
+  The \textbf{limit set} of S - notated $\text{lim } S = \{p \in M : p \text{ is a limit of } S \}$
+\end{definition}
+
+\begin{theorem}{lim $S$ is a closed set}
+\end{theorem}
+
+\begin{theorem}{$M_rp$ is an open set}
+\end{theorem}
+
+\begin{theorem}{lim(S) is the smallest closed set containing S}
+	If $S \subseteq X$ is closed, then $\text{lim}(S) \subseteq X$
+\end{theorem}
+
+\begin{theorem}{The intersection of all closed sets equals lim(S)}
+	${\bigcap}_{X \text{ closed }, S \leq X} = \text{lim}(S)$
+\end{theorem}
+
+\begin{definition}{$\bar{S}$}
+	lim(S) = cl(S) = $\bar{S}$
+\end{definition}
+
+\begin{theorem}{Limits sets of limits sets equal limits sets}
+	lim(lim($S$)) = lim(S)\\
+	cl(cl(S)) = cl(S)\\
+	$\bar{\bar{S}} = \bar{S}$
+\end{theorem}
+
+\begin{theorem}{The following are equivalent}
+  \benu
+\item $p$ is a limit of $S$
+\item $\forall r > 0, M_r(p) \cap S \neq \emptyset$
+  \eenu
+\end{theorem}
+
+\begin{theorem}{If $S \subseteq N \subseteq M$ and $S$ is open in $M$}
+	$$S \text{ is open in } N$$
+	\\
+	I.e., Open in the big space implies open in the small space
+\end{theorem}
+
+\begin{theorem}{If $S \subseteq N \subseteq M$ and $S$ is closed in $M$}
+	$$S \text{ is closed in } N$$
+	\\
+	I.e., Closed in the big space implies closed in the small space
+\end{theorem}
+
+\begin{theorem}{Let $S \subseteq N \subseteq M$}
+	\begin{center}
+	$S$ is open in $N$\\
+	iff\\
+	there is some $V \subseteq M$ such that $V$ is open in $M$ and $V \cap N = S$
+\end{center}
+\end{theorem}
+
+\begin{theorem}{Let $K \subseteq N \subseteq M$}
+	\begin{center}
+		$K$ is closed in $N$\\
+		iff\\
+		there is a closed set $L \subseteq M$ such that $L$ is closed in $M$ and $L \cap N = K$
+	\end{center}
+\end{theorem}
+
+\newpage
 \section*{Series}
 \begin{axiom}{Absolutely Convergent}
 $\Sigma (a_n)$ is absolutely convergent if and only if $\Sigma |a_n|$ is convergent
@@ -490,105 +602,5 @@ $\Sigma (a_n)$ is conditionally convergent if and only if $\Sigma a_n$ is conver
 \section*{Sequences}
 
 \newpage
-\section*{Homework 3}
-
-
-\begin{definition}{Injection / one-to-one}
-	A mapping $f: A \rightarrow B$ is an \textbf{injection} or is \textbf{one-to-one} if for each pair of distinct elements $a, a' \in A$ the elements $f(a), f(a')$ are distinct in B.  That is,
-	$$a \neq a' \Rightarrow f(a) \neq f(a')$$
-\end{definition}
-
-
-\begin{definition}{Surjection / onto}
-	The mapping $f$ is a \textbf{surjection} (or is \textbf{onto}) if for each $b \in B$ there is at least one $a \in A$ such that $f(a) = b$.  That is, the range of $f$ is $B$
-\end{definition}
-
-
-
-\begin{definition}{Composite}
-If $f:A \to B$ and $g:B \to C$ then the \textbf{composite} $g \circ f:A \to C$ is the function that sends $a \in A$ to $g(f(a)) \in C$
-\end{definition}
-
-\begin{definition}{Equivalence}
-	The relation $\sim$ is an equivalence relation
-\benu
-	\im $A \sim A$
-	\im If $A \sim B$, then $B \sim A$
-	\im If $A \sim B$, and $B \sim C$, then $A \sim C$
-\eenu
-\end{definition}
-
-\begin{definition}{Metric Space}
-A \textbf{metric space} is a pair $(M, d)$, where $M$ is a set and $d$ is a distance function on pairs of $M$, so that:
-$$d: M^2 \to \mbR$$
-\benu
-\im Positive Definiteness: $d(x,y) \geq 0$ and $d(x,y) = 0$ iff $x = y$
-\im Symmetry: $d(x,y) = d(y,x)$
-\im Triangle Inequality: $d(x,z) \leq d(x,y) + d(y,z)$
-\eenu
-\end{definition}
-
-\begin{definition}{Sequence}
-A \textbf{sequence} in $M$ is a list of elements of $M$ indexed by $\mbN$, $(a_i)_{i \in \mbN} \text{ or } (a_i)$
-Formally, a \textbf{sequence} is a function $f: \mbN \to M$, the metric space
-\end{definition}
-
-
-\begin{definition}{Convergence}
-	The sequence $(a_i)_{i \in \mbN}$ in $M$ \textbf{ converges } to $b \in M$ if:
-	$$\forall\ep > 0  \, \exists N \in \mbN \text{ such that}$$
-	$$\forall j > N  \, d(a_j,b) < \ep$$
-\end{definition}
-
-
-\begin{definition}{Subsequence}
-	If $(p_n)_{n \in \mbN}$ and $(q_n)_{n \in \mbN}$ are sequences and if there is a sequence $1 \leq n_1 < n_2 < n_3 < \dots$ of integers such that for each $k \in \mbN, q _k = p_{n_k}$ then $(q_k)$ is a \textbf{subsequence} of $(p_n)$
-\end{definition}
-
-
-\begin{theorem}{Continuous I}
-	A function $f:M \to N$ is \textbf{continuous} if whenever $(a_i)$ is a sequence in $M$ and
-$$(a_i) \to b \text{ in } M,$$
-$$f((a_i)) \to f(b) \text{ in } N$$
-\end{theorem}
-
-\begin{definition}{Continuous II}
-	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
-	$\forall \epsilon > 0 \text{ and } \forall p \in M \, \exists \delta > 0 \text{ such that }$:
-	$$q \in M \text{ and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
-\end{definition}
-
-
-\begin{definition}{Homeomorphism}
-	If $f: M \to N$ is a bijection and $f$ is continuous and the inverse bijection $f^{-1}:N \to M$ is also continuous then $f$ is a \textbf{homeomorphism}
-	($M \cong N$)
-\end{definition}
-
-
-\begin{definition}{Limit Point}
-	For $S \subseteq M, p \in M, p$ is a \textbf{Limit point} of $S$ if there is a sequence $(a_i)$ so that $(a_i) \to p$ and $(a_i) \in S$
-	$$lim^M(S) = \{q \in M|q \text{ is a limit of }S\}$$
-\end{definition}
-
-\begin{definition}{Closedness}
-	$S \subseteq M$ is \textbf{closed} in $M$ if it contains all of its limit points in $M$.
-	\begin{center}
-	OR \\
-	$S \subseteq M$ is \textbf{closed} in $M$ if $lim^M(S) \subseteq S$
-	\\ OR \\
-	$S \subseteq M$ is \textbf{closed} in $M$ if $lim^M(S) = S$
-	\end{center}
-\end{definition}
-
-
-\begin{definition}{Openness}
-	A set $s \subset M$ is \textbf{open in M} if for every point $p \in S$ there is an $r \in \mbR$, $r>0$, so that for every $q \in M$,
-	if $d(p,q) < r$, then $q < S$
-	\begin{center}
-	OR
-	\\
-	$\forall p \in S \, \exists r > 0 (B_r^M(p) \subseteq S)$
-	\end{center}
-\end{definition}
 
 \end{document}
