@@ -121,12 +121,17 @@
 A map $f:M \to N$ is \textbf{open} if for each open set $U \subset M$ , the image set $f(U)$ is open in $N$.
 \\
 \benu
-\item If $f$ is open, is it continuous?
-\item If $f$ is a homeomorphism, is it open?
-\item If $f$ is an open, continuous bijection, is it a homeomorphism?
-\item If $f : \mbR \to \mbR$ is a continuous surjection, must it be open? 
+\item If $f$ is open, is it continuous?\\
+Not necessarily.  $f$ is only continuous if 
+\item If $f$ is a homeomorphism, is it open?\\ % 5:00
+$(f^{-1})^\text{pre}(U)$ is open in $U \subseteq M$, and $(f^{-1})^\text{pre}(U) = f(U)$ so $f$ is open
+\item If $f$ is an open, continuous bijection, is it a homeomorphism?\\ %8:00
+For $f$ to be a homeomorphism, we must show that $f^{-1}$ is continuous.  $(f^{-1})^\text{pre}(U)$ is open in $U \subseteq M$, and $(f^{-1})^\text{pre}(U) = f(U)$ so $f$ is open, hence $f$ is continuous.
+\item If $f : \mbR \to \mbR$ is a continuous surjection, must it be open? %12:00
+No.  
 \item If $f : \mbR \to \mbR$ is a continuous surjection, must it be a homeomorphism? 
 \eenu
+\begin{comment}
 \textbf{Definition: Openness}\\
 	A set $s \subset M$ is \textbf{open in M} if for every point $p \in S$ there is an $r \in \mbR$, $r>0$, so that for every $q \in M$,
 	if $d(p,q) < r$, then $q < S$
@@ -160,15 +165,33 @@ A map $f:M \to N$ is \textbf{open} if for each open set $U \subset M$ , the imag
 \textbf{Definition - Homeomorphism}
 	If $f: M \to N$ is a bijection and $f$ is continuous and the inverse bijection $f^{-1}:N \to M$ is also continuous then $f$ is a \textbf{homeomorphism}
 	($M \cong N$)
+
+\end{comment}
+
 \newpage
 
 \itep  14\\
 The \textbf{distance} from a point $p$ in a metric space $M$ to a non-empty subset $S \subset M$ is defined to be dist$(p, S)$ = inf$\{d(p,s) : s \in S\}$
 \\
 \benu
-\item Show that $p$ is a limit of $S$ if and only if dist$(p, S) = 0$
-\item Show that $p \mapsto \text{dist}(p, S)$ is a uniformly continuous function of $p \in M$
+\item Show that $p$ is a limit of $S$ if and only if dist$(p, S) = 0$\\ % 21:00
+\\
+$\Rightarrow$  Assuming $p$ is a limit of $S$, we want to show dist$(p,S) = 0$.  Since $p$ is a limit point of $S$, there is a sequence $(a_i)$ such hat $(a_i) \to p$ and $(a_i) \in S$
+\\
+$\Leftarrow$  Assuming dist$(p,S) = 0$, we want to show that $p$ is a limit of $S$.  Since dist$(p, S) = 0$, there exists some sequence that converges to the infimum.  So $d_i \to 0$ where $d_i \in \{d(p, s): s \in S\}$.  For each $d_i$ there is $s_i \in S$ such that $d(s_i, p) = d_i$.  Since $d_i \to 0, s_i \to p$.  Hence $p$ is a limit of $S$.
+\\
+\item Show that $p \mapsto \text{dist}(p, S)$ is a uniformly continuous function of $p \in M$ % 30:00
+\\
+\begin{comment}
+
+We want to show that $\forall \ep > 0 \, \exists \, \delta > 0 \, \forall x,y \in M$ such that $d(x,y) < \delta \implies |\text{dist}(x,s) - \text{dist}(y,s) < \ep|$\\
+\end{comment}
+We want to show that $|f(p) - f(q)| \leq d(p,q) \, \forall p,q \in M$\\
+Let $\ep$ be given.  Then $\exists \delta > 0$ such that $\forall p, q, \in M$ satisfying $(d(p,q) < \delta) \implies |d(p, S) - d(q, S)| < \ep$.  We claim $|d(p, S) - d(q, S)| \leq d(p, q)$\\
+Let $\epsilon = \delta$, $d(p,q) \leq \epsilon$.  Then $|d(p,S) - d(q,S)| < \ep$ so $|d(p, S) - d(q, S) \leq d(p,q)$.  Hence $|f(p) - f(q)| \leq d(p,q) \forall p,q, \in M$ 
 \eenu
+\begin{comment}
+
 \textbf{Definition: inf - Infimum}\\
 If $S$ is a non-empty subset of $\mbR$ then its Infimum is its greatest lower bound when $S$ is bounded below and is said to be $-\infty$ otherwise\\
 \textbf{Definition: Metric Space}\\
@@ -183,16 +206,39 @@ $$d: M^2 \to \mbR$$
 	For $S \subseteq M, p \in M, p$ is a \textbf{Limit point} of $S$ if there is a sequence $(a_i)$ so that $(a_i) \to p$ and $(a_i) \in S$
 $$lim^M(S) = \{q \in M|q \text{ is a limit of }S\}$$
 
+\end{comment}
+
 \newpage
 
-\itep 25\\
+\itep 25\\ %36:00
 Assume that $N$ is an open metric subspace of $M$ and that $U \subset N$
 \benu
 \item Prove that $U$ is open in $N$ if and only if it is open in $M$
-\item Conversely, prove that if openness of $S \subset N$ is equivalent to openness in $M$ then $N$ is open in $M$
+\\
+$\Rightarrow$ Assume $U$ is open in $N$.  We want to show that $U$ is open in $M$.\\
+$\forall p \in E \, \exists r > 0 (B_r^M(p) \subseteq U)$.  Since $B_r^N(p) \subseteq U$ and $N \subseteq M$, $B_r^M(p) \subseteq U$, where $B_r^N(p) = B_r^M(p) \cap N$
+\\
+$\Leftarrow$ Assume $U$ is open in $M$.  We want to show that $U$ is open in $N$.  By theorem, if $U \subset N \subset M$ and $U$ is open in $M$, then $U$ is open in $N$
+\\
+\item Conversely, prove that if openness of $S \subset N$ is equivalent to openness in $M$ then $N$ is open in $M$\\ %48:44
+\\
+So, $\forall p \in S \, \exists r_0 > 0 (B_{r_0}^N(p) \subseteq S)$ implies that $\forall p \in S \, \exists r_1 > 0 (B_{r_1}^M(p) \subseteq S)$.  We want to show $\forall p \in N \, \exists r_2 > 0 (B_{r_2}^M(p) \subseteq N)$.  Take $B_1^N(p) \subseteq N$.  $B_1^N(p)$ is open in $N$.  By assumption, $\exists r > 0 b_r^M(p) \subseteq B_1^N(p) \subseteq N$.  Therefore, for all $p$ there is a ball around $N$ contained in M so $N$ is open in $M$. % 55:00
+\\
 \item Do the same for closedness
-\item Deduce that a clopen metric subspace $MN$ is the only example in which the concepts of openness and closedness in the subspace agree exactly with the concepts of the big space
+\\
+$S$ is closed in $N$ and $S$ is closed in $M$.  Therefore $S$ contains all of its limit points in $N$ and $S$ contains all of it limit points in $M$.  What can we say about the limit points of $N$ in $M$?\\
+\underline{Theorem}:  Every subsequence of a convergent sequence converges and it converges to the same limit as does the mother sequence.\\
+So, $N$ converges to the same limit as $S$, therefore $N$ is closed in $M$.
+\begin{comment}
+Since $p \in M$ is a limit point of $N$, we want to show that $p\in N$.  There exists $(a_i) \subseteq N$ s.t. $a_i \to p$.  Assume towards a contradiction that $S = \{a_i: i \in \mbN\} \subseteq N$.  If $p \notin N$, then $S$ is closed in $N$.  By assumption, $S$ is also closed in $M$, but $p \notin S$ and $p$ is a limit of $S$, so $S$ is not closed in $M$ \hfill\lightning
+\end{comment}
+\item Deduce that a clopen metric subspace $N$ is the only example in which the concepts of openness and closedness in the subspace agree exactly with the concepts of the big space. % 1:05:50
+\\
+Parts A and B above tell us that the only subspaces that respect openness are the open spaces and the only subspaces that respect closedness are the closed ones.  The only moment where the open subspaces of $N$ is also open in $M$ is when $M$ is open.  Same for closedness.  So for a space to respect both openness and closedness the space must be clopen.
 \eenu
+
+\begin{comment}
+
 \textbf{Definition: Closedness}\\
 A closed set contains all of it limits\\
 \textbf{Definition: Limit}\\
@@ -203,6 +249,7 @@ A finite union of closed sets is closed
 A single point $p \in S$ can only form the sequence $(p, p, p, \dots)$ so its limit is $p$ and therefore it is closed.\\
 \\
 By the result above and the corollary stated above, a finite set of points is a closed set
+\end{comment}
 
 
 \end{enumerate}
