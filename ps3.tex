@@ -107,14 +107,14 @@
 %To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
 \newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
 
-\title{\textbf{Math 521 - Problem Set 2}}
+\title{\textbf{Math 521 - Problem Set 3}}
 \author{Guy Matz}
 \date{\today}
 
 \begin{document} 
 
-%\maketitle
-%\newpage % Q1
+\maketitle
+\newpage % Q1
 
 \begin{enumerate}[series=p]
 \itep 34 \\
@@ -122,14 +122,18 @@ A map $f:M \to N$ is \textbf{open} if for each open set $U \subset M$ , the imag
 \\
 \benu
 \item If $f$ is open, is it continuous?\\
-Not necessarily.  $f$ is only continuous if 
+Not necessarily.  $f$ is only continuous if for every open set $U \subseteq N, f^{pre}(U)$ is open in $M$. 
 \item If $f$ is a homeomorphism, is it open?\\ % 5:00
 $(f^{-1})^\text{pre}(U)$ is open in $U \subseteq M$, and $(f^{-1})^\text{pre}(U) = f(U)$ so $f$ is open
 \item If $f$ is an open, continuous bijection, is it a homeomorphism?\\ %8:00
-For $f$ to be a homeomorphism, we must show that $f^{-1}$ is continuous.  $(f^{-1})^\text{pre}(U)$ is open in $U \subseteq M$, and $(f^{-1})^\text{pre}(U) = f(U)$ so $f$ is open, hence $f$ is continuous.
+For $f$ to be a homeomorphism, we must show that $f^{-1}$ is continuous.  
+Since $(f^{-1})^{pre} (U)=f(U)$ is open then $(f^{-1})^{pre} (U)$ is open and $f^{-1}$ is continuous
 \item If $f : \mbR \to \mbR$ is a continuous surjection, must it be open? %12:00
+\\
 No.  
 \item If $f : \mbR \to \mbR$ is a continuous surjection, must it be a homeomorphism? 
+\\
+No.
 \eenu
 \begin{comment}
 \textbf{Definition: Openness}\\
@@ -176,9 +180,11 @@ The \textbf{distance} from a point $p$ in a metric space $M$ to a non-empty subs
 \benu
 \item Show that $p$ is a limit of $S$ if and only if dist$(p, S) = 0$\\ % 21:00
 \\
-$\Rightarrow$  Assuming $p$ is a limit of $S$, we want to show dist$(p,S) = 0$.  Since $p$ is a limit point of $S$, there is a sequence $(a_i)$ such hat $(a_i) \to p$ and $(a_i) \in S$
+$\Rightarrow$  Assuming $p$ is a limit of $S$, we want to show dist$(p,S) = 0$.  Since $p$ is a limit point of $S$, there is a sequence $(a_i)$ such that $(a_i) \to p$ and $(a_i) \in S$
 \\
-$\Leftarrow$  Assuming dist$(p,S) = 0$, we want to show that $p$ is a limit of $S$.  Since dist$(p, S) = 0$, there exists some sequence that converges to the infimum.  So $d_i \to 0$ where $d_i \in \{d(p, s): s \in S\}$.  For each $d_i$ there is $s_i \in S$ such that $d(s_i, p) = d_i$.  Since $d_i \to 0, s_i \to p$.  Hence $p$ is a limit of $S$.
+$\Leftarrow$  Assuming dist$(p,S) = 0$, we want to show that $p$ is a limit of $S$.  Since dist$(p, S) = 0$, there exists some sequence that converges to the infimum.  So $d_i \to 0$ where $d_i \in \{d(p, s): s \in S\}$.  For each $d_i$ there is $s_i \in S$ such that $d(s_i, p) = d_i$.  Since $d_i \to 0, s_i \to p$.  
+%Now, we have that $0 \leq d(p,S) \leq d(p, a_i)$. Using the squeeze theorem we have that $0 %\leq d(p,S)= \text{lim } d(p, a_i) \leq d(p, a_i)$.  
+Hence $p$ is a limit of $S$.
 \\
 \item Show that $p \mapsto \text{dist}(p, S)$ is a uniformly continuous function of $p \in M$ % 30:00
 \\
@@ -186,9 +192,20 @@ $\Leftarrow$  Assuming dist$(p,S) = 0$, we want to show that $p$ is a limit of $
 
 We want to show that $\forall \ep > 0 \, \exists \, \delta > 0 \, \forall x,y \in M$ such that $d(x,y) < \delta \implies |\text{dist}(x,s) - \text{dist}(y,s) < \ep|$\\
 \end{comment}
-We want to show that $|f(p) - f(q)| \leq d(p,q) \, \forall p,q \in M$\\
-Let $\ep$ be given.  Then $\exists \delta > 0$ such that $\forall p, q, \in M$ satisfying $(d(p,q) < \delta) \implies |d(p, S) - d(q, S)| < \ep$.  We claim $|d(p, S) - d(q, S)| \leq d(p, q)$\\
-Let $\epsilon = \delta$, $d(p,q) \leq \epsilon$.  Then $|d(p,S) - d(q,S)| < \ep$ so $|d(p, S) - d(q, S) \leq d(p,q)$.  Hence $|f(p) - f(q)| \leq d(p,q) \forall p,q, \in M$ 
+We want to show that $|f(p)-f(q)|<d(p,q)$.  By The Triangle Inequality, $d(p,S) \leq d(p,q)+d(q,S)$.  Given $p,q \in M$, WLOG $d(p,S) - d(q,S) \geq 0$.
+
+
+Now, notice that (using the WOLG in the first equality and the observation in the inequality)
+
+
+$|d(p,S)-d(q,S)|=d(p,S)-d(q,S) \leq d(p,q)+d(q,S)-d(q,S)=d(p,q)$.
+
+
+Therefore, $|f(p)-f(q)|=|d(p,S)-d(q,S)| \leq d(p,q)$.
+
+
+This implies uniformly continuity since given $\epsilon$, we can take $\delta = \epsilon$. Therefore, if $d(p,q)<\delta = \epsilon$ then $|f(p)-f(q)|<d(p,q)<\epsilon$.
+
 \eenu
 \begin{comment}
 
@@ -216,7 +233,7 @@ Assume that $N$ is an open metric subspace of $M$ and that $U \subset N$
 \item Prove that $U$ is open in $N$ if and only if it is open in $M$
 \\
 $\Rightarrow$ Assume $U$ is open in $N$.  We want to show that $U$ is open in $M$.\\
-$\forall p \in E \, \exists r > 0 (B_r^M(p) \subseteq U)$.  Since $B_r^N(p) \subseteq U$ and $N \subseteq M$, $B_r^M(p) \subseteq U$, where $B_r^N(p) = B_r^M(p) \cap N$
+$\forall p \in U \, \exists r > 0 (B_r^M(p) \subseteq U)$.  Since $B_r^N(p) \subseteq U$ and $N \subseteq M$, $B_r^M(p) \subseteq U$, where $B_r^N(p) = B_r^M(p) \cap N$
 \\
 $\Leftarrow$ Assume $U$ is open in $M$.  We want to show that $U$ is open in $N$.  By theorem, if $U \subset N \subset M$ and $U$ is open in $M$, then $U$ is open in $N$
 \\
@@ -234,7 +251,7 @@ Since $p \in M$ is a limit point of $N$, we want to show that $p\in N$.  There e
 \end{comment}
 \item Deduce that a clopen metric subspace $N$ is the only example in which the concepts of openness and closedness in the subspace agree exactly with the concepts of the big space. % 1:05:50
 \\
-Parts A and B above tell us that the only subspaces that respect openness are the open spaces and the only subspaces that respect closedness are the closed ones.  The only moment where the open subspaces of $N$ is also open in $M$ is when $M$ is open.  Same for closedness.  So for a space to respect both openness and closedness the space must be clopen.
+Parts A and B above tell us that the only subspaces that respect openness are the open spaces and the only subspaces that respect closedness are the closed ones.  The only moment where the open subspaces of $N$ is also open in $M$ is when $N$ is open.  Same for closedness.  So for a space to respect both openness and closedness the space must be clopen.
 \eenu
 
 \begin{comment}
