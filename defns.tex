@@ -336,7 +336,7 @@ If $f:A \to B$ and $g:B \to C$ then the \textbf{composite} $g \circ f:A \to C$ i
 \end{definition}
 
 \begin{definition}{Countable}
-	A set $S$ is \textbf{countable} if it is finite or countable
+	A set $S$ is \textbf{countable} if it is finite or denumerable
 \end{definition}
 
 \begin{definition}{Uncountable}
@@ -583,23 +583,115 @@ If $V$ is closed in $M$, then $M \setminus V$ is open in $M$
 	\end{center}
 \end{theorem}
 
-\newpage
-\section*{Series}
-\begin{axiom}{Absolutely Convergent}
-$\Sigma (a_n)$ is absolutely convergent if and only if $\Sigma |a_n|$ is convergent
-\end{axiom}
+\begin{theorem}{A sequence in a Cartesian product of $m$ metric spaces converges . . .}
+	. . . with respect to the sum metric iff it converges with respect to the max metric  iff each component sequence converges
+\end{theorem}
 
-\begin{definition}{Absolutely Convergent}
-$\Sigma (a_n)$ is absolutely convergent if and only if $\Sigma |a_n|$ is convergent
+\begin{theorem}{Let $f: X \to M$ and $g: Y \to N$ be functions . . .}
+	. . .  $f \times g: X \times Y \to M \times N$ is continuous iff $f$ is continuous and $g$ is continuous 
+\end{theorem}
+
+\begin{theorem}{In $\mbR^n$, a sequence converges iff. . .}
+	. . .  each of its components of its coordinate sequences converge
+\end{theorem}
+
+\begin{theorem}{The function $d:M \times M \to \mbR$  . . .}
+	. . .  is continuous for any metric space $(M,d)$
+\end{theorem}
+
+\begin{theorem}{A sequence of vectors $(v_n) \text{ in } \mbR$ converges in $\mbR$. . .}
+	. . . iff each of its component sequences $(v_{in})$ converges, $i \leq i \leq m$.  The limit of the vector sequence is the vector
+	$$v = \lim_{n\to\infty} v_n = \Big(\lim_{n\to\infty} v_{1n}, \lim_{n\to\infty} v_{2n}, \dots , \lim_{n\to\infty} v_{mn}\Big)$$
+\end{theorem}
+
+\begin{theorem}{Every closed subset of a complete metric space . . .}
+	. . . is a complete metric space
+\end{theorem}
+
+\begin{definition}{Complete}
+	The metric space $M$ is complete if every Cauchy sequence in $M$ converges in $M$
+	$$S \subset M_rp$$
 \end{definition}
 
-\begin{definition}{Conditionally Convergent}
-$\Sigma (a_n)$ is conditionally convergent if and only if $\Sigma a_n$ is convergent but $\Sigma |a_n|$ is not
+
+\begin{theorem}{If $M$ is complete and $N$ is complete . . .}
+    . . .  then $M \times N$ is complete
+\end{theorem}
+
+
+\begin{theorem}{If $N \subseteq M$, $M$ is complete and $N$ is closed in $N$. . .}
+	. . .  then $N$ is complete
+\end{theorem}
+
+
+\begin{definition}{Bounded}
+	A subset $S$ of a metric space $M$ is \textbf{bounded} if for some $p \in M$ and some $r > 0$,
+	$$S \subset M_rp$$
+\end{definition}
+
+\begin{definition}{Bounded Function}
+	A function from $M$ to another metric space is a \textbf{bounded function} if its range is bounded.  That is, there exist $q \in N$ and $r > 0$ such that
+	$$f M \subset N_rq$$
+\end{definition}
+
+\begin{definition}{Compact}
+	A subset $A$ of a metric space $M$ is \textbf{compact} if every sequence $(a_n)$ in $A$ has a subsequence $(a_{n_k})$ that converges to a limit in $A$.
+\end{definition}
+
+\begin{theorem}{}
+	Finite sets are compact
+\end{theorem}
+
+\begin{theorem}{A closed interval .  .}
+	. . . is compact
+\end{theorem}
+
+\begin{theorem}{Every compact set  . . .}
+	. . .  is closed and bounded
+\end{theorem}
+
+
+\begin{theorem}{If $A \subseteq M$ is compact . . .}
+	. . .  Then $A$ is closed in $M$ and bounded
+\end{theorem}
+
+\begin{theorem}{If $A$ is compact and $B$ is compact . . .}
+	. . .  Then $A \times B$ is compact
+\end{theorem}
+
+\begin{theorem}{If $A_1, A_2, \dots A_k$ are compact. . .}
+	. . .  Then $A_1 \times A_2 \times \dots \times A_k$ is compact
+\end{theorem}
+
+\begin{theorem}{If $A_1, A_2, \dots A_k$ are compact. . .}
+	. . .  Then $A_1 \times A_2 \times \dots \times A_k$ is compact
+\end{theorem}
+
+
+\begin{definition}{A Closed Box in $\mbR^m$}
+    A closed box in $\mbR$ is a set of the form $[a_1,b_1] \times [a_2,b_2] \dots \times [a_m,b_m]$
 \end{definition}
 
 
+\begin{theorem}{Every closed box in $\mbR^m$. . .}
+	. . .  is compact
+\end{theorem}
+
+
+\begin{theorem}{If $M$ is compact and $A \subseteq M$ is closed . . .}
+	. . .  then $A$ is compact
+\end{theorem}
+
+\begin{theorem}{Every bounded sequence in $\mbR^m$ . . .}
+	. . .  has a convergent subsequence
+\end{theorem}
+
+\begin{theorem}{Every closed and bounded set of $\mbR^m$ . . .}
+	. . .  is compact
+\end{theorem}
+
 \newpage
-\section*{Sequences}
+\section*{Homework}
 
 \newpage
 
