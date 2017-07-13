@@ -1,0 +1,157 @@
+\documentclass[12pt]{amsart}
+\setlength{\parskip}{.1in}
+\setlength{\parindent}{0cm}
+%myalterations
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue,pdfborder={0 0 .5}pdfnewwindow=true]{hyperref}
+\usepackage{enumitem}
+%\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{tabularx}
+%\usepackage{arydshln,leftidx,mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage{bm}
+
+%\setlength{\dashlinedash}{.4pt}
+%\setlength{\dashlinegap}{.8pt}
+%\usepackage{amsthm}
+\usepackage{verbatim}
+%\usepackage{commath}
+%My commands
+%environment abbreviations
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bed}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{exercise}[theorem]{Exercise}
+\newcommand{\bex}{\begin{exercise}}
+\newcommand{\ex}{\end{exercise}}
+
+\newcommand{\pru}{{ \bfseries \textcolor{red}{Proof:} }}
+
+%symbol definitions
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\mbZ}{\mathbb{Z}}
+\newcommand{\mbR}{\mathbb{R}}
+\newcommand{\mbN}{\mathbb{N}}
+\newcommand{\mbQ}{\mathbb{Q}}
+\newcommand{\mbC}{\mathbb{C}}
+\newcommand{\mbF}{\mathbb{F}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\tra}{\twoheadrightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\ep}{\epsilon}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\bfs}[1]{{\bfseries #1}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+%Operator definitions
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\triv}{triv}
+\DeclareMathOperator{\cyc}{cyc}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\expo}{x}
+\DeclareMathOperator{\ord}{o}
+\DeclareMathOperator{\imm}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\alt}{alt}
+\DeclareMathOperator{\irr}{irr}
+\DeclareMathOperator{\eqt}{Equiv}
+\DeclareMathOperator{\pat}{Part}
+%\DeclareMathOperator{\sgn}{sgn}
+%\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gl}{Gl}
+\DeclareMathOperator{\M}{M}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\fixx}{Fix}
+\DeclareMathOperator{\suppp}{Supp}
+\DeclareMathOperator{\gl}{Gl}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\ii}{I}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Co}{Co}
+\DeclareMathOperator{\md}{md}
+\DeclareMathOperator{\qt}{qt}
+\DeclareMathOperator{\ExtendedGCD}{ExtendedGCD}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\GCD}{GCD}
+\newcommand{\nms}{\negmedspace}
+\newcommand{\nts}{\negthinspace}
+
+\newcommand{\itep}{\item {\bfseries Problem}\ }
+\newcommand{\gen}[1]{\langle \nts#1 \nts\rangle}
+\newcommand{\quot}[2]{#1/ #2}
+\newcommand{\order}[1]{\left|<\nts #1 \nts s>\right|}
+
+%These next two commands are for making answers. 
+\newcommand{\beans}{\begin{description} \item[{ \bfseries \textcolor{red}{Answer}}]\ }
+\newcommand{\eans }{\end{description}}
+%\newcommand{\begin{comment}ex}{{ \bfseries \textcolor{red}{Answer}}}
+
+%To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
+\newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
+
+\title{\textbf{Math 521 - Problem Set 4}}
+\author{Guy Matz}
+\date{\today}
+
+\begin{document} 
+
+%\maketitle
+%\newpage % Q1
+
+\begin{enumerate}[series=p]
+\itep  If every closed and bounded subset of a metric space $M$ is compact, does it follow that $M$ is complete? (Proof or counterexample.)
+\label{drp}
+
+
+\newpage
+
+\itep Show that the 3 metrics we discussed on the product space $X \times Y$ are in fact metrics
+
+\newpage
+
+\itep 38 Let $||$ $||$ be any norm on $\mbR^m$ and let $B = \{x \in \mbR^m : ||x|| \leq 1 \}$.  Prove that $B$ is compact.  [Hint: It suffices to show that $B$ is closed and bounded with respect to the Euclidean metric.]
+
+\newpage
+
+
+\itep 39 Assume that the Cartesian product of two non-empty set $A \subset M$ and $B \subset N$ is compact in $M \times N$.  Prove that $A$ and $B$ are compact.
+\newpage
+
+\itep 40 Consider a function $f:M \to \mbR$.  Its graph is the set
+$$\{(p,y) \in M \times \mbR: y = fp\}.$$
+\benu
+\item Prove that if $f$ is continuous then its graph is closed (as a subset of $M \times \mbR$)
+\item Prove that if $f$ is continuous and $M$ is compact then its graph is compact
+\item Prove that if the graph of $f$ is compact then $f$ is continuous
+\item What if the graph is merely closed?  Give an example of a discontinuous function $f: \mbR \to \mbR$ whose graph is closed
+\eenu
+\newpage
+
+\itep 27 Let $(A_n)$ be a nested decreasing sequence of non-empty closed sets in the metric space $M$.
+\benu
+\item If $M$ is complete and diam $A_n \to 0$ as $n \to \infty$, show that $\cap A_n$ is exactly one point
+\item To what assertions do the sets $[0, \infty)$ provide counterexamples?
+\eenu
+\newpage
+
+\end{enumerate}
+\end{document}
