@@ -2,6 +2,7 @@
 \usepackage{color,amsmath,amssymb}
 \usepackage{framed}
 \usepackage{verbatim}
+\usepackage{textcomp}
 \makeatletter
 
 \newdimen\errorsize \errorsize=0.2pt
@@ -418,14 +419,8 @@ $$f((a_i)) \to f(b) \text{ in } N$$
 	$$q \in M \text{and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
 \end{definition}
 
-\begin{definition}{Continuous III }
-	A function $f:M \to N$ is \textbf{continuous} if it satisfies the $\boldsymbol{\epsilon, \delta}$ \textbf{condition}:
-	$\forall \epsilon > 0 \text{ and } \forall p \in M \, \exists \delta > 0 \text{ such that }$:
-	$$q \in M \text{and } d(p,q) < \delta \implies d(fp,fq) < \epsilon$$
-\end{definition}
 
-
-\begin{definition}{Continuous IV - Continu-ish}
+\begin{definition}{Continuous III - Continu-ish}
 	A function $f:M \to N$ is \textbf{continu-ish} if
 	$\forall x \in M \forall \epsilon > 0 \exists \delta > 0 \forall y \in M$,\\
 	$$d_M(x,y) < \delta \implies d_N(f(x), f(y)) < \epsilon$$
@@ -493,7 +488,7 @@ If $V$ is closed in $M$, then $M \setminus V$ is open in $M$
 \eenu
 \end{theorem}
 
-\begin{theorem}{Intersectin/Union of Closed Sets}
+\begin{theorem}{Intersection/Union of Closed Sets}
 	Any intersection of closed sets is closed and and union of finitely many closed sets is closed
 \end{theorem}
 
@@ -688,6 +683,111 @@ If $V$ is closed in $M$, then $M \setminus V$ is open in $M$
 
 \begin{theorem}{Every closed and bounded set of $\mbR^m$ . . .}
 	. . .  is compact
+\end{theorem}
+
+\begin{definition}{Nested Sequence of Sets}
+	A \underline{Nested Sequence of Sets} is a collection of sets: $A_1 \supseteq A_2 \supseteq \dots$
+\end{definition}
+
+\begin{theorem}{The intersection of nested sequence is. . .}
+	$$\bigcap_{n \in \mbN} A_n$$
+\end{theorem}
+
+\begin{definition}{diam(A)}
+	For any set $A \subseteq M$ in a metric space,\\
+	$$\text{diam}(A) = \text{lub}(\{d(x,y)|x \in A, y \in A\})$$
+\end{definition}
+
+\begin{theorem}{If $A_1 \supseteq A_2 \supseteq \dots$ is a nested sequence. . .}
+	. . . of compact non-empty sets so that (diam$(A_i)) \to 0$ in $\mbR$,
+	
+	then $\cap A_n$ has exactly one element
+\end{theorem}
+
+\begin{theorem}{If $f:M \to N$ is continuous and $M$ is compact . . .}
+	. . .  then ran($f$) is compact
+\end{theorem}
+
+\begin{theorem}{If $f:M \to \mbR$, $M$ is compact and $f$ is continuous . . .}
+	. . . then $f$ attains a max and min value.
+	I.e. there are $x,y \in M$ s.t. for any $z \in M$,
+	$$f(x) \leq f(z) \leq f(y)$$
+\end{theorem}
+
+\begin{theorem}{If $M \cong N$ and $M$ is compact . . . }
+	. . .  then $N$ is compact
+\end{theorem}
+
+\begin{theorem}{If $M$ is compact and $f:M \to N$ is continuous  . . .}
+	. . .   then $M \cong N$, i.e. $f^{-1}$ is continuous
+\end{theorem}
+
+\subsection{7/17}
+\begin{theorem}{If $M$ is compact and $f:M \to N$ is a bijection and $f$ is continuous . . .}
+	. . . then $f^{-1}$ is also continuous, so $M \cong N$
+\end{theorem}
+
+
+\begin{definition}{$f\textlbrackdbl M \textrbrackdbl$}
+	Mapping of a set/metric space
+\end{definition}
+
+\begin{definition}{Embedding}
+	\begin{center}
+			If $f : M \to N$ is an \textbf{embedding} and $M$ is compact, then $f\textlbrackdbl M \textrbrackdbl$ is compact
+	\end{center}
+\end{definition}
+
+\begin{definition}{Uniformly Continuous}
+	$$\forall \epsilon > 0 \exists \delta > 0 \forall x \in M \forall y \in M$$
+	$$d(x,y) < \delta \implies d(f(x), f(y)) < \epsilon$$
+\end{definition}
+
+\begin{theorem}{If $M$ is compact and $f: M \to N$ is continuous . . }
+	\begin{center}
+		. . . then $f$ is uniformly continuous
+	\end{center}
+\end{theorem}
+
+\begin{definition}{Disconnected - I}
+	\begin{center}
+		A metric space is \textbf{disconnected} if $M = A \cup (M \setminus A)$ where $A$ and $M \setminus A$ are both open
+	\end{center}
+\end{definition}
+
+\begin{definition}{Disconnected - II}
+	\begin{center}
+		A metric space is \textbf{disconnected} if there is an $A \subseteq M$ so that
+		\benu
+		\item $A \neq \emptyset$
+		\item $A \neq M$
+		\item $A$ is clopen
+		\eenu
+		i.e. a proper, clopen subset
+	\end{center}
+\end{definition}
+
+\begin{definition}{Connected}
+	A space is connected if it has not proper subset this is clopen
+\end{definition}
+
+\subsection{7/18}
+\begin{theorem}{If $f:M \to N$ is continuous and onto, and $M$ is connected . . .}
+	\begin{center}
+		. . . then $N$ is connected
+	\end{center}
+\end{theorem}
+
+\begin{theorem}{Intermediate Value Theorem}
+	\begin{center}
+		If $M$ is connected, $f:M \to \mbR$ is continuous and $a<b<c$ and $a,c \in \text{ran}f$ then $b \in \text{ran}f$
+	\end{center}
+\end{theorem}
+
+\begin{theorem}{$\mbR$ is Connected}
+	\begin{center}
+		I.e. there is no proper clopen subset of $\mbR$
+	\end{center}
 \end{theorem}
 
 \newpage

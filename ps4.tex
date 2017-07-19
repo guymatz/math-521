@@ -114,42 +114,188 @@
 
 \begin{document} 
 
-%\maketitle
-%\newpage % Q1
+\maketitle
+\newpage % Q1
 
 \begin{enumerate}[series=p]
 \itep  If every closed and bounded subset of a metric space $M$ is compact, does it follow that $M$ is complete? (Proof or counterexample.)
-\label{drp}
+\\\\
+Let $S$ be a Cauchy sequence, and let $\bar{S}$ be its closure.  Since $S$ is bounded, $\bar{S}$ is as well, and $\bar{S}$ is closed.  By hypothesis, $\bar{S}$ is compact, hence it is complete..  Therefore, since $S \subseteq \bar{S}$ is a Cauchy sequence, it has a limit in $\bar{S} \subseteq M$.
 
 
 \newpage
 
 \itep Show that the 3 metrics we discussed on the product space $X \times Y$ are in fact metrics
 
+\underline{Metric Space}
+	A \textbf{metric space} is a pair $(M, d)$, where $M$ is a set and $d$ is a distance function on pairs of $M$, so that:
+	$$d: M^2 \to \mbR$$
+\benu
+	\item Euclidean (Madison) Metric
+	\benu	
+	\item Positive Definiteness:
+		\benu
+		\item $d(x,y) \geq 0$\\
+			$d_X(x, x')^2 \geq 0$, and $d_Y(y, y')^2 \geq 0$, so\\ $d_E = \sqrt{d_X(x, x')^2 + d_Y(y, y')^2} \geq 0$
+		\item $d(x,y) = 0$ iff $x = y$\\
+			$\Rightarrow$ Assuming $d(x,y) = 0$, WTS $x=y$\\
+			$\sqrt{d_X(x, x')^2 + d_Y(y, y')^2} = 0$\\
+			$d_X(x, x')^2 + d_Y(y, y')^2 = 0$\\
+			So by 1.a.i.A above, $d_X(x, x')^2 = d_Y(y, y')^2 = 0$,
+			so $x = y$\\
+			$\Leftarrow$ Assuming $x = y$, WTS $d(x,y) = 0$\\
+			$\sqrt{d_X(x, x')^2 + d_Y(y, y')^2}$\\
+			$ = \sqrt{0 + 0}$\\
+			$ =0$
+		\eenu
+	\item Symmetry: $d(x,y) = d(y,x)$\\
+		$d_E((x, y), (x', y')) = \sqrt{d_X(x, x')^2 + d_Y(y, y')^2}$\\
+		$= d_X(x, x')^2 + d_Y(y, y')^2$\\
+		$= (x - x')^2 + (y - y')^2$\\
+	    $= x^2 - 2xx' + x'^2 + y^2 -2yy' + y'^2$\\
+		$= (x' - x)^2 + (y' - y)^2$\\
+		$\sqrt{d_X(x', x)^2 + d_Y(y', y)^2}$\\
+	\item Triangle Inequality: $d(x,z) \leq d(x,y) + d(y,z)$\\
+		$0 \leq 2d_Y(y, y')^2 + 2\sqrt{d_X(x, x')^2 + d_Y(y, y')^2} \sqrt{d_Y(y, y')^2 + d_Z(z, z')^2} $\\
+		and\\
+		$d_X(x, x')^2 + d_Z(z, z')^2 \leq 
+		d_X(x, x')^2 + d_Y(y, y')^2 + 
+		2\sqrt{d_X(x, x')^2 + d_Y(y, y')^2} \sqrt{d_Y(y, y')^2 + d_Z(z, z')^2} 
+		+  d_Y(y, y')^2 + d_Z(z, z')^2$\\
+		so\\
+		$\sqrt{d_X(x, x')^2 + d_Z(z, z')^2} \leq \sqrt{d_X(x, x')^2 + d_Y(y, y')^2} + \sqrt{d_Y(y, y')^2 + d_Z(z, z')^2}$\\
+		
+	\eenu
+	\item Sum (Manhattan) Metric
+	\benu	
+		\item Positive Definiteness:
+		\benu
+		\item $d(x,y) \geq 0$\\
+		$d_X(x, x') \geq 0$, and $d_Y(y, y') \geq 0$, so\\ $d_X(x, x') + d_Y(y, y') \geq 0$
+		\item $d(x,y) = 0$ iff $x = y$\\
+		$\Rightarrow$\\
+		$d_X(x, x') + d_Y(y, y') = 0$\\
+		$d_X(x, x') + d_Y(y, y') = 0$\\
+		So by 1.b.i.A above,\\
+		$d_X(x, x') = d_Y(y, y') = 0$\\
+		$\Leftarrow$\\
+		$d_X(x,x) + d_Y(y,y)$\\
+		$= 0 + 0$\\
+		$ = 0$
+		\eenu
+		\item Symmetry: $d(x,y) = d(y,x)$\\
+		$d_{SUM}((x,y),(x',y')) = d_X(x, x') + d_Y(y, y')$\\
+		$= d_X(x, x') + d_Y(y, y')$\\
+		$= |(x - x')| + |(y - y')|$\\
+		$= |(x' - x)| + |(y' - y)|$\\
+		$= d_X(x', x) + d_Y(y', y)$\\
+		$ = d_{SUM}((x',y'),(x,y))$
+		\item Triangle Inequality: $d(x,z) \leq d(x,y) + d(y,z)$\\
+		$0 \leq 2|y - y'|$\\
+		$0 \leq 2d_Y(y, y')$\\
+		$d_X(x, x') + d_Z(z, z') \leq d_X(x, x') + 2d_Y(y, y') + d_Z(z, z')$\\
+		$d(x,z) \leq d(x, y) + d(y,z)$
+		
+\eenu
+	\item Max Metric
+	\benu	
+\item Positive Definiteness:
+\benu
+\item $d(x,y) \geq 0$\\
+$d_{MAX}(x,y) = \text{max} \{ d_X(x), d_Y(y)\}$\\
+$d_X(x) \geq 0$, and $d_Y(y) \geq 0$, so\\ $d_{MAX}(x, y) \geq 0$
+\item $d(x,y) = 0$ iff $x = y$\\
+$\Rightarrow$ Assuming $d_{MAX}(x,y) = 0$, WTS $x=y$\\
+$d_{MAX}(x,y) = \text{max}\{d_X(x, x'), d_Y(y, y')\} = 0$\\
+So by 1.c.i.A above,\\
+$d_X(x) = d_Y(y) = 0$\\
+$\Leftarrow$ Assuming $x = y$ WTS $d_{MAX}(x,y)=0$\\
+$d_{MAX} = \text{max}\{d_X(x) + d_Y(y)\}$\\
+$= \text{max}\{0 + 0\}$\\
+$ = 0$
+\eenu
+\item Symmetry: $d(x,y) = d(y,x)$\\
+$d_{MAX}((x,y)) = \text{max}\{d_X(x, x'), d_Y(y, y')\}$\\
+$ = \text{max}\{d_X(x', x), d_Y(y', y)\}$\\
+$ = d_{MAX}((x',y'))$
+\item Triangle Inequality: $d_{MAX}(x,z) \leq d_{MAX}(x,y) + d_{MAX}(y,z)$\\
+$\text{max}\{d_X(x,x'), d_Z(z,z')\} \leq \text{max}\{d_X(x,x'), d_Y(y,y')\} + \text{max}\{d_Y(y,y'), d_Z(z,z')\}$\\
+\benu
+\item If $x > y > z$,\\
+$d_X(x,x') \leq d_X(x,x') + d_Y(y,y')$, which is true\\
+\item If $x > z > y$,\\
+$d_X(x,x') \leq d_X(x,x') + d_Y(z,z')$, which is true\\
+\item If $y > x > z$,\\
+$d_X(x,x') \leq d_Y(y,y') + d_X(x,x')$, which is true\\
+\item If $y > z > x$,\\
+$d_Z(z,z') \leq d_Y(y,y') + d_Z(z,z')$, which is true\\
+\item If $z > x > y$,\\
+$d_Z(z,z') \leq d_X(x,x') + d_Z(z,z')$, which is true\\
+\item If $z > y > x$,\\
+$d_Z(z,z') \leq d_Y(y,y') + d_Z(z,z')$, which is true\\
+\eenu
+\eenu
+\eenu
+
 \newpage
 
-\itep 38 Let $||$ $||$ be any norm on $\mbR^m$ and let $B = \{x \in \mbR^m : ||x|| \leq 1 \}$.  Prove that $B$ is compact.  [Hint: It suffices to show that $B$ is closed and bounded with respect to the Euclidean metric.]
+\itep 38\\
+Let $||$ $||$ be any norm on $\mbR^m$ and let $B = \{x \in \mbR^m : ||x|| \leq 1 \}$.  Prove that $B$ is compact.  [Hint: It suffices to show that $B$ is closed and bounded with respect to the Euclidean metric.]
 
+\textbf{Definition: Norm}\\
+A \textbf{norm} on a vector space $V$ is any function $\lVert$   $\rVert: V \to \mbR$ with the three properties of vector length: namely, if $v, w \in V$ and $\lambda \in \mbR$ then\\
+$\lVert v \rVert \geq 0$ and $\lVert v \rVert = 0$ iff $v = 0$,\\
+$\lVert \lambda v \rVert = |\lambda| \lVert v \rVert$,\\
+$\lVert v + w \rVert \leq v \rVert + \lvert w \rVert$
 \newpage
 
 
-\itep 39 Assume that the Cartesian product of two non-empty set $A \subset M$ and $B \subset N$ is compact in $M \times N$.  Prove that $A$ and $B$ are compact.
+\itep 39\\
+Assume that the Cartesian product of two non-empty set $A \subset M$ and $B \subset N$ is compact in $M \times N$.  Prove that $A$ and $B$ are compact.
+\\\\
+Given $A \times B$ is compact, we want to show $A$ and $B$ are compact.  Let $p_n=((a_n), (b_n))$ be a sequence in $A \times B$.  Since $A \times B$ is compact, we have that the subsequence $p_{n_s} \to p = (c,d)$.  Then $(a_n)$ has a convergent subsequence $(a_{n_k}) \to c \in A$ and $(b_n)$ has a convergent subsequence $(b_{n_l}) \to b \in B$, so both $A$ and $B$ are compact.
 \newpage
 
-\itep 40 Consider a function $f:M \to \mbR$.  Its graph is the set
+\itep 40\\
+Consider a function $f:M \to \mbR$.  Its graph is the set
 $$\{(p,y) \in M \times \mbR: y = fp\}.$$
 \benu
 \item Prove that if $f$ is continuous then its graph is closed (as a subset of $M \times \mbR$)
+\\\\
+If $f$ is continuous, then $(a_i)$ in M, and $(a_i) \to b$ in $M$ implies that $f((a_i)) \to f(b)$ in $N$.  Hence its graph is closed
+\\
+If the graph of $f$ is compact, then evry sequence in the graph has a subsequence that converges to a limit in the graph.  Hence $f$ is continuous
 \item Prove that if $f$ is continuous and $M$ is compact then its graph is compact
+\\\\
+We want to show that every sequence in the graph, $N$, has a sequence that converges to a limit.  Since $M$ is compact, every subsequence in $M$ converges to a limit, and since it is continuous, $(a_i) \to b$ in $M$ implies that $f((a_i)) \to f(b)$ in $N$.  Therefore every sequence in $N$ converges to a limit, and so every subsequence does as well.  Hence $N$ is compact.
+
 \item Prove that if the graph of $f$ is compact then $f$ is continuous
+\\\\
+If the graph of $f$ is compact, then every sequence in the graph has a subsequence that converges to a limit in the graph.  Since a function is continuous if whenever $(a_i) \to b$ in $M$, and $f((i_i)) \to f(b)$ in $N$, it follows that $f$ is continuous
+\\
 \item What if the graph is merely closed?  Give an example of a discontinuous function $f: \mbR \to \mbR$ whose graph is closed
+\\
+$f(x) = 
+\begin{cases}
+tan(x)
+\\0,  x = \pi/2 + n\pi: n \in \mbZ
+\end{cases}
+$
 \eenu
 \newpage
 
-\itep 27 Let $(A_n)$ be a nested decreasing sequence of non-empty closed sets in the metric space $M$.
+\itep 27\\
+Let $(A_n)$ be a nested decreasing sequence of non-empty closed sets in the metric space $M$.
 \benu
-\item If $M$ is complete and diam $A_n \to 0$ as $n \to \infty$, show that $\cap A_n$ is exactly one point
-\item To what assertions do the sets $[0, \infty)$ provide counterexamples?
+\item If $M$ is complete and diam $A_n \to 0$ as $n \to \infty$, show that $\cap A_n$ is exactly one point\\
+\\
+We first want to show that the intersection has at least one point.  So we want to show that a Cauchy sequence exists.  Let $a_n \in A_n$ be no-empty.  Because they are nested and diam $\to 0$, the sequence is Cauchy.  $M$ is therefore complete and its limit is $p$.  Since $A_n$ is closed, $p \in A_n$ since there is a sequence that tends to $p$.  So then $p$ is in the intersection.
+\\
+To show that there are at most one point in the intersection, suppose TAC $a, b \in A_n$ and $a \neq b$.  Then $d(a, b) = r > 0$.  Let $n$ be so diam($A_n) < r$.  But $a, b \in A_n,$ and $r > \text{ diam}(A_n) \geq d(a, b) = r$.  So then $r > r$. $\hfill$CONTRADICTION
+\\
+\item To what assertions do the sets $[n, \infty)$ provide counterexamples?
+\\
+Let $A_n \in M = \mbR$ be nested and decreasing, and $M$ is a complete metric space.  As well, $A_n = [n, \infty)$.  But then diam($A_n) = \infty$ for all $n$, so it is not going to 0.
 \eenu
 \newpage
 
