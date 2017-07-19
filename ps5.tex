@@ -1,0 +1,220 @@
+\documentclass[12pt]{amsart}
+\setlength{\parskip}{.1in}
+\setlength{\parindent}{0cm}
+%myalterations
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue,pdfborder={0 0 .5}pdfnewwindow=true]{hyperref}
+\usepackage{enumitem}
+%\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{tabularx}
+%\usepackage{arydshln,leftidx,mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage{bm}
+
+%\setlength{\dashlinedash}{.4pt}
+%\setlength{\dashlinegap}{.8pt}
+%\usepackage{amsthm}
+\usepackage{verbatim}
+%\usepackage{commath}
+%My commands
+%environment abbreviations
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bed}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{exercise}[theorem]{Exercise}
+\newcommand{\bex}{\begin{exercise}}
+\newcommand{\ex}{\end{exercise}}
+
+\newcommand{\pru}{{ \bfseries \textcolor{red}{Proof:} }}
+
+%symbol definitions
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\mbZ}{\mathbb{Z}}
+\newcommand{\mbR}{\mathbb{R}}
+\newcommand{\mbN}{\mathbb{N}}
+\newcommand{\mbQ}{\mathbb{Q}}
+\newcommand{\mbC}{\mathbb{C}}
+\newcommand{\mbF}{\mathbb{F}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\tra}{\twoheadrightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\ep}{\epsilon}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\bfs}[1]{{\bfseries #1}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+%Operator definitions
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\triv}{triv}
+\DeclareMathOperator{\cyc}{cyc}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\expo}{x}
+\DeclareMathOperator{\ord}{o}
+\DeclareMathOperator{\imm}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\alt}{alt}
+\DeclareMathOperator{\irr}{irr}
+\DeclareMathOperator{\eqt}{Equiv}
+\DeclareMathOperator{\pat}{Part}
+%\DeclareMathOperator{\sgn}{sgn}
+%\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gl}{Gl}
+\DeclareMathOperator{\M}{M}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\fixx}{Fix}
+\DeclareMathOperator{\suppp}{Supp}
+\DeclareMathOperator{\gl}{Gl}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\ii}{I}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Co}{Co}
+\DeclareMathOperator{\md}{md}
+\DeclareMathOperator{\qt}{qt}
+\DeclareMathOperator{\ExtendedGCD}{ExtendedGCD}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\GCD}{GCD}
+\newcommand{\nms}{\negmedspace}
+\newcommand{\nts}{\negthinspace}
+
+\newcommand{\itep}{\item {\bfseries Problem}\ }
+\newcommand{\gen}[1]{\langle \nts#1 \nts\rangle}
+\newcommand{\quot}[2]{#1/ #2}
+\newcommand{\order}[1]{\left|<\nts #1 \nts s>\right|}
+
+%These next two commands are for making answers. 
+\newcommand{\beans}{\begin{description} \item[{ \bfseries \textcolor{red}{Answer}}]\ }
+\newcommand{\eans }{\end{description}}
+%\newcommand{\begin{comment}ex}{{ \bfseries \textcolor{red}{Answer}}}
+
+%To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
+\newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
+
+\title{\textbf{Math 521 - Problem Set 1}}
+\author{Guy Matz}
+\date{\today}
+
+\begin{document} 
+
+\maketitle
+%\newpage % Q1
+
+\begin{enumerate}[series=p]
+\itep 6\\
+If $S, T \subset M$, a metric space, and $S subset T$, prove that
+	\benu
+	\item $\bar{S} \subset \bar{T}$
+	\item int$(S) \subset$ int($T$) 
+	\eenu
+\newpage
+
+\itep 10\\
+\benu
+	\item Find a metric space in which the boundary of $M_rp$ is not equal to the sphere of radius $r$ at $p, \{x \in M : d(x,p) = r\}$
+	\item Need the boundary be contained in the sphere?
+\eenu
+
+\newpage
+
+\itep \\
+Prove that if $A$ and $B$ are compact, disjoint, non-empty subsets of $M$, then there are points $a\in A$ and $b\in B$ so that for any $x\in A$ and $y\in B$, $d(a,b)\leq d(x,y)$. In other words, $a$ and $b$ are the closest you get a point in $A$ and a point in $B$ to each other.
+
+\newpage
+
+\itep 28\\
+Prove that there is an embedding of the line as a closed subset of the plane, and there is an embedding of the line as a bounded subset of the plane, but there is no embedding of the line as a closed and bounded subset of the plane
+
+\newpage
+
+\itep 43 
+Suppose that $(K_n)$ is a nested sequence of compact non-empty sets, $K_1 \supset K_2 \supset \dots $, and $K = \bigcap K_n$.  If for some $\mu > 0$, each diam$K_n \geq \mu$, is it true that diam $K \geq \mu$.
+\newpage
+
+\itep 14
+The \textbf{distance} from a point $p$ in a metric space $M$ to a non-empty subset $S subset M$ is defined to be dist$(p, S) = \text{inf}\{d(p,s): s \in S\}$.
+	\benu
+		\item Show that $p$ is a limit of $S$ if and only if dist$(p,S) = 0$
+		\item Show that $p \mapsto \text{dist}(p, S)$ is a uniformly continuous function of $p \in M$
+	\eenu
+\newpage
+
+\itep 41
+Prove that the 2-sphere is not homeomorphic to the plane
+
+\newpage
+\item 54
+If $S$ is connected, is the interior of $S$ connected?  Prove this or give a counter-example
+
+\newpage
+
+\itep 55
+Theorem 51 states that the closure of a connected set is connected.
+	\benu
+		\item Is the closure of a disconnected set disconnected
+		\item What about the interior of a disconnected set?
+	\eenu
+\newpage
+
+\itep 56
+Prove that every countable metric space (not empty and not a singleton) is disconnected.  [Astonishingly, there exists a countable topological space which is connected.  Its topology does not arise from a metric]
+
+\newpage
+\itep 59
+Prove that the annulus $A = \{z \in \mbR^2: r \leq |z| \leq R\}$ is connected.
+
+\newpage
+\itep 64a
+Prove that every connected open subset of $\mbR^m$ is a path connected.
+
+\newpage
+\itep 68
+Prove that $(a,b)$ and $[a,b]$ are not homeomorphic metric spaces
+
+
+\newpage
+
+\itep 69
+Let $M$ and $N$ be non-empty metric spaces
+	\benu
+		\item If $M$ and $N$ are connected, prove that $M \times N$ is connected
+		\item What about the converse?
+		\item Answer the question again for path-connectedness
+	\eenu
+\newpage
+
+
+\itep 74
+	\benu
+		\item The intersection of connected sets need not be connected.  Give an example.
+		\item Suppose that $S_1, S_2, S_3, \dots$ is a sequence of connected, closed subsets of the plane and $S_1 \supset S_2 \supset \dots$.  Is $S = \bigcap S_n$ connected?
+		\item * Does the answer change if the sets are compact
+		\item What is the situation for a nested decreasing sequence of compact path-connected sets?
+	\eenu
+\newpage
+
+
+\itep 77
+If a metric space $M$ is the union of path-connected sets $S_\alpha$, all of which have the path-connected set $K$ in common, is $M$ path-connected?
+
+
+
+\end{enumerate}
+\end{document}
