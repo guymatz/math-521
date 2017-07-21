@@ -790,7 +790,97 @@ If $V$ is closed in $M$, then $M \setminus V$ is open in $M$
 	\end{center}
 \end{theorem}
 
+\subsection{7/19}
+
+\begin{theorem}{If $S \subseteq M$ and $S$ is connected and $S \subseteq T \subseteq \text{lim}(S)$ . . .}
+	\begin{center}
+		. . .  then T is also connected
+	\end{center}
+\end{theorem}
+
+\begin{theorem}{The union of connected sets each of which contains a point $p$ . . .}
+	\begin{center}
+		. . .  is connected
+	\end{center}
+\end{theorem}
+
+\begin{definition}{A Path from $a$ to $b$ in $M$}
+	\begin{center}
+		If $a,b \in M$, a \textbf{path from $a$ to $b$ in $M$} is a continuous function $f:[0,1] \to M$ so that $f(0)=a, f(1)=b$
+	\end{center}
+\end{definition}
+
+\begin{definition}{Path Connected}
+	\begin{center}
+		$M$ is \textbf{path connected} if for every $a,b \in M$ there is a path from $a$ to $b$ in $M$
+	\end{center}
+\end{definition}
+
+\begin{theorem}{If $M$ is path connected . . .}
+	\begin{center}
+		. . . then $M$ is connected
+	\end{center}
+\end{theorem}
+
+
+\subsection{7/20}
+
+\begin{definition}{Closure}
+	\begin{center}
+		For an set $S \subseteq M$, the \textbf{Closure} $\bar{S}$ is the smallest closed set containing $S$, i,e. the intersection of all closed sets that contain $S$\\
+		$\bar{S} = \text{cl}(S) = \text{lim}(S)$\\
+		cl$(S) = S \Longleftrightarrow S$ is closed
+	\end{center}
+\end{definition}
+
+\begin{definition}{Interior - int(S)}
+	\benu
+		\item Largest open set contained in $S$
+		\item The union of all open sets contained in $S$
+		\item $\{p \in M| \exists r>0, B_r(p) \subseteq S\}$
+		\item $(\bar{S^c})^c$
+		\item int$(S) = S \Longleftrightarrow S$ is open
+	\eenu
+\end{definition}
+
+
+\begin{definition}{Boundary - $\partial S$}
+	\begin{center}
+		$\partial S = \bar{S} \setminus \text{int}(S)$
+	\end{center}
+If boundary is empty, then $S$ is clopen
+\end{definition}
+
+\begin{theorem}{If $M$ is path connected . . .}
+	\begin{center}
+		. . . then $M$ is connected
+	\end{center}
+\end{theorem}
+
+
+\begin{definition}{Cluster Point}
+	\benu
+		\item $p$ is a \textbf{cluster point} of $S$ if there is anon-repeating sequence $(a_n)$ from $S$ so $(a_n) \to p$
+		\item See 7/20 - 2
+	\eenu
+\end{definition}
+
+\begin{definition}{Cluster Points of $S$}
+	$S'$ is the set of \textbf{cluster points} of S\\
+	$S' \subseteq \text{lim}(S)$\\
+	$S \cup S' = \text{lim(S)}$
+\end{definition}
+
+
+\begin{definition}{Perfect}
+	A metric space is \textbf{perfect} if every point in $M$ is a cluster point of $M$, i.e.
+	$\forall p \in M \forall r > 0 \exists q \in M (q \neq p \text{ and } \text{cl}(p,q) < r)$
+\end{definition}
+
+
 \newpage
+
+
 \section*{Homework}
 
 \newpage
