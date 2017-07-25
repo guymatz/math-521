@@ -17,6 +17,7 @@
 \usepackage{tikz-cd}
 \usepackage{hyperref}
 \usepackage{bm}
+\usepackage{stmaryrd}
 
 %\setlength{\dashlinedash}{.4pt}
 %\setlength{\dashlinegap}{.8pt}
@@ -121,27 +122,47 @@
 \itep 6\\
 If $S, T \subset M$, a metric space, and $S \subset T$, prove that
 	\benu
-	\item $\bar{S} \subset \bar{T}$
-	\item int$(S) \subset$ int($T$) 
+	\item $\bar{S} \subset \bar{T}$\\
+	$\bar{S}$ contains the limit points of $S$, so there is a sequence of elements in $S$ that converge to each limit in $S$.  The limits are also contained in $T$, so they are sequences in $T$ whose limits points are in $\bar{T}$.  Hence $\bar{S} \subset \bar{T}$
+	\item int$(S) \subset$ int($T$) \\
+	Let $x \in $ int($S$).  We want to show that $x \in $ int(T).  We know that $S \subset T$, int(S)$ \subset S$ and  int(T) $\subset T$.  Since $S \subset T$, we have $x \in S \implies x \in T$ and $B_r^Sx \subset S$, so $B_r^Tx \subset T$.  Hence int(S) $\subset$ int(T).
 	\eenu
 \newpage
 
 \itep 10\\
 \benu
-	\item Find a metric space in which the boundary of $M_rp$ is not equal to the sphere of radius $r$ at $p, \{x \in M : d(x,p) = r\}$
-	\item Need the boundary be contained in the sphere?
+	\item Find a metric space in which the boundary of $M_rp$ is not equal to the sphere of radius $r$ at $p, \{x \in M : d(x,p) = r\}$\\
+	\begin{description}
+		\item[$M_rp$] $\{q \in M: d(p,q) < r\}$
+	\end{description}
+	\textbf{The boundary is defined to be the sphere "$< r$", so in no metric space is the boundary equal to the equal with radius $r$.}
+	\\
+	\item Need the boundary be contained in the sphere?\\
+	\textbf{Yes.  In which case $M_rp$ would need to be defined as $\{ q \in M: d(p,q) \leq r\}$}
+	
 \eenu
 
 \newpage
 
 \itep \\
 Prove that if $A$ and $B$ are compact, disjoint, non-empty subsets of $M$, then there are points $a\in A$ and $b\in B$ so that for any $x\in A$ and $y\in B$, $d(a,b)\leq d(x,y)$. In other words, $a$ and $b$ are the closest you get a point in $A$ and a point in $B$ to each other.
+\\
+\\
+\textbf{Theorem:}
+If $f:M \to \mbR$, $M$ is compact and $f$ is continuous, then $f$ attains a max and min value.
+\\\\
+Since $A$ and $B$ are both compact, $A \times B$ is compact, hence $d: A \times B \to \mbR$ is compact.  \textbf{Since the function that maps a compact space to the Reals is continuous}, it follows from the theorem above that the distance between $A$ and $B$ attains a minimum value.
 
 \newpage
 
 \itep 28\\
 Prove that there is an embedding of the line as a closed subset of the plane, and there is an embedding of the line as a bounded subset of the plane, but there is no embedding of the line as a closed and bounded subset of the plane
 
+	\benu
+		\item \textbf{The constant function $f: \mbR \to \mbR^2$ defined by $f(x) = (x, c)$.  This is an embedding since $f \llbracket M \rrbracket$ is a homeomorphism since it is bijective and bi-continuous.  This subset of $\mbR^2$ is closed since its complement is open.}
+		\item \textbf{The mapping $f: \mbR \to \mbR^2$ defined by $f(x) = (x, 0)$ on the interval $(0,1)$ is a homeomorphism and the image is bounded subset of the plane.}
+		\item Hint: Closed and Bounded subsets of $\mbR^2$ are compact
+	\eenu
 \newpage
 
 \itep 43 \\
@@ -157,7 +178,9 @@ The \textbf{distance} from a point $p$ in a metric space $M$ to a non-empty subs
 \newpage
 
 \itep 41\\
-Prove that the 2-sphere is not homeomorphic to the plane
+Prove that the 2-sphere is not homeomorphic to the plane\\
+\\
+\textbf{The 2-sphere is compact and the plane is not, so the two cannot be homeomorphic.}
 
 \newpage
 \itep 54\\
@@ -212,8 +235,11 @@ Let $M$ and $N$ be non-empty metric spaces
 
 
 \itep 77\\
-If a metric space $M$ is the union of path-connected sets $S_\alpha$, all of which have the path-connected set $K$ in common, is $M$ path-connected?
-
+If a metric space $M$ is the union of path-connected sets $S_\alpha$, all of which have the path-connected set $K$ in common, is $M$ path-connected?\\
+\\
+\textbf{Theorem:} The union of connected sets sharing a common point is connected
+\\\\
+Since connected and path-connected are equivalent, by the the theorem above $M$ is path-connected
 
 
 \end{enumerate}
