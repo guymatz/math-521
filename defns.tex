@@ -21,6 +21,8 @@
 \newcommand{\tra}{\twoheadrightarrow}
 \newcommand{\lra}{\leftrightarrow}
 \newcommand{\ep}{\epsilon}
+\newcommand{\mcU}{\mathcal{U}}
+\newcommand{\mcV}{\mathcal{V}}
 
 % Frame with a label at top
 \newcommand\LabFrame[2]{%
@@ -882,6 +884,97 @@ If boundary is empty, then $S$ is clopen
 	$\forall p \in M \forall r > 0 \exists q \in M (q \neq p \text{ and } \text{cl}(p,q) < r)$
 \end{definition}
 
+\subsection{Week 6}
+
+\subsubsection{7/24}
+
+\begin{definition}{Covering}
+	$\mcU$ is a \textbf{covering} of $A \subseteq M$ if:
+	\benu
+		\item $\mcU$ is a collection of subsets of $M$
+		\item $A \subseteq \bigcup_{x \in \mcU}X$
+	\eenu
+	I.e., for every point in $A$ there is a $X \in \mcU$ so $y \in X$
+\end{definition}
+
+
+\begin{definition}{Subcover}
+	$\mcV$ is a \textbf{subcover} of $\mcU$ means that $\mcV$ is a subset of $\mcU$, and is still a covering
+\end{definition}
+
+
+\begin{theorem}{If $A \subseteq M$ is finite and $\mcU$ is a covering of $A$,  . . .}
+	\begin{center}
+		. . . then there is a finite subcover of $\mcU$
+	\end{center}
+\end{theorem}
+
+
+\begin{definition}{Covering Compact}
+	$A \subseteq M$ is \textbf{Covering Compact} if whenever $\mcU$ is an open covering of $A$, there is a finite subcover of $\mcU$
+\end{definition}
+
+\begin{theorem}{Compactness is Compactness}
+	For $A \subseteq M$ the following are equivalent:
+	\benu
+		\item $A$ is covering compact
+		\item $A$ is "sequentially" compact
+	\eenu
+\end{theorem}
+
+\subsubsection{7/25}
+
+\begin{theorem}{Lebesgue Num. Lemma}
+	If $A$ is sequentially compact and $\mcU$ is an open cover of $A$, then there is a \textbf{Lebesgue Number} for $\mcU$, i.e.
+	$$\exists r > 0 \forall p \in A \exists X \in \mcU (B_r(p) \subseteq X)$$	
+\end{theorem}
+
+\begin{definition}{Totally Bounded}
+	A set $A \subseteq M$ is \textbf{Totally Bounded} if $\forall \epsilon>0$ there is a finite set of $\epsilon$-balls which cover $A$
+	Examples:
+	\benu
+		\item $[0,1]$ (is a compact set) \textbf{is} Totally Bounded
+		\item $(\mbR, \text{discrete})$ NOT totally bounded.  Bounded since ball of radius 2 covers, butnot totally bounded since it take $\infty$ many 1/2-balls to cover
+	\eenu
+\end{definition}
+
+\begin{theorem}{Totally bounded set are bounded}
+	Totally bounded: There are finitely-many 1-balls to cover the set $A:B_1(a_1) \dots B_1(a_n)$.  Then\\
+	\begin{center}
+		$B_S(a_1) \supseteq A$ where $S = 1 + \text{max}(\{ \text{dist}(a_1, a_i)|i \leq n \})$
+	\end{center}
+\end{theorem}
+
+
+\begin{theorem}{In $\mbR^m$ Bounded sets are Totally Bounded}
+	Any r-ball can be covered by finitely many $\epsilon$-balls
+\end{theorem}
+
+
+\begin{theorem}{Generalized Heine-Borel Theorem}
+	Let $M$ be complete and $A \subseteq M$.  Then $A$ is compact iff $A$ is closed in $M$ \textbf{and Totally Bounded}
+\end{theorem}
+
+\subsubsection{7/26}
+\begin{theorem}{Corollary to Heine-Borel Theorem}
+	\textbf{A space $M$ is compact iff $M$ is complete and totally bounded}
+\end{theorem}
+
+\begin{definition}{Totally Disconnected}
+	$M$ is \textbf{Totally Disconnected} if $\forall x \in M \forall \epsilon>0$ there is a clopen set $A$ so that $x \in A \subseteq B_\epsilon (x)$
+	Examples:
+	\benu
+		\item examples go here! 7/26-2
+	\eenu
+\end{definition}
+
+\begin{theorem}{$C$ is compact . . .}
+	$C$ is compact, non-$\emptyset$, perfect and totally disconnected ???
+\end{theorem}
+
+\begin{theorem}{Corollary to theorem above}
+	$C$ is complete (by compactness), Complete + Perfect = Uncountable
+\end{theorem}
 
 \newpage
 
