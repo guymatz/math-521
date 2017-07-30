@@ -889,12 +889,7 @@ If boundary is empty, then $S$ is clopen
 \subsubsection{7/24}
 
 \begin{definition}{Covering}
-	$\mcU$ is a \textbf{covering} of $A \subseteq M$ if:
-	\benu
-		\item $\mcU$ is a collection of subsets of $M$
-		\item $A \subseteq \bigcup_{x \in \mcU}X$
-	\eenu
-	I.e., for every point in $A$ there is a $X \in \mcU$ so $y \in X$
+	The collection $\mcU$ of subsets of $M$ covers $A \subset M$ if $A$ is contained in the union of the sets belonging to $\mcU$
 \end{definition}
 
 
@@ -924,17 +919,20 @@ If boundary is empty, then $S$ is clopen
 
 \subsubsection{7/25}
 
+\begin{definition}{Lebesgue Number}
+	A \textbf{Lebesgue Number} for a covering $\mcU$ of $A$ is a positive real number $\lambda$ such that for each $a  \in A$ there is some $U \in \mcU$ with $M_\lambda a \subset U$
+\end{definition}
 \begin{theorem}{Lebesgue Num. Lemma}
 	If $A$ is sequentially compact and $\mcU$ is an open cover of $A$, then there is a \textbf{Lebesgue Number} for $\mcU$, i.e.
 	$$\exists r > 0 \forall p \in A \exists X \in \mcU (B_r(p) \subseteq X)$$	
 \end{theorem}
 
 \begin{definition}{Totally Bounded}
-	A set $A \subseteq M$ is \textbf{Totally Bounded} if $\forall \epsilon>0$ there is a finite set of $\epsilon$-balls which cover $A$
+	A set $A \subseteq M$ is \textbf{Totally Bounded} if $\forall \epsilon>0$ there is a finite set of $\epsilon$-balls which cover $A$.\\
 	Examples:
 	\benu
 		\item $[0,1]$ (is a compact set) \textbf{is} Totally Bounded
-		\item $(\mbR, \text{discrete})$ NOT totally bounded.  Bounded since ball of radius 2 covers, butnot totally bounded since it take $\infty$ many 1/2-balls to cover
+		\item $(\mbR, \text{discrete})$ NOT totally bounded.  Bounded since ball of radius 2 covers, but not totally bounded since it takes $\infty$-ly many 1/2-balls to cover
 	\eenu
 \end{definition}
 
@@ -975,6 +973,42 @@ If boundary is empty, then $S$ is clopen
 \begin{theorem}{Corollary to theorem above}
 	$C$ is complete (by compactness), Complete + Perfect = Uncountable
 \end{theorem}
+
+
+\subsubsection{7/27}
+\begin{theorem}{$2^\omega$ is compact}
+	\benu
+	\item Either the tree is finite
+	or
+	\item The tree is infinite, but this leads to a contradiction
+	\eenu
+\end{theorem}
+
+\begin{theorem}{ $2^\omega \cong$ C}
+	
+\end{theorem}
+
+\begin{definition}{Dense}
+	$S \subseteq M$ is \textbf{dense} in $M$ if cl($S$) = $M$\\
+	Examples:
+	\benu
+	\item $\mbQ$ is dense in $\mbR$
+	\item $\mbQ^n$ is dense in $\mbR^n$
+	\eenu
+\end{definition}
+
+\begin{definition}{Somewhere Dense}
+	$S$ is \textbf{Somewhere Dense} in $M$ if there is some open $X \subseteq M$ such that cl($S \cap X) \subseteq X$\\
+	Example:\\
+	cl(0,1) $\cap \mbQ \cap (0,1) = [0,1] \supseteq (0,1)$\\
+	where $S = (0,1) \cap \mbQ$ and $X = (0,1)$ from the definition above
+\end{definition}
+
+\begin{definition}{Nowhere Dense}
+	$S$ is \textbf{nowhere dense} if it is not \textit{somewhere dense} in $M$
+\end{definition}
+
+
 
 \newpage
 
