@@ -1,0 +1,261 @@
+\documentclass[12pt]{amsart}
+\setlength{\parskip}{.1in}
+\setlength{\parindent}{0cm}
+%myalterations
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue,pdfborder={0 0 .5}pdfnewwindow=true]{hyperref}
+\usepackage{enumitem}
+%\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{tabularx}
+%\usepackage{arydshln,leftidx,mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{stmaryrd}
+
+%\setlength{\dashlinedash}{.4pt}
+%\setlength{\dashlinegap}{.8pt}
+%\usepackage{amsthm}
+\usepackage{verbatim}
+%\usepackage{commath}
+%My commands
+%environment abbreviations
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bed}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{exercise}[theorem]{Exercise}
+\newcommand{\bex}{\begin{exercise}}
+\newcommand{\ex}{\end{exercise}}
+
+\newcommand{\pru}{{ \bfseries \textcolor{red}{Proof:} }}
+
+%symbol definitions
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\mbZ}{\mathbb{Z}}
+\newcommand{\mbR}{\mathbb{R}}
+\newcommand{\mbN}{\mathbb{N}}
+\newcommand{\mbQ}{\mathbb{Q}}
+\newcommand{\mbC}{\mathbb{C}}
+\newcommand{\mbF}{\mathbb{F}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcU}{\mathcal{U}}
+\newcommand{\mcV}{\mathcal{V}}
+
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\tra}{\twoheadrightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\ep}{\epsilon}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\bfs}[1]{{\bfseries #1}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+%Operator definitions
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\triv}{triv}
+\DeclareMathOperator{\cyc}{cyc}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\expo}{x}
+\DeclareMathOperator{\ord}{o}
+\DeclareMathOperator{\imm}{im}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\alt}{alt}
+\DeclareMathOperator{\irr}{irr}
+\DeclareMathOperator{\eqt}{Equiv}
+\DeclareMathOperator{\pat}{Part}
+%\DeclareMathOperator{\sgn}{sgn}
+%\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gl}{Gl}
+\DeclareMathOperator{\M}{M}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\fixx}{Fix}
+\DeclareMathOperator{\suppp}{Supp}
+\DeclareMathOperator{\gl}{Gl}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\ii}{I}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Co}{Co}
+\DeclareMathOperator{\md}{md}
+\DeclareMathOperator{\qt}{qt}
+\DeclareMathOperator{\ExtendedGCD}{ExtendedGCD}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\GCD}{GCD}
+\newcommand{\nms}{\negmedspace}
+\newcommand{\nts}{\negthinspace}
+
+\newcommand{\itep}{\item {\bfseries Problem}\ }
+\newcommand{\gen}[1]{\langle \nts#1 \nts\rangle}
+\newcommand{\quot}[2]{#1/ #2}
+\newcommand{\order}[1]{\left|<\nts #1 \nts s>\right|}
+
+%These next two commands are for making answers. 
+\newcommand{\beans}{\begin{description} \item[{ \bfseries \textcolor{red}{Answer}}]\ }
+\newcommand{\eans }{\end{description}}
+%\newcommand{\begin{comment}ex}{{ \bfseries \textcolor{red}{Answer}}}
+
+%To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
+\newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
+
+\title{\textbf{Math 521 - Problem Set 1}}
+\author{Guy Matz}
+\date{\today}
+
+\begin{document} 
+
+%\maketitle
+%\newpage % Q1
+
+\begin{enumerate}[series=p]
+\itep 44 (85)
+Suppose that $M$ is compact and that $\mcU$ is an open covering of $M$ which is "redundant" in the sense that each $p \in M$ is contained in at least two members of $\mcU$.  Show that $\mcU$ reduces to a finite subcovering with the same proprrty.
+\newpage
+
+\itep 45 (86)
+Suppose that every open covering of $M$ has a positive Lebesgue number.  Give an example of such an $M$ that is not compact.
+\newpage
+
+\itep 46 (87)
+Give a direct proof that $[a,b]$ is covering compact. [Hint: let $\mcU$ be an open covering of $[a,b]$ and consider the set:
+$$C = \{x \in [a,b]: \text{finitely many members of  } \mcU \text{ cover }[a,x] \}$$
+\newpage
+
+\itep 47 (88)
+Give a direct proof that a closed subset $A$ of a covering compact set $K$ is covering compact.
+\newpage
+
+\itep 48 (89)
+Give a proof of Theorem 39 using open coverings.  That is, assume that $A$ is a covering compact subset of $M$ and $f: M \to N$ is continuous.  Prove directly that $fA$ is covering compact. [Hint: What is the criterion for continuity in terms of pre-images?]
+\newpage
+
+\itep 49 (90)
+Suppose that $f: M \to N$ is a continuous bijection and $M$ is covering compact.  Prove directly that $f$ is a homeomorphism.
+\newpage
+
+\itep 50 (91)
+Suppose that $M$ is covering compact and that $f:M \to N$ is continuous.  Use the Lebesgue number lemma to prove that $f$ is uniformly continuous.  [Hint: Consider the covering of $N$ by $\epsilon/2$ neighborhoods $\{N_{\epsilon/2}(q): q \in N\}$ and its pre-image in $M, \{f^{pre}(N_{\epsilon/2}(q)) :q \in N \}$]
+\newpage
+
+\itep 51 (92)
+Give a direct proof that the nested decreasing intersection of non-empty covering compact sets is non-empty.  [Hint: If $A_1 \supset A_2 \supset \dots$ are covering compact, consider the open sets $U_n = A^c_n$.  If $\bigcap A_n = \emptyset$, what does $\{U_N \}$ cover?] 
+\newpage
+
+\itep 52 (93)
+
+Generalize Exercise 51 as follows.  Suppose that $M$ is covering compact and $\mathcal{C}$ is a collection of closed subsets of $M$ such that every intersection of finitely many members of $\mathcal{C}$ is non-empty.  (Such a collection $\mathcal{C}$ is said to have the \textbf{finite intersection property}.)  Prove that the \textbf{grand intersection} $\bigcap_{C \in \mathcal{C}}C$ is non-empty.  [Hint: Consider the collection of open sets $\mcU = \{C^c : C \in \mathcal{C}\}$]
+\newpage
+
+\itep 53 (94)
+
+If every collection of closed subsets of $M$ which has the finite intersection property also has a non-empty grand intersection, prove that $M$ is covering compact.  [Hint: Given an open covering $\mcU = \{U_\alpha\}]$. consider the collection of closed set $\mc{C} = \{U_\alpha^c\}$.]
+\newpage
+
+\itep 109(a-d) (99)
+
+Let $M, N$ be non-empty metric spaces and $P = M \times N$
+	\benu
+		\item If $M,N$ are perfect, prove that $P$ is perfect
+		\item If $M, N$ are totally disconnected, prove that $P$ is totally disconnected.
+		\item What are the converses?
+		\item Infer that the Cartesian product of Cantor spaces is a Cantor space.  (We already know that the Cartesian product of compacts is compact.)
+	\eenu
+
+\newpage
+
+\itep 118 (103)
+
+Prove that there is a continuous surjection  $\mbR \to \mbR^2$.  What about $\mbR^m$
+\newpage
+
+\itep 89 (122)
+
+Recall that $p$ is a \textbf{cluster point} of $S$ if each $M_rp$ contains indefinitely many points of $S$.  The set of cluster points of $S$ is denoted as $S'$.  Prove:
+	\benu
+		\item If $S \subset T$ then $S' \subset T'$
+		\item $(S \subset T)' = S' \cup T'$
+		\item $S' = (\overline{S})'$
+		\item $S'$ is closed in $M$; that is $S'' \subset S'$ where $S'' = (S')'$
+		\item Calculate $\mbN', \mbQ', \mbR', (\mbR \setminus \mbQ)', \mbQ''$
+		\item Let $T$ be the set of points $\{1/n : n \in \mbN\}$.  Calculate $T'$ and $T''$
+	\eenu
+\newpage
+
+\itep 91 (124)
+
+Recall that $p$ is an interior point $S \subset M$ if some $M_rp$ is contained in $S$.  The set of interior points of $S$ is the \textbf{interior} of $S$ and is denoted int S.  For all subsets $S, T$ of the metric space $M$ prove:
+	\benu
+		\item int $S = S \setminus \partial S$
+		\item int $S = (\overline{S^c})^c$
+		\item int(int $S$) = int $S$
+		\item int($S \cap T$) = int $S$ $\cap$ int $T$
+		\item What are the dual equations for the closure
+		\item Prove that int($S \cup T$) $\supset$ (int $S$ $\cup$ int $T$).  Show by example that the inclusion can be strict, i.e., not an equality.
+	\eenu
+\newpage
+
+\itep 92 (125)
+
+A point $p$ is a boundary point of a set $S \supset M$ if every neighborhood $M_rp$ contains points of both $S$ and $S^c$.  The \textbf{boundary} of $S$ is denoted $\partial S$.  For all subsets $S, T$ of a metric space $M$ prove:
+	\benu
+		\item $S$ is clopen iff $\partial S = \emptyset$
+		\item $\partial S = \partial S^c$
+		\item $\partial \partial S \subset \partial S$
+		\item $\partial \partial \partial S \subset \partial \partial S$
+		\item $\partial (S cap T) \subset \partial S \cup \partial T$
+		\item Give an example in which (c) is a strict inclusion, $\partial \partial \neq \partial S$
+		\item What about (e)?
+	\eenu
+\newpage
+
+
+\itep 130 (152)
+
+Write jingles at least as good as crap.
+\begin{verbatim}
+( Q: What's the contour integral around )
+( Western Europe? A: Zero, because all  )
+( the Poles are in Eastern Europe!      )
+(                                       )
+( Addendum: Actually, there ARE some    )
+( Poles in Western Europe, but they     )
+( are removable!                        )
+(                                       )
+( Q: An English mathematician (I forgot )
+( who) was asked by his                 )
+( very religious colleague: Do you      )
+( believe in one God? A: Yes, up to     )
+( isomorphism!                          )
+(                                       )
+( Q: What is a compact city? A: It's a  )
+( city that can be guarded by finitely  )
+( many near-sighted policemen!          )
+(                                       )
+( -- Peter Lax                          )
+---------------------------------------
+o
+ o
+  ___  
+{~._.~}
+ ( Y )
+()~*~()   
+(_)-(_)   
+\end{verbatim}
+\newpage
+
+\end{enumerate}
+\end{document}
