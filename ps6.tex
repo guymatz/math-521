@@ -51,6 +51,7 @@
 \newcommand{\mcP}{\mathcal{P}}
 \newcommand{\mcU}{\mathcal{U}}
 \newcommand{\mcV}{\mathcal{V}}
+\newcommand{\mcC}{\mathcal{C}}
 
 \newcommand{\hra}{\hookrightarrow}
 \newcommand{\tra}{\twoheadrightarrow}
@@ -112,67 +113,105 @@
 %To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
 \newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
 
-\title{\textbf{Math 521 - Problem Set 1}}
+\title{\textbf{Math 521 - Problem Set 6}}
 \author{Guy Matz}
 \date{\today}
 
 \begin{document} 
 
-%\maketitle
-%\newpage % Q1
+\maketitle
+\newpage % Q1
 
 \begin{enumerate}[series=p]
 \itep 44 (85)
-Suppose that $M$ is compact and that $\mcU$ is an open covering of $M$ which is "redundant" in the sense that each $p \in M$ is contained in at least two members of $\mcU$.  Show that $\mcU$ reduces to a finite subcovering with the same proprrty.
+Suppose that $M$ is compact and that $\mcU$ is an open covering of $M$ which is "redundant" in the sense that each $p \in M$ is contained in at least two members of $\mcU$.  Show that $\mcU$ reduces to a finite subcovering with the same property.\\
+\\
+If $M$ is compact, then it is covering compact, so every open covering of $M$ reduces to a finite subcovering.  HOW DOES IT HAVE THE SAME PROPERTY?
 \newpage
 
 \itep 45 (86)
-Suppose that every open covering of $M$ has a positive Lebesgue number.  Give an example of such an $M$ that is not compact.
+Suppose that every open covering of $M$ has a positive Lebesgue number.  Give an example of such an $M$ that is not compact.\\
+\\
+The interval (0,1) can be covered, but it is not compact.
 \newpage
 
 \itep 46 (87)
 Give a direct proof that $[a,b]$ is covering compact. [Hint: let $\mcU$ be an open covering of $[a,b]$ and consider the set:
-$$C = \{x \in [a,b]: \text{finitely many members of  } \mcU \text{ cover }[a,x] \}$$
+$$C = \{x \in [a,b]: \text{finitely many members of  } \mcU \text{ cover }[a,x] \}$$\\
+\\
+Assume  the l.u.b of $C = s < b$.  Then, given $x < s$ you can finitely cover $[a,x]$.  Since $s \in [a,b]$, there is an element of $\mcC$ that has $s$.  By openness, we can assume that that set covers $(s - \epsilon_0, s + \epsilon_0) \subseteq [a,b]$ for some fixed $\epsilon > 0$.  We know that $[a, s - \frac{\epsilon_0}{2}]$ is a finite cover and $[s - \frac{\epsilon_0}{2},s + \frac{\epsilon_0}{2}]$ is a cover by one element.  So $[a, s - \frac{\epsilon_0}{2} ] \cup [s - \frac{\epsilon_0}{2}, s + \frac{\epsilon_0}{2} ] = [a, s + \frac{\epsilon_0}{2}]$ is finitely covered.  But, $s + \frac{\epsilon_0}{2} > s$ and $s + \frac{\epsilon_0}{2} \in C$.  So we have a contradiction since the l.u.b. of $C$ is $b$.$\hfill\lightning$
 \newpage
 
 \itep 47 (88)
-Give a direct proof that a closed subset $A$ of a covering compact set $K$ is covering compact.
+Give a direct proof that a closed subset $A$ of a covering compact set $K$ is covering compact.   [Hint:  If $\mcU$ is an open covering of $A$, adjoin the set $W = M \setminus A \text{ to } \mathcal{U}$.  Is $\mathcal{W} = \mathcal{U} \cup {W}$ an open covering of $K$?  If so, so what?]
+\\
+
+Since $A$ is closed, the complement $M \setminus A$ is open, so we know that $\mathcal{W} = \mcU \cup (M \setminus A)$ is a cover of $K$ since the union of open sets is open, and it covers $K$ by definition. Since $K$ is compact, we have a subcover, so we can find the subcover to show that $A$ is compact.
+
+We have $W_0$ a finite subcover of $\mathcal{W}$. Notice that $U_0=W_0\setminus {K \setminus A}$ is a subset of $U$ and, since $A$ and $K \setminus A$ are disjoint, $U_0$ is a cover of $A$. Since $W_0$ was finite, $U_0$ is finite. So $A$ is covering compact
 \newpage
 
 \itep 48 (89)
 Give a proof of Theorem 39 using open coverings.  That is, assume that $A$ is a covering compact subset of $M$ and $f: M \to N$ is continuous.  Prove directly that $fA$ is covering compact. [Hint: What is the criterion for continuity in terms of pre-images?]
+
+Take any open cover $\mcU = \{U_{i_{i \in J}\}}$ of $f(A)$.  Then for every $U_i$, the set $f^{-1}(U_i)$ is open since $f$ is continuous.  Because $f(A) \subset \cup_{i \in J} U_i$ we have $A \subset \cup_{i \in J} f^{-1}(U_i)$ implying that $\{f^{-1}(U_i)\}_{i \in J}$ is an open cover of the compact set $A$.  Hence $A \subseteq f^{-1}(U_1)...f^{-1}(U_n)$ for some set $U_1, \dots U_n \in \mcU$.  Then $f(A) \subset U_1 \cup \dots U_n$ proving that $f(A)$ is compact. 
 \newpage
 
 \itep 49 (90)
 Suppose that $f: M \to N$ is a continuous bijection and $M$ is covering compact.  Prove directly that $f$ is a homeomorphism.
+\\
+\\
+Let $C \subseteq M$ be closed.  Since $M$ is compact and $C$ is closed, $C$ is compact.  So $f(C)$ is compact and $f(C) \subseteq N$, so $f(C)$ is closed.  Hence $f$ is a homeomorphism.
 \newpage
 
-\itep 50 (91)
-Suppose that $M$ is covering compact and that $f:M \to N$ is continuous.  Use the Lebesgue number lemma to prove that $f$ is uniformly continuous.  [Hint: Consider the covering of $N$ by $\epsilon/2$ neighborhoods $\{N_{\epsilon/2}(q): q \in N\}$ and its pre-image in $M, \{f^{pre}(N_{\epsilon/2}(q)) :q \in N \}$]
+\itep 50 (91)\\
+Suppose that $M$ is covering compact and that $f:M \to N$ is continuous.  Use the Lebesgue number lemma to prove that $f$ is uniformly continuous.  [Hint: Consider the covering of $N$ by $\epsilon/2$ neighborhoods $\{N_{\epsilon/2}(q): q \in N\}$ and its pre-image in $M, \{f^{pre}(N_{\epsilon/2}(q)) :q \in N \}$]\\
+\\
+Given $p \in M, f(p) = q$ and $p \in f^{pre}(N_{\frac{\epsilon}{2}}(q))$, so $\{f^{pre}(N_{\frac{\epsilon}{2}}(q)) : q \in \mbN\}$ is an open cover of $M$.  By the Lebesgue Number Lemma, there exists $\lambda > 0$ so that $N_{\lambda}(p) \subseteq f^{pre}(N_{\frac{\epsilon}{2}}(q))$, so $f(N_{\lambda}(p)) \subseteq N_{\frac{\epsilon}{2}}(q))$.  Given $p_1, p_2 \in M$, d$(p_1, p_2) < \lambda$, and $f(N_{\lambda}(p_1)) \subseteq N_{\frac{\epsilon}{2}}(q))$ we have d$(f(p_1), f(p_2)) < \epsilon$ so $f$ is uniformly continuous.
 \newpage
 
 \itep 51 (92)
-Give a direct proof that the nested decreasing intersection of non-empty covering compact sets is non-empty.  [Hint: If $A_1 \supset A_2 \supset \dots$ are covering compact, consider the open sets $U_n = A^c_n$.  If $\bigcap A_n = \emptyset$, what does $\{U_N \}$ cover?] 
+Give a direct proof that the nested decreasing intersection of non-empty covering compact sets is non-empty.  [Hint: If $A_1 \supset A_2 \supset \dots$ are covering compact, consider the open sets $U_n = A^c_n$.  If $\bigcap A_n = \emptyset$, what does $\{U_N \}$ cover?] \\
+\\
+$\bigcup_{n \in \mbN} U_n = \bigcup_{n \in \mbN} A_n^c = (\cap_{n \in \mbN} A_n)^c = \emptyset$
 \newpage
 
 \itep 52 (93)
 
 Generalize Exercise 51 as follows.  Suppose that $M$ is covering compact and $\mathcal{C}$ is a collection of closed subsets of $M$ such that every intersection of finitely many members of $\mathcal{C}$ is non-empty.  (Such a collection $\mathcal{C}$ is said to have the \textbf{finite intersection property}.)  Prove that the \textbf{grand intersection} $\bigcap_{C \in \mathcal{C}}C$ is non-empty.  [Hint: Consider the collection of open sets $\mcU = \{C^c : C \in \mathcal{C}\}$]
+\\
+\\
+For each $C \in \mcC$ let $U_c = M \setminus C$ and let $\mcU = \{U_c : C \in \mcC \}$.  Suppose TAC that $\bigcap \mcC = \emptyset$, then:
+$$ \bigcup \mcU = \bigcup_{c \in \mcC} (M \setminus C) = M \setminus \bigcap \mcC = M \setminus \emptyset = M,$$
+so $\mcU$ is an open cover of $M$.  However, $M$ is compact, so there is a finite $\mcU_0 \subseteq \mcU$ that covers $M$.  I.e., $\mcU = \{U_{c_1}, U_{c_2}, \dots U_{c_n} \}$, so $U_{c_1} \cup U_{c_2} \cup \dots U_{c_n} = M$.  Hence, $\bigcap_{i:1 \to n} (U_{c_i})^c = (\bigcup_{i:1 \to n}U_{c_i})^c = (M)^c = \emptyset$.  But this violates the Finite Intersection Property.$\lightning$
+
 \newpage
 
 \itep 53 (94)
 
 If every collection of closed subsets of $M$ which has the finite intersection property also has a non-empty grand intersection, prove that $M$ is covering compact.  [Hint: Given an open covering $\mcU = \{U_\alpha\}]$. consider the collection of closed set $\mc{C} = \{U_\alpha^c\}$.]
+\\\\
+Suppose TAC $\{U_i\}_{i\in I}$ is a collection of open sets in $M$ that covers $M$.  We claim that this collection does not contain a finite sub-collection of sets that cover $M$.  Suppose that $M \neq \bigcup_{i \in J}U_i$ holds for all finite $J \subset I$.  Let us first show that the collectino of closed subsets $\{U_i^c\}_{i \in I}$ has the Finite Intersection Property.  If $J$ is a finite subset of $I$, then $\bigcap_{i \in J}U_i^c = (\bigcup_{i \in J}U_i)^c \neq \emptyset$ where the last assertion follows since $J$ was finite.  Then, since $M$ has the Finite Intersection Property, $\emptyset \neq \bigcap_{i \in I}U_i^c = (\bigcup_{i \in I}U_i)^c$ , so $\bigcup_{i \in I}U_i \neq M$.  The contradicts the assertion that $\{U_i\}_{i \in I}$ is a cover for $M$.$\hfill\lightning$
+
+
 \newpage
 
 \itep 109(a-d) (99)
 
 Let $M, N$ be non-empty metric spaces and $P = M \times N$
 	\benu
-		\item If $M,N$ are perfect, prove that $P$ is perfect
+		\item If $M,N$ are perfect, prove that $P$ is perfect\\
+		Let $(m,n) \in P = M \times N$.  We know that $m \in M$ and $n \in N$ are cluster points, so there are no repeating sequences $a_i \to m$ and $b_j \to n$.  Hence $(m,n)$ is the limit of the non-repeating sequence $(a_i,b_j)$, so $(m,n)$ is a cluster point, and so $P$ is perfect.
 		\item If $M, N$ are totally disconnected, prove that $P$ is totally disconnected.
+		Let $p = (m,n) \in P = M \times N$.  We know that $M$ and $N$ are totally disconnected, so then each has arbitrarily small clopen neighborhoods, so $p = (m,n)$ has an arbitrarily small clopen neighborhood around it.  Hence $P$ is totally disconnected.
+		
 		\item What are the converses?
+			\benu
+				\item If $P$ is perfect, prove that $M$ and $N$ are perfect
+				\item If $P$ is totally disconnected, prove that $M$ and $N$ are totally disconnected
+			\eenu
 		\item Infer that the Cartesian product of Cantor spaces is a Cantor space.  (We already know that the Cartesian product of compacts is compact.)
+		Since the cartesian product of compact sets is compact, non-empty sets is non-empty, perfect sets are perfect, and totally disconnected sets is disconnected, the cartesian product of Cantor spaces is a Cantor space.
 	\eenu
 
 \newpage
@@ -180,18 +219,40 @@ Let $M, N$ be non-empty metric spaces and $P = M \times N$
 \itep 118 (103)
 
 Prove that there is a continuous surjection  $\mbR \to \mbR^2$.  What about $\mbR^m$
+
+Proof idea?  Prove that Hilbert Curve is well-defined, i.e. points on the Hilbert Curve coverge.  Then Prove that the Hilbert Curve is continuous.  Finally show that each point in the unit square is an output of the Hilbert Curve.
 \newpage
 
 \itep 89 (122)
 
 Recall that $p$ is a \textbf{cluster point} of $S$ if each $M_rp$ contains indefinitely many points of $S$.  The set of cluster points of $S$ is denoted as $S'$.  Prove:
 	\benu
-		\item If $S \subset T$ then $S' \subset T'$
-		\item $(S \subset T)' = S' \cup T'$
-		\item $S' = (\overline{S})'$
-		\item $S'$ is closed in $M$; that is $S'' \subset S'$ where $S'' = (S')'$
+		\item If $S \subset T$ then $S' \subset T'$\\
+		If $S \subset T$, then any non-repeating sequence $(a_i) \subseteq S$ is also contained in T, so infinitely many elements of $(a_i)$ are in either in S or in T.  Hence any cluster point $p \in S$ is also an element of $T'$, so $S' \subset T'$
+		\item $(S \cup T)' = S' \cup T'$\\
+		$\Rightarrow  (S \cup T)' \subseteq S' \cup T'$\\
+		Let $(a_i) \in (S \cup T)'$ be a non-repeating sequence, and its cluster point $p \in (S \cup T)'$.  Then $(a_i)$ is in $S$ or $T$ and $p \in S'$ or $p \in T'$\\
+		$\Leftarrow  S' \cup T' \subseteq (S \cup T)'$\\
+		Let $(a_i)$ be a non-repeating sequence such that $(a_i) \to p \in S'$ or $(a_i) \to p \in T'$.  Then $(a_i) \subset S$ or $(a_i) \subset T$, so $(a_i) \subset (S \cup T)$, and $p \in (S \cup T)'$
+		\item $S' = (\overline{S})'$\\
+		Let $(a_i)$ be a sequence of elements of cl(S), and $(b_i)$ the sequence of elements of $S$ such that $|a_i-b_i|<1/n$.  If we then add the extra restriction that if $(a_i)$ is not repeating then $(b_i)$ is also not repeating, then we are done.
+		\item $S'$ is closed in $M$; that is $S'' \subset S'$ where $S'' = (S')'$\\
+		I don't understand what I'm supposed to show here.
 		\item Calculate $\mbN', \mbQ', \mbR', (\mbR \setminus \mbQ)', \mbQ''$
+			\benu
+				\item $\mbN' = \emptyset$
+				\item $\mbQ' = \mbR$
+				\item $\mbR' = \mbR$
+				\item $(\mbR \setminus \mbQ)' = \mbR$
+				\item $\mbQ'' = \mbR$
+			\eenu
 		\item Let $T$ be the set of points $\{1/n : n \in \mbN\}$.  Calculate $T'$ and $T''$
+			\benu
+				\item $T' = \{0\}$
+				\item $T'' = \emptyset$
+			\eenu
+		\item Give an example showing that $S''$ can be a proper subset of $S'$\\
+		${1+1/m}\cup {1/2+1/m}\cup {1/3+1/m}\cup$
 	\eenu
 \newpage
 
@@ -199,11 +260,33 @@ Recall that $p$ is a \textbf{cluster point} of $S$ if each $M_rp$ contains indef
 
 Recall that $p$ is an interior point $S \subset M$ if some $M_rp$ is contained in $S$.  The set of interior points of $S$ is the \textbf{interior} of $S$ and is denoted int S.  For all subsets $S, T$ of the metric space $M$ prove:
 	\benu
-		\item int $S = S \setminus \partial S$
-		\item int $S = (\overline{S^c})^c$
-		\item int(int $S$) = int $S$
-		\item int($S \cap T$) = int $S$ $\cap$ int $T$
+		\item int $S = S \setminus \partial S$\\
+		$\Rightarrow$ int $S \subseteq S \setminus \partial S$\\
+		Let $p \in $ int $S$.  Then there is a ball $M_rP \subset S$.  So $p \in S$, but $p \notin \partial S$ since if it were, then $M_rp \cap S^c \neq \emptyset$.  So $p \in S \setminus \partial S$.\\
+		$\Leftarrow S \setminus \partial S \subseteq $ int $S$\\
+		Let $p \in S \setminus \partial S$.  Then $p \in S$, but $p \notin \partial S$, so $M_rp \subset S$, i.e. $p \in $ int $S$
+		\item int $S = (\overline{S^c})^c$\\
+		$\Rightarrow$ int $S \subseteq (\overline{S^c})^c$\\
+		Let $p \in $ int $S$.  Then $M_rp \subset S$, so $M_rp \nsubseteq S^c$, and certainly $M_rp  \nsubseteq \overline{S^c}$, so $M_rp \subset (\overline{S^c})^c$.\\
+		$\Leftarrow (\overline{S^c})^c \subseteq \text{int} S$\\
+		Let $p \in (\overline{S^c})^c$, then $M_rp \nsubseteq (\overline{S^c})$ so certainly $M_rp \nsubseteq S^c$, so $M_rp \subset \text{ int } S$
+		\item int(int $S$) = int $S$\\
+		$\Rightarrow$ int(int $S) \subseteq \text{int }S$\\
+		Let $p \in $ int( int $S$).  Then $M_rp \subseteq \text{int }S$ and we are done.\\
+		$\Leftarrow \text{int }S \subseteq $ int(int $S)$\\
+		Let $p \in $ int $S$.  Then $M_rp \subseteq S$
+		\item int($S \cap T$) = int $S$ $\cap$ int $T$\\
+		$\Rightarrow$ int($S \cap T) \subseteq$ int $S \cap$ int $T$\\
+		Let $p \in $ int($S \cap T$).  Then $M_rp \subseteq S$ and $M_rp \subseteq T$, so $p \in$ int $S \cap$ int $T$\\
+		$\Leftarrow$ int $S \cap$ int $T \subseteq$ int($S \cap T)$\\
+		Let $p \in $ int $S\cap$ int $T$.  Then $M_rp \subseteq S$ and $M_rp \subseteq T$, so $p \in \text{int}(S \cap T)$
 		\item What are the dual equations for the closure
+			\benu
+				\item $\overline{S} = S \cup \partial S$
+				\item $\overline{S} = (\text{int}S^c)^c$
+				\item $\overline{\overline{S}} = \overline{S}$
+				\item $\overline{S \cup T} = \overline{S} \cup \overline{T}$
+			\eenu
 		\item Prove that int($S \cup T$) $\supset$ (int $S$ $\cup$ int $T$).  Show by example that the inclusion can be strict, i.e., not an equality.
 	\eenu
 \newpage
@@ -212,12 +295,33 @@ Recall that $p$ is an interior point $S \subset M$ if some $M_rp$ is contained i
 
 A point $p$ is a boundary point of a set $S \supset M$ if every neighborhood $M_rp$ contains points of both $S$ and $S^c$.  The \textbf{boundary} of $S$ is denoted $\partial S$.  For all subsets $S, T$ of a metric space $M$ prove:
 	\benu
-		\item $S$ is clopen iff $\partial S = \emptyset$
+		\item $S$ is clopen iff $\partial S = \emptyset$\\
+		$\Rightarrow S$ is clopen, WTS $\partial S = \emptyset$\\
+		Since $S$ is closed, cl$(S) = S$.  And, since $S$ is open, int $S$ = $S$.  So $\partial S = \text{cl}(S) \setminus \text{int}(S) = S \setminus S = \emptyset$\\
+		$\Leftarrow \partial S = \emptyset$, WTS $S$ is clopen\\
+		$\partial S = \text{cl}(S) \setminus \text{int} S = \emptyset$, so cl($S$) = int($S$).  But int($S) \subseteq S \subseteq$ cl($S$).  Then $S = int(S) so S$ is open and $S$ = cl($S$), so $S$ is closed.
 		\item $\partial S = \partial S^c$
-		\item $\partial \partial S \subset \partial S$
-		\item $\partial \partial \partial S \subset \partial \partial S$
-		\item $\partial (S cap T) \subset \partial S \cup \partial T$
+		\begin{align*}
+		\partial S^c &= \text{cl}(S^c) \cap (\text{cl}(S^c)^c)\\
+		&= \text{cl}(S^c) \cap \text{cl}(S)\\
+		&= \text{cl}(S) \cap \text{cl}(S^c)\\
+		&= \partial S
+		\end{align*}
+		
+		\item $\partial \partial S \subset \partial S$\\
+		Let $x \in \partial \partial S$ and $Y = \partial S = \text{cl}(S) \setminus \text{int}(S)$.  Then:
+		\begin{align*}
+		x \in \partial Y &= \text{cl}(Y) \setminus \text{int}(Y)\\
+		&= \text{cl}(\text{cl}(S) \setminus \text{int}(S)) \setminus \text{int}(\text{cl}(S) \setminus \text{int}(S))\\
+		&= \text{cl}(\partial S) \setminus \text{int}(\partial S)\\
+		&= \partial S \setminus(\partial S) \subseteq \partial S
+		\end{align*}
+		\item $\partial \partial \partial S \subset \partial \partial S$\\
+		See (c) above
+		\item $\partial (S \cap T) \subset \partial S \cup \partial T$
+		
 		\item Give an example in which (c) is a strict inclusion, $\partial \partial \neq \partial S$
+		
 		\item What about (e)?
 	\eenu
 \newpage
