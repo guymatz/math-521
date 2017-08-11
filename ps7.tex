@@ -48,6 +48,7 @@
 \newcommand{\mbF}{\mathbb{F}}
 \newcommand{\mcS}{\mathcal{S}}
 \newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcR}{\mathcal{R}}
 \newcommand{\hra}{\hookrightarrow}
 \newcommand{\tra}{\twoheadrightarrow}
 \newcommand{\lra}{\leftrightarrow}
@@ -118,11 +119,13 @@
 %\newpage % Q1
 
 \begin{enumerate}[series=p]
-\itep Assume that $f : \mbR \to \mbR$ satisifies $|f(t) - f(x)| \leq |t - x|^2$ for all $t, x$.  Prove that $f$ is constant.
+\itep 1\\
+Assume that $f : \mbR \to \mbR$ satisifies $|f(t) - f(x)| \leq |t - x|^2$ for all $t, x$.  Prove that $f$ is constant.
 
 \newpage
 
-\itep A function satisfies a \textbf{H\"{o}lder condition of order $\alpha$} if $\alpha > 0$, and for some constant H and all $u, x \in (a,b)$,
+\itep 2\\
+A function satisfies a \textbf{H\"{o}lder condition of order $\alpha$} if $\alpha > 0$, and for some constant H and all $u, x \in (a,b)$,
 $$|f(u) - f(x)| \leq H|u - x|^{\alpha}.$$
 The function is said to be $\mathbf{\alpha}$\textbf{-H\"{o}lder}, with $\alpha$-H\"{o}lder constant $H$.  (The terms "Lipschitz function of order $\alpha$" and "$\alpha$-Lipschitz function" are sometimes used with the same meaning.)
 	\benu
@@ -132,7 +135,8 @@ The function is said to be $\mathbf{\alpha}$\textbf{-H\"{o}lder}, with $\alpha$-
 	\eenu
 \newpage
 
-\itep Assume that $f:(a,b) \to \mbR$ is differentiable
+\itep 3\\
+Assume that $f:(a,b) \to \mbR$ is differentiable
 	\benu
 		\item If $f'(x) > 0$ for all $x$, prove that $f$ is strictly monotone increasing
 		\item If $f'(x) \geq 0$ for all $x$, what can you prove?
@@ -140,7 +144,89 @@ The function is said to be $\mathbf{\alpha}$\textbf{-H\"{o}lder}, with $\alpha$-
 
 \newpage
 
-\itep Assume that $f: \mbR \to \mbR$ is continuous, and for all $x \neq 0, f'(x)$ exists.  If 
+\itep 5\\
+Assume that $f: \mbR \to \mbR$ is continuous, and for all $x \neq 0, f'(x)$ exists.  If $\lim\limits_{x \to 0} f'(x) = L$ exists, does it follow that $f'(0)$ exists?  Prove or disprove.
+
+\newpage
+\itep 7\\
+In L'Hospitals Rule, replace the interval $(a,b)$ with the half-line $[a, \infty)$ and interpret "$x$ tends to $b$" as "$x \to \infty$."  Show that if $f/g$ tends to $0/0$ and $f'/g'$ tends to $L$ then $f/g$ also tends to $L$.  Prove that this continues to hold when $L = \infty$ in the sense that if $f'/g' \to \infty$ then $f/g \to \infty$.
+
+\newpage
+\itep 8\\
+In L'Hospitals Rule, replace the assumption that $f/g$ tends to $0/0$ with the assumption that it tends to $\infty/\infty$.  If $f'/g'$ tends to $L$, prove that $f/g$ tends to $L$ also.  [Hint: Think of a rear guard instead of an advance guard.] [Query: Is there a way to deduce the $\infty/\infty$ case from the $0/0$ case?  Naively taking reciprocals does not work.]
+
+
+\newpage
+\itep 28\\
+In many calculus books, the definition of the integral is given as:
+$$\lim\limits_{n \to \infty} \sum_{k=1}^{n}f(x^*_k) \frac{b-a}{n}$$
+where $x^*_k$ is the midpoint of the interval
+$$[a+(k-1)(b-a)/n, a + k(b-a)/n].$$
+	\benu
+		\item If $f$ is continuous show that the calculus book limit exists and equals the Riemann integral of $f$. [Hint: This is a one-liner]
+		\item Show by example that the calculus style limit can exist for functions which are not Riemann integrable
+		\item Infer that the calculus style definition of the integral is inadequate for real analysis
+	\eenu
+
+
+\newpage
+\itep 30\\
+Prove that the interval $[0,1]$ is not a zero set.  [Hint: Be careful; this is not entirely trivial]
+
+
+
+\newpage
+\itep 32\\
+Define a Cantor set by removing from $[0,1]$ the middle interval of length 1/4.  From the remaining two intervals $F^1$ remove the middle intervals of length 1/16.  From the remaining four intervals $F^2$ remove the middle intervals of length 1/64, and so on.  At the $n^{\text{th}}$ step in the construction $F^n$ consists of $2^n$ subintervals of $F^{n-1}$.
+	\benu
+		\item Prove that $F = \bigcap F^n$ is a Cantor set but not a zero set.  It is often referred to as a \textbf{fat Cantor set}
+		\item Infer that being a zero set is not a topological property: if two sets are homeomorphic and one is a zero set, then the other need not be a zero set.
+	\eenu
+	
+[Hint: To get a sense of this fat Cantor set, calculate the total length of the intervals which comprise its complement]
+
+\newpage
+\itep 34\\
+	\benu
+		\item Prove that the characteristic function $f$ of the middle-thirds Cantor set $C$ is Riemann integrable but the characteristic function $g$ of the fat Cantor set $F$ is not.
+		\item Why is there a homeomorphism $h: [0,1] \to [0,1]$ sending $C$ onto $F$?
+		\item Infer that the composite of Riemann integrable functions need not be Riemann integrable.  How is this example related to Corollaries 26, 30 of the Riemann-Lebesgue Theorem?
+	\eenu
+
+\newpage
+\itep 50\\
+If $f,g$ are Riemann integrable on $[a,b]$, and $f(x) < g(x)$ for all $x \in [a,b]$, prove that $\int_{a}^{b} f(x) dx < \int_{a}^{b} g(x) dx$.  (Note the strict inequality.)
+
+
+\newpage
+\itep 51\\
+Let $f:[a,b] \to \mbR$ be given.  Prove or give counter-examples to the following assertions
+	\benu
+		\item $f \in \mbR \Rightarrow |f| \in \mbR$
+		\item $|f| \in \mbR \Rightarrow f \in \mbR$
+		\item $f \in \mbR \text{ and } |f(x)| \geq c >0 \text{ for all } x \Rightarrow 1/f \in \mbR$
+		\item $f \in \mbR \Rightarrow f^2 \in \mbR$
+		\item $f^2 \in \mbR \Rightarrow f \in \mbR$
+		\item $f^3 \in \mbR \Rightarrow f \in \mbR$
+		\item $f^2 \in \mbR \text{ and } f(x) \geq 0 \text{ for all } x \Rightarrow f \in \mcR$
+	\eenu
+[Here $f^2$ and $f^3$ refer to the functions $f(x) \cdot f(x)$ and $f(x) \cdot f(x) \cdot f(x)$, not the iterates.]
+
+
+\newpage
+\itep 52\\
+Given $f, g \in \mcR$, prove that max($f,g$), min($f,g$) $\in \mcR$, where max($f,g)(x) = $ max$(f(x), g(x))$ and min($f,g)(x) = $ min$(f(x), g(x)).$
+
+
+
+\newpage
+\itep 53\\
+Assume that $f,g:[0,1] \to \mbR$ are Riemann Integrable and $f(x) = g(x)$ except on the middle-thirds of the Cantor set $C$.
+	\benu
+		\item Prove that $f$ and $g$ have the same integral
+		\item Is the same true if $f(x) = g(x)$ except as $x \in \mbQ$
+		\item How is this related to the fact that the characteristic function of $\mbQ$ is not Riemann integrable?
+	\eenu
 
 \end{enumerate}
 \end{document}
