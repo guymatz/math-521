@@ -17,6 +17,8 @@
 \usepackage{tikz-cd}
 \usepackage{hyperref}
 \usepackage{bm}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
 
 %\setlength{\dashlinedash}{.4pt}
 %\setlength{\dashlinegap}{.8pt}
@@ -105,6 +107,8 @@
 \newcommand{\beans}{\begin{description} \item[{ \bfseries \textcolor{red}{Answer}}]\ }
 \newcommand{\eans }{\end{description}}
 %\newcommand{\begin{comment}ex}{{ \bfseries \textcolor{red}{Answer}}}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
 
 %To turn the answer into problem sets use replace to replace \begin{comment} with \begin{comment} and \\end{comment}  by \end{comment}.
 \newcommand{\lieb}[3][{{}}]{\frac{d^#1 #2}{d\,#3^#1}}
@@ -121,7 +125,19 @@
 \begin{enumerate}[series=p]
 \itep 1\\
 Assume that $f : \mbR \to \mbR$ satisifies $|f(t) - f(x)| \leq |t - x|^2$ for all $t, x$.  Prove that $f$ is constant.
-
+\\
+\begin{align*}
+|f(t) - f(x) &\leq |t -x |^2
+\\
+\abs*{\frac{f(t) - f(x)}{t - x}} &\leq |t-x|
+\\
+\lim\limits_{t \to x} \abs*{\frac{f(t) - f(x)}{t - x}} &\leq \lim\limits_{t \to x} \abs{t -x}
+\\
+\abs{f'} &\leq 0
+\\
+f' &= 0
+\end{align*}
+Only the derivative of a constant function is 0.
 \newpage
 
 \itep 2\\
@@ -129,17 +145,42 @@ A function satisfies a \textbf{H\"{o}lder condition of order $\alpha$} if $\alph
 $$|f(u) - f(x)| \leq H|u - x|^{\alpha}.$$
 The function is said to be $\mathbf{\alpha}$\textbf{-H\"{o}lder}, with $\alpha$-H\"{o}lder constant $H$.  (The terms "Lipschitz function of order $\alpha$" and "$\alpha$-Lipschitz function" are sometimes used with the same meaning.)
 	\benu
-		\item Prove that an $\alpha$-H\"{o}lder function defined on $(a,b)$ is uniformly continuous and infer that it extends uniquely to a continuous function defined on $[a,b]$.  Is the extended function $\alpha$-H\"{o}lder?
-		\item What does $\alpha$-H\"{o}lder continuity mean when $\alpha = 1$?
+		\item Prove that an $\alpha$-H\"{o}lder function defined on $(a,b)$ is uniformly continuous and infer that it extends uniquely to a continuous function defined on $[a,b]$.  Is the extended function $\alpha$-H\"{o}lder?\\
+		
+		We need to find a $\delta$ such that $H\delta^\alpha < \ep$?  MORE HERE
+		\\
+		\item What does $\alpha$-H\"{o}lder continuity mean when $\alpha = 1$?\\
+		
+		$f' = H$, so $f$ is not a constant, but still Uniformly Continuous
 		\item Prove that $\alpha$-H\"{o}lder continuity when $\alpha> 1$ implies that $f$ is constant.
+		\\
+		\begin{align*}
+		\abs{f(a) - f(b)} &\leq H|a -b |^\alpha
+		\\
+		\abs*{\frac{f(a) - f(b)}{a - b}} &\leq H|a -b |^{\alpha-1}
+		\\
+		\lim\limits_{a \to b} \abs*{\frac{f(a) - f(b)}{a - b}} &\leq \lim\limits_{a \to b} H\abs{a - b}^{\alpha - 1}
+		\\
+		\abs{f'} &\leq 0
+		\\
+		f' &= 0
+		\end{align*}
+		So $f$ is ac constant function, so $f$ is uniformly continuous
 	\eenu
 \newpage
 
 \itep 3\\
 Assume that $f:(a,b) \to \mbR$ is differentiable
 	\benu
-		\item If $f'(x) > 0$ for all $x$, prove that $f$ is strictly monotone increasing
-		\item If $f'(x) \geq 0$ for all $x$, what can you prove?
+		\item If $f'(x) > 0$ for all $x$, prove that $f$ is strictly monotone increasing\\
+		
+		Let $x, x' \in (a,b)$.  Assume towards a contradiction that $f$ is not strictly monotone increasing.  Then we have that $x' < x$ but $f(x') > f(x')$ and there is a local limit such that:
+		$$\frac{f(x') - f(x)}{x' - x} < 0$$$
+			\hfill\lightning$
+			\\
+		\item If $f'(x) \geq 0$ for all $x$, what can you prove?\\
+		
+		$f$ is not monotone decreasing
 	\eenu
 
 \newpage
@@ -150,11 +191,42 @@ Assume that $f: \mbR \to \mbR$ is continuous, and for all $x \neq 0, f'(x)$ exis
 \newpage
 \itep 7\\
 In L'Hospitals Rule, replace the interval $(a,b)$ with the half-line $[a, \infty)$ and interpret "$x$ tends to $b$" as "$x \to \infty$."  Show that if $f/g$ tends to $0/0$ and $f'/g'$ tends to $L$ then $f/g$ also tends to $L$.  Prove that this continues to hold when $L = \infty$ in the sense that if $f'/g' \to \infty$ then $f/g \to \infty$.
+\\
 
+Given $\ep > 0$ we must find $\delta > 0$ such that if $\abs{x - b} < \delta$ then $\abs{f(x)/g(x) - L} < \epsilon$.  Since $f'(x)/g'(x)$ tends to $L$ at $b$ there does exist $\delta > 0$ such that $x \in (b - \delta, b)$:
+$$\abs*{\frac{f'(x)}{g'(x)} -L } < \frac{\epsilon}{2}$$\\
+For each $x \in (b - \delta, b)$ determine a point $t \in (b - \delta, b)$ which is so near to $b$ that
+\begin{align*}
+\abs{f(t)} + \abs{g(t)} &< \frac{g(x)^2 \ep}{4(\abs{f(x)} + \abs{g(x)})}\\
+\abs{g(t)} &< \frac{\abs{g(x)}}{2}
+\end{align*}
+Since $f(t)$ and $g(t)$ tend to 0 as $t$ tends to $b$, and since $g(x) \neq 0$ such a $t$ exists.  It depends on $x$, of course.  By this choice of $t$ and the Ration Mean Value Theorem
+
+\begin{align*}
+\abs*{\frac{f(x)}{g(x)} -L} &= \abs*{\frac{f(x)}{g(x)} - \frac{f(x) -f(t)}{g(x) - g(t)} + \frac{f(x) -f(t)}{g(x) - g(t)} -L}
+\\
+&\leq \abs*{\frac{g(x)f(t) - f(x)g(t)}{g(x)(g(x) - g(t))}} + \abs*{\frac{f'(\theta)}{g'(\theta)} - L} < \epsilon,
+\end{align*}
+which completes the proof that $f(x)/g(x) \to L$ as $x \to b$.
 \newpage
 \itep 8\\
 In L'Hospitals Rule, replace the assumption that $f/g$ tends to $0/0$ with the assumption that it tends to $\infty/\infty$.  If $f'/g'$ tends to $L$, prove that $f/g$ tends to $L$ also.  [Hint: Think of a rear guard instead of an advance guard.] [Query: Is there a way to deduce the $\infty/\infty$ case from the $0/0$ case?  Naively taking reciprocals does not work.]
 
+Given $\ep > 0$ we must find $\delta > 0$ such that if $\abs{x - b} < \delta$ then $\abs{f(x)/g(x) - L} < \epsilon$.  Since $f'(x)/g'(x)$ tends to $L$ at $b$ there does exist $\delta > 0$ such that $x \in (b - \delta, b)$:
+$$\abs*{\frac{f'(x)}{g'(x)} -L } < \frac{\epsilon}{2}$$\\
+For each $x \in (b - \delta, b)$ determine a point $t \in (b - \delta, b)$ which is so near to $b$ that
+\begin{align*}
+\abs{f(t)} + \abs{g(t)} &< \frac{g(x)^2 \ep}{4(\abs{f(x)} + \abs{g(x)})}\\
+\abs{g(t)} &< \frac{\abs{g(x)}}{2}
+\end{align*}
+Since $f(t)$ and $g(t)$ tend to 0 as $t$ tends to $b$, and since $g(x) \neq 0$ such a $t$ exists.  It depends on $x$, of course.  By this choice of $t$ and the Ration Mean Value Theorem
+
+\begin{align*}
+\abs*{\frac{f(x)}{g(x)} -L} &= \abs*{\frac{f(x)}{g(x)} - \frac{f(x) -f(t)}{g(x) - g(t)} + \frac{f(x) -f(t)}{g(x) - g(t)} -L}
+\\
+&\leq \abs*{\frac{g(x)f(t) - f(x)g(t)}{g(x)(g(x) - g(t))}} + \abs*{\frac{f'(\theta)}{g'(\theta)} - L} < \epsilon,
+\end{align*}
+which completes the proof that $f(x)/g(x) \to L$ as $x \to b$.
 
 \newpage
 \itep 28\\
@@ -163,9 +235,20 @@ $$\lim\limits_{n \to \infty} \sum_{k=1}^{n}f(x^*_k) \frac{b-a}{n}$$
 where $x^*_k$ is the midpoint of the interval
 $$[a+(k-1)(b-a)/n, a + k(b-a)/n].$$
 	\benu
-		\item If $f$ is continuous show that the calculus book limit exists and equals the Riemann integral of $f$. [Hint: This is a one-liner]
-		\item Show by example that the calculus style limit can exist for functions which are not Riemann integrable
+		\item If $f$ is continuous show that the calculus book limit exists and equals the Riemann integral of $f$. [Hint: This is a one-liner]\\
+		
+		If $f$ is continuous, then the Riemann integral will work with at any point $t$ within a partition, so certainly the midpoint will work, in which case the "calculus book limit" exists and equals the Riemann integral of $f$.
+		\\
+		\item Show by example that the calculus style limit can exist for functions which are not Riemann integrable\\
+		
+		The Characteristic function of $\mbQ$ is an example in which the "calculus style limit" exists, but it is not Riemann integrable.  This is because MORE HERE
+		\\
 		\item Infer that the calculus style definition of the integral is inadequate for real analysis
+		
+		Since the "culculus style definition" gives an result for a function that is clearly discontinuous and non-differentiable is it inadequate for real analysis.
+		
+		
+		
 	\eenu
 
 
@@ -202,13 +285,13 @@ If $f,g$ are Riemann integrable on $[a,b]$, and $f(x) < g(x)$ for all $x \in [a,
 \itep 51\\
 Let $f:[a,b] \to \mbR$ be given.  Prove or give counter-examples to the following assertions
 	\benu
-		\item $f \in \mbR \Rightarrow |f| \in \mbR$
-		\item $|f| \in \mbR \Rightarrow f \in \mbR$
-		\item $f \in \mbR \text{ and } |f(x)| \geq c >0 \text{ for all } x \Rightarrow 1/f \in \mbR$
-		\item $f \in \mbR \Rightarrow f^2 \in \mbR$
-		\item $f^2 \in \mbR \Rightarrow f \in \mbR$
-		\item $f^3 \in \mbR \Rightarrow f \in \mbR$
-		\item $f^2 \in \mbR \text{ and } f(x) \geq 0 \text{ for all } x \Rightarrow f \in \mcR$
+		\item $f \in \mcR \Rightarrow |f| \in \mcR$
+		\item $|f| \in \mcR \Rightarrow f \in \mcR$
+		\item $f \in \mcR \text{ and } |f(x)| \geq c >0 \text{ for all } x \Rightarrow 1/f \in \mcR$
+		\item $f \in \mcR \Rightarrow f^2 \in \mcR$
+		\item $f^2 \in \mcR \Rightarrow f \in \mcR$
+		\item $f^3 \in \mcR \Rightarrow f \in \mcR$
+		\item $f^2 \in \mcR \text{ and } f(x) \geq 0 \text{ for all } x \Rightarrow f \in \mcR$
 	\eenu
 [Here $f^2$ and $f^3$ refer to the functions $f(x) \cdot f(x)$ and $f(x) \cdot f(x) \cdot f(x)$, not the iterates.]
 
@@ -221,7 +304,7 @@ Given $f, g \in \mcR$, prove that max($f,g$), min($f,g$) $\in \mcR$, where max($
 
 \newpage
 \itep 53\\
-Assume that $f,g:[0,1] \to \mbR$ are Riemann Integrable and $f(x) = g(x)$ except on the middle-thirds of the Cantor set $C$.
+Assume that $f,g:[0,1] \to \mbR$ are Riemann Integrable and $f(x) = g(x)$ except on the middle-thirds Cantor set $C$.
 	\benu
 		\item Prove that $f$ and $g$ have the same integral
 		\item Is the same true if $f(x) = g(x)$ except as $x \in \mbQ$
